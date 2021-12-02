@@ -6,6 +6,6 @@
   <maintainer email="mithun@mov.ai">Mithun Kinarullathil</maintainer>
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
-  <depend>movai_tugbot_ign_sim_baseline</depend>
   <!-- TODO: Update other dependencies here, such as navigation and localization packages -->
+  <!-- <depend>movai_tugbot_ign_sim_baseline</depend> -->
 </package>
