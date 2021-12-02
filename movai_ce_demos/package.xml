@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>dummy</name>
+  <name>movai_ce_demos</name>
   <version>0.0.1</version>
-  <description>My description.</description>
-  <maintainer email="dummy@main">Otto man</maintainer>
-   <license>BSD</license>
-  <buildtool_depend>catkin</buildtool_depend>  
+  <description>Main flow and maps of the community edition demos.</description>
+  <maintainer email="mithun@mov.ai">Mithun Kinarullathil</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>movai_tugbot_ign_sim_baseline</depend>
+  <!-- TODO: Update other dependencies here, such as navigation and localization packages -->
 </package>
