@@ -1,2 +1,12 @@
+# Flow
+Flow: husky_simple_navigation
+Flow: tugbot_simple_navigation
+Flow: husky_mapping
+Flow: tugbot_mapping
+Flow: visualize_map
+Flow: husky_autonomous_navigation
+Flow: tugbot_autonomous_navigation
+Flow: tugbot_pick_and_drop
 
-Node:laser_merge
+# Package
+Package: maps
