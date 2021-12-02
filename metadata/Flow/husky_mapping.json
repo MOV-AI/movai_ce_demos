@@ -1,0 +1,130 @@
+{
+    "Flow": {
+        "husky_mapping": {
+            "Container": {
+                "husky_sim_drivers": {
+                    "ContainerFlow": "husky_sim_drivers",
+                    "ContainerLabel": "husky_sim_drivers",
+                    "Visualization": [
+                        0.01404837646484375,
+                        0.011087806193033855
+                    ]
+                }
+            },
+            "Description": "Performs the mapping of a location using SLAM. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The new generated map is uploaded to the database.",
+            "ExposedPorts": {},
+            "Info": "",
+            "Label": "husky_mapping",
+            "LastUpdate": {
+                "date": "04/11/2021 at 16:54:01",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "61abb48f-ec4f-4003-ad54-3b3d2aec4037": {
+                    "From": "husky_sim_drivers__imu__output/imu/out",
+                    "To": "ekf_odom/imu0/in"
+                },
+                "677a5435-e593-40a2-bc4f-f903a8a180b1": {
+                    "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
+                    "To": "ekf_odom/odom0/in"
+                },
+                "b7cf9b18-8ee8-4c6c-9480-045793fa5eaa": {
+                    "From": "gmapping/map/out",
+                    "To": "map_saver/map/in"
+                },
+                "b80a8521-3752-4abe-a632-c675a942acb2": {
+                    "From": "husky_sim_drivers__wait_ready/exit/out",
+                    "To": "wait/entry/in"
+                },
+                "b9613092-366a-44c4-8ab6-20ac0748d0e5": {
+                    "From": "wait/exit/out",
+                    "To": "map_saver/entry/in"
+                },
+                "cd63fc1e-4b08-4a1b-8732-68da8f02442f": {
+                    "From": "start/start/start",
+                    "To": "husky_sim_drivers__init_sim__get_params/entry/in"
+                },
+                "fda05c9b-753d-4db9-a58e-c556cb9006d2": {
+                    "From": "husky_sim_drivers__velodyne__output/scan/out",
+                    "To": "gmapping/scan/in"
+                }
+            },
+            "NodeInst": {
+                "ekf_odom": {
+                    "NodeLabel": "ekf_odom",
+                    "Template": "ekf_odom",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.02523270874023462
+                        },
+                        "y": {
+                            "Value": 0.004283534749348958
+                        }
+                    }
+                },
+                "gmapping": {
+                    "NodeLabel": "gmapping",
+                    "NodeLayers": [],
+                    "Parameter": {
+                        "maxRange": {
+                            "Value": "200"
+                        },
+                        "maxUrange": {
+                            "Value": "100"
+                        }
+                    },
+                    "Persistent": true,
+                    "Template": "gmapping",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03221269124348963
+                        },
+                        "y": {
+                            "Value": 0.0036269449869791594
+                        }
+                    }
+                },
+                "map_saver": {
+                    "NodeLabel": "map_saver",
+                    "Parameter": {
+                        "map_name": {
+                            "Type": "string",
+                            "Value": "new_map"
+                        }
+                    },
+                    "Template": "map_saver_movai",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.043571177165306604
+                        },
+                        "y": {
+                            "Value": 0.013103293591109786
+                        }
+                    }
+                },
+                "wait": {
+                    "NodeLabel": "wait",
+                    "NodeLayers": [],
+                    "Parameter": {
+                        "wait_time": {
+                            "Value": "5"
+                        }
+                    },
+                    "Template": "wait_state",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.032886083984375016
+                        },
+                        "y": {
+                            "Value": 0.014192214965820312
+                        }
+                    }
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

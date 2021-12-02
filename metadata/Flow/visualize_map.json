@@ -1,0 +1,59 @@
+{
+    "Flow": {
+        "visualize_map": {
+            "Description": "Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. Use the command line property of the map_server to alter the map name to be visualized.",
+            "ExposedPorts": {},
+            "Info": "",
+            "Label": "visualize_map",
+            "LastUpdate": {
+                "date": "05/11/2021 at 12:23:02",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "303cec34-7e28-4345-b8f6-71bff6b12d60": {
+                    "From": "start/start/start",
+                    "To": "launch_map_server/entry/in"
+                },
+                "a6b42438-6331-4b29-a893-3d6781c94d13": {
+                    "From": "launch_map_server/depends/out",
+                    "To": "map_server/dependency/in"
+                }
+            },
+            "NodeInst": {
+                "launch_map_server": {
+                    "NodeLabel": "launch_map_server",
+                    "Template": "dependency",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.014077855366407672
+                        },
+                        "y": {
+                            "Value": 0.00846236633930022
+                        }
+                    }
+                },
+                "map_server": {
+                    "CmdLine": {
+                        "args": {
+                            "Value": "maps/new_map.yaml"
+                        }
+                    },
+                    "NodeLabel": "map_server",
+                    "Template": "map_server",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.022031494140625
+                        },
+                        "y": {
+                            "Value": 0.008314101155598958
+                        }
+                    }
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
