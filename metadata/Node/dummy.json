@@ -1,0 +1,117 @@
+{
+    "Node": {
+        "dummy": {
+            "Info": "Dummy",
+            "Label": "dummy",
+            "LastUpdate": {
+                "date": "13/10/2021 at 10:05:49",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "angle_increment": {
+                    "Description": "Angle increment in output data [rad]",
+                    "Value": "0.006"
+                },
+                "angle_max": {
+                    "Description": "Maximum angle to merge data [rad]",
+                    "Value": "3.14159"
+                },
+                "angle_min": {
+                    "Description": "Minimum angle to merge data [rad]",
+                    "Value": "-3.14159"
+                },
+                "cloud_destination_topic": {
+                    "Description": "Point cloud destination topic",
+                    "Value": "\"merged_cloud\""
+                },
+                "destination_frame": {
+                    "Description": "Tf frame to be used on the output data",
+                    "Value": "base_link"
+                },
+                "laserscan_topics": {
+                    "Description": "Laser scans topic to be merged",
+                    "Value": "/scan_left /scan_right"
+                },
+                "range_max": {
+                    "Description": "Maximum range data to merge [m]",
+                    "Value": "50.0"
+                },
+                "range_min": {
+                    "Description": "Minimum range data to merge [m]",
+                    "Value": "0.01"
+                },
+                "scan_destination_topic": {
+                    "Description": "Laser scan destination topic",
+                    "Value": "\"/scan_multi\""
+                },
+                "scan_time": {
+                    "Description": "scan_time",
+                    "Value": "0"
+                }
+            },
+            "Path": "/movai_ira_laser_tools/laserscan_multi_merger",
+            "Persistent": true,
+            "PortsInst": {
+                "depends": {
+                    "Message": "Dependency",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Depends"
+                },
+                "merged_cloud": {
+                    "Message": "PointCloud2",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/PointCloud2"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "scan_left": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "scan_multi": {
+                    "Message": "LaserScan",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "scan_right": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                }
+            },
+            "Remappable": false,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
