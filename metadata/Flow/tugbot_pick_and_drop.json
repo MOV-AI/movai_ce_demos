@@ -1,0 +1,624 @@
+{
+    "Flow": {
+        "tugbot_pick_and_drop": {
+            "Container": {
+                "tugbot_sim_drivers": {
+                    "ContainerFlow": "tugbot_sim_drivers",
+                    "ContainerLabel": "tugbot_sim_drivers",
+                    "Visualization": [
+                        0.017450238037109374,
+                        0.012558152262369792
+                    ]
+                }
+            },
+            "Description": "This flow is a demo for autonomous navigation. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. When you run the flow there is a 15 second delay for you to localize the robot using rviz and the 2D Pose Estimate functionality. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node ",
+            "ExposedPorts": {},
+            "Info": "",
+            "Label": "tugbot_pick_and_drop",
+            "LastUpdate": {
+                "date": "02/12/2021 at 09:50:09",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "0263364e-013e-4cf3-9085-fbe3eb3b8995": {
+                    "From": "align_to_cart/enable_tf_generator/out",
+                    "To": "tf_generator/enable/in"
+                },
+                "0c71eeeb-b20f-4111-a909-3be335d32129": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_pickup_zone/action/result"
+                },
+                "1c23b129-c44f-4c50-a83c-31a92ba43886": {
+                    "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
+                    "To": "go_forward_1m/odometry/in"
+                },
+                "1f623cdd-715b-489a-9e9f-fca8aaf2f304": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_charge_zone/action/result"
+                },
+                "22a491cc-1f28-442d-8abf-f55e01b21862": {
+                    "From": "attach_gripper/std_msgs_publisher/out",
+                    "To": "tugbot_sim_drivers__gripper_controller/attach/in"
+                },
+                "25515e58-22d4-40cb-ad38-30733fd81867": {
+                    "From": "go_to_charge_zone/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
+                "25c2e6c4-03e9-48ef-bbda-d801906030ed": {
+                    "From": "move_base/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "2e4e57c9-e353-4a11-a1e9-b7b806ce6190": {
+                    "From": "global_costmap/plugin/out",
+                    "To": "move_base/global_costmap/in"
+                },
+                "2eecb9ee-d7c0-411d-a978-903aad884c87": {
+                    "From": "center_gripper/exit/out",
+                    "To": "align_to_cart/start/in"
+                },
+                "2fa53170-c368-49d2-a55f-b183d2e169af": {
+                    "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
+                    "To": "ekf_odom/odom0/in"
+                },
+                "2ff4ed0a-2f13-4ed3-bc4b-c5f19d9f44dd": {
+                    "From": "go_to_drop_zone/exit/out",
+                    "To": "detach_gripper_to_drop_cart/entry/in"
+                },
+                "37ae645a-4f6e-4c87-9551-87407864d87f": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_drop_zone/action/result"
+                },
+                "46d6e94c-a925-4110-a002-825050edea63": {
+                    "From": "exit_pick_up_zone/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
+                "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
+                    "From": "map_server/map/out",
+                    "To": "amcl/map/in"
+                },
+                "4b2d290f-0b03-40c3-bde9-7288d38a6b34": {
+                    "From": "go_to_pickup_zone/exit/out",
+                    "To": "detach_gripper/entry/in"
+                },
+                "4d7b8469-db56-439f-9403-3079ae50d6f6": {
+                    "From": "go_to_pickup_zone/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
+                "596d2d85-ae2f-4fce-be05-c68d9c120aaa": {
+                    "From": "teb_local_planner/plugin/out",
+                    "To": "move_base/base_local_planner/in"
+                },
+                "5e0886e4-f1d3-4f45-9be0-2e23c8d4eeb8": {
+                    "From": "tugbot_sim_drivers__camera_back__output/image_raw/out",
+                    "To": "back_camera_apriltag_ros_continous_node/image_rect/in"
+                },
+                "629187e7-e7b5-450b-94ad-6e2ceba65cdd": {
+                    "From": "global_planner/plugin/out",
+                    "To": "move_base/base_global_planner/in"
+                },
+                "6e17f659-eddc-4fd7-bec2-8c7c6ffeb244": {
+                    "From": "tugbot_sim_drivers__imu__output/imu/out",
+                    "To": "ekf_odom/imu0/in"
+                },
+                "7132433d-23c9-4371-8fb3-2d4688d563e9": {
+                    "From": "local_costmap/plugin/out",
+                    "To": "move_base/local_costmap/in"
+                },
+                "786ce8c8-8449-47ae-9aed-d712f265472a": {
+                    "From": "tugbot_sim_drivers__velodyne__output/scan/out",
+                    "To": "amcl/scan/in"
+                },
+                "92a6f461-9063-48a1-b09f-aa055df801ef": {
+                    "From": "back_camera_apriltag_ros_continous_node/tag_detections/out",
+                    "To": "tf_generator/tag_detections/in"
+                },
+                "9d821085-2453-4152-b4e4-4d46676c1269": {
+                    "From": "align_to_cart/cmd_vel_pub/out",
+                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "9f2e01e8-6f47-4dfb-90f6-bece96ba247d": {
+                    "From": "move_base/move_base/result",
+                    "To": "exit_pick_up_zone/action/result"
+                },
+                "a005ee0e-ed4b-4379-b600-a3351cec3a8f": {
+                    "From": "go_forward_1m/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "a30b870f-5c83-44af-931f-055b194c3fe0": {
+                    "From": "detach_gripper/std_msgs_publisher/out",
+                    "To": "tugbot_sim_drivers__gripper_controller/attach/in"
+                },
+                "aae2458d-949a-4216-b771-143bf22d8cea": {
+                    "From": "detach_gripper_to_drop_cart/exit/out",
+                    "To": "go_to_charge_zone/entry/in"
+                },
+                "b04fb13d-eb6f-4bee-92bc-aec0d55f83c7": {
+                    "From": "center_gripper/std_msgs_publisher/out",
+                    "To": "tugbot_sim_drivers__gripper_controller/center/in"
+                },
+                "b4b52934-203d-4216-9538-89abdc92e7cf": {
+                    "From": "exit_pick_up_zone/exit/out",
+                    "To": "go_to_drop_zone/entry/in"
+                },
+                "ba962633-ac21-4a9b-a511-d7a08e086e3d": {
+                    "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
+                    "To": "align_to_cart/odom_feedback/in"
+                },
+                "bb173d83-a2c4-4bf8-9bb0-9dc52cb31836": {
+                    "From": "detach_gripper/exit/out",
+                    "To": "center_gripper/entry/in"
+                },
+                "bebfa595-425a-4fce-bde4-63f7fcb4c681": {
+                    "From": "tugbot_sim_drivers__wait_ready/exit/out",
+                    "To": "go_to_pickup_zone/entry/in"
+                },
+                "c175a6c2-a182-4f08-9288-5b7892b55f1f": {
+                    "From": "tugbot_sim_drivers__gripper_controller/gripper_inductive_sensor/out",
+                    "To": "align_to_cart/gripper_feedback/in"
+                },
+                "ce5bc56c-528d-4166-ac2a-a550e6fcf323": {
+                    "From": "go_forward_1m/exit/out",
+                    "To": "exit_pick_up_zone/entry/in"
+                },
+                "daad0ddf-2588-4521-90ed-a534b691b74e": {
+                    "From": "align_to_cart/success/out",
+                    "To": "attach_gripper/entry/in"
+                },
+                "dbd23d0e-c262-4c53-a810-6e63995421cf": {
+                    "From": "start/start/start",
+                    "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
+                },
+                "dc138e49-cdf7-4610-87eb-541b08b09293": {
+                    "From": "attach_gripper/exit/out",
+                    "To": "go_forward_1m/entry/in"
+                },
+                "dcd39057-e58c-4d6a-a4f8-6f769582165c": {
+                    "From": "go_to_drop_zone/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
+                "f48c7a30-7511-4ba8-a586-3f1524266e0e": {
+                    "From": "detach_gripper_to_drop_cart/std_msgs_publisher/out",
+                    "To": "tugbot_sim_drivers__gripper_controller/attach/in"
+                }
+            },
+            "NodeInst": {
+                "align_to_cart": {
+                    "NodeLabel": "align_to_cart",
+                    "Template": "align_to_cart",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.06166240248520376
+                        },
+                        "y": {
+                            "Value": 0.028369064650965593
+                        }
+                    }
+                },
+                "amcl": {
+                    "NodeLabel": "amcl",
+                    "Parameter": {
+                        "first_map_only": {
+                            "Value": "True"
+                        },
+                        "use_map_topic": {
+                            "Value": "True"
+                        }
+                    },
+                    "Template": "amcl",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.04120449405196381
+                        },
+                        "y": {
+                            "Value": 0.008604909111578483
+                        }
+                    }
+                },
+                "attach_gripper": {
+                    "NodeLabel": "attach_gripper",
+                    "Parameter": {
+                        "value": {
+                            "Type": "any",
+                            "Value": "True"
+                        }
+                    },
+                    "Template": "bool_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.06775145303979899
+                        },
+                        "y": {
+                            "Value": 0.03003022475373107
+                        }
+                    }
+                },
+                "back_camera_apriltag_ros_continous_node": {
+                    "NodeLabel": "back_camera_apriltag_ros_continous_node",
+                    "Parameter": {
+                        "camera_frame": {
+                            "Type": "string",
+                            "Value": "tugbot/camera_back/color"
+                        },
+                        "publish_tf": {
+                            "Type": "string",
+                            "Value": "True"
+                        },
+                        "standalone_tags": {
+                            "Type": "string",
+                            "Value": "[{\"id\": 0, \"size\": 0.072}]"
+                        },
+                        "tag_threads": {
+                            "Type": "string",
+                            "Value": "1"
+                        }
+                    },
+                    "Template": "apriltag_ros_continuous_node",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.028026874783753687
+                        },
+                        "y": {
+                            "Value": 0.016217423629225965
+                        }
+                    }
+                },
+                "center_gripper": {
+                    "NodeLabel": "center_gripper",
+                    "Template": "empty_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.05556100479952777
+                        },
+                        "y": {
+                            "Value": 0.030114960696910872
+                        }
+                    }
+                },
+                "detach_gripper": {
+                    "NodeLabel": "detach_gripper",
+                    "Template": "bool_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.04892292778288659
+                        },
+                        "y": {
+                            "Value": 0.030426881577448543
+                        }
+                    }
+                },
+                "detach_gripper_to_drop_cart": {
+                    "NodeLabel": "detach_gripper_to_drop_cart",
+                    "Template": "bool_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.08822235328977082
+                        },
+                        "y": {
+                            "Value": 0.023349833752438896
+                        }
+                    }
+                },
+                "ekf_odom": {
+                    "NodeLabel": "ekf_odom",
+                    "Template": "ekf_odom",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.02787421701862364
+                        },
+                        "y": {
+                            "Value": 0.004586024579902782
+                        }
+                    }
+                },
+                "exit_pick_up_zone": {
+                    "NodeLabel": "exit_pick_up_zone",
+                    "Parameter": {
+                        "x_position": {
+                            "Type": "any",
+                            "Value": "-14"
+                        },
+                        "y_position": {
+                            "Type": "any",
+                            "Value": "22"
+                        },
+                        "yaw_angle": {
+                            "Type": "any",
+                            "Value": "-45"
+                        }
+                    },
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.07711795542232415
+                        },
+                        "y": {
+                            "Value": 0.022534235532547527
+                        }
+                    }
+                },
+                "global_costmap": {
+                    "NodeLabel": "global_costmap",
+                    "Template": "global_costmap",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.018651660103551248
+                        },
+                        "y": {
+                            "Value": 0.05341428247539442
+                        }
+                    }
+                },
+                "global_planner": {
+                    "NodeLabel": "global_planner",
+                    "Template": "global_planner",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.018900340060631828
+                        },
+                        "y": {
+                            "Value": 0.03963537417200465
+                        }
+                    }
+                },
+                "go_forward_1m": {
+                    "NodeLabel": "go_forward_1m",
+                    "Template": "move_distance",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.07334559585796134
+                        },
+                        "y": {
+                            "Value": 0.030592983551743128
+                        }
+                    }
+                },
+                "go_to_charge_zone": {
+                    "NodeLabel": "go_to_charge_zone",
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.09363033783838064
+                        },
+                        "y": {
+                            "Value": 0.02265591295030375
+                        }
+                    }
+                },
+                "go_to_drop_zone": {
+                    "NodeLabel": "go_to_drop_zone",
+                    "Parameter": {
+                        "x_position": {
+                            "Type": "any",
+                            "Value": "-14"
+                        },
+                        "y_position": {
+                            "Type": "any",
+                            "Value": "9"
+                        },
+                        "yaw_angle": {
+                            "Type": "any",
+                            "Value": "-90"
+                        }
+                    },
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.08291081494089121
+                        },
+                        "y": {
+                            "Value": 0.022677033019769997
+                        }
+                    }
+                },
+                "go_to_pickup_zone": {
+                    "NodeLabel": "go_to_pickup_zone",
+                    "Parameter": {
+                        "x_position": {
+                            "Type": "string",
+                            "Value": "-18.285"
+                        },
+                        "y_position": {
+                            "Type": "string",
+                            "Value": "25.709"
+                        }
+                    },
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.04236776046834032
+                        },
+                        "y": {
+                            "Value": 0.029577981653410954
+                        }
+                    }
+                },
+                "local_costmap": {
+                    "NodeLabel": "local_costmap",
+                    "Template": "local_costmap",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.01860441382702912
+                        },
+                        "y": {
+                            "Value": 0.059700737292708715
+                        }
+                    }
+                },
+                "map_server": {
+                    "CmdLine": {
+                        "args": {
+                            "Value": "maps/warehouse.yaml"
+                        }
+                    },
+                    "NodeLabel": "map_server",
+                    "Template": "map_server",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.0338429120385455
+                        },
+                        "y": {
+                            "Value": 0.004662033176021034
+                        }
+                    }
+                },
+                "move_base": {
+                    "NodeLabel": "move_base",
+                    "Parameter": {
+                        "cmd_vel": {
+                            "Value": "wheels_controller/cmd_vel"
+                        }
+                    },
+                    "Persistent": false,
+                    "Remappable": true,
+                    "Template": "move_base",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.029479759260673657
+                        },
+                        "y": {
+                            "Value": 0.03718940758411726
+                        }
+                    }
+                },
+                "teb_local_planner": {
+                    "NodeLabel": "teb_local_planner",
+                    "Parameter": {
+                        "costmap_obstacles_behind_robot_dist": {
+                            "Type": "number",
+                            "Value": "0.3"
+                        },
+                        "dt_ref": {
+                            "Type": "number",
+                            "Value": "0.4"
+                        },
+                        "feasibility_check_no_poses": {
+                            "Type": "number",
+                            "Value": "2"
+                        },
+                        "footprint_model": {
+                            "Type": "any",
+                            "Value": "{\"type\":\"circular\",\"radius\":0.4}\t\n"
+                        },
+                        "global_plan_viapoint_sep": {
+                            "Type": "number",
+                            "Value": "0.2"
+                        },
+                        "include_costmap_obstacles": {
+                            "Type": "boolean",
+                            "Value": "False"
+                        },
+                        "max_global_plan_lookahead_dist": {
+                            "Type": "number",
+                            "Value": "8"
+                        },
+                        "max_number_classes": {
+                            "Type": "number",
+                            "Value": "2"
+                        },
+                        "max_vel_theta": {
+                            "Type": "any",
+                            "Value": "0.5"
+                        },
+                        "max_vel_x": {
+                            "Type": "any",
+                            "Value": "2"
+                        },
+                        "max_vel_x_backwards": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        },
+                        "min_obstacle_dist": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "obstacle_poses_affected": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "penalty_epsilon": {
+                            "Type": "number",
+                            "Value": "0.05"
+                        },
+                        "weight_acc_lim_theta": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_acc_lim_x": {
+                            "Type": "number",
+                            "Value": "100"
+                        },
+                        "weight_inflation": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "weight_kinematics_forward_drive": {
+                            "Type": "number",
+                            "Value": "1000"
+                        },
+                        "weight_kinematics_nh": {
+                            "Type": "number",
+                            "Value": "1000"
+                        },
+                        "weight_kinematics_turning_radius": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_max_vel_theta": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_max_vel_x": {
+                            "Type": "number",
+                            "Value": "50"
+                        },
+                        "weight_obstacle": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "weight_shortest_path": {
+                            "Type": "any",
+                            "Value": "50"
+                        },
+                        "weight_viapoint": {
+                            "Type": "number",
+                            "Value": "100"
+                        },
+                        "xy_goal_tolerance": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        },
+                        "yaw_goal_tolerance": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        }
+                    },
+                    "Template": "teb_local_planner",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.018808788289219922
+                        },
+                        "y": {
+                            "Value": 0.04693568460729401
+                        }
+                    }
+                },
+                "tf_generator": {
+                    "NodeLabel": "tf_generator",
+                    "Template": "tf_gen",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.05279122282787289
+                        },
+                        "y": {
+                            "Value": 0.014758779634805451
+                        }
+                    }
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

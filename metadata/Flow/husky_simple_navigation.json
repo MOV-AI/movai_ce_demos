@@ -1,0 +1,100 @@
+{
+    "Flow": {
+        "husky_simple_navigation": {
+            "Container": {
+                "husky_sim_drivers": {
+                    "ContainerFlow": "husky_sim_drivers",
+                    "ContainerLabel": "husky_sim_drivers",
+                    "Visualization": [
+                        0.017672039286295575,
+                        0.00736222635904948
+                    ]
+                }
+            },
+            "Description": "",
+            "ExposedPorts": {},
+            "Info": "",
+            "Label": "husky_simple_navigation",
+            "LastUpdate": {
+                "date": "01/11/2021 at 19:21:26",
+                "user": "movai"
+            },
+            "Layers": {},
+            "Links": {
+                "12bafac0-e373-4177-944d-2271db72c514": {
+                    "From": "start/start/start",
+                    "To": "husky_sim_drivers__init_sim__get_params/entry/in"
+                },
+                "2ba1a04a-e499-4d94-b214-d91a9969446c": {
+                    "From": "move_distance/cmd_vel/out",
+                    "To": "husky_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "3a728dcc-8538-4c7e-928c-72dc4dade7c2": {
+                    "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
+                    "To": "move_distance/odometry/in"
+                },
+                "55f8cc1b-ad1e-4a9c-b4bd-7aeb15448206": {
+                    "From": "rotate/exit/out",
+                    "To": "move_distance/entry/in"
+                },
+                "677814f7-71eb-4334-96e4-c39cf867f8d8": {
+                    "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
+                    "To": "rotate/odometry/in"
+                },
+                "8c95898d-ae64-4d00-9023-73e09053d48d": {
+                    "From": "move_distance/exit/out",
+                    "To": "rotate/entry/in"
+                },
+                "9c480578-f384-4559-8f1d-95337047abb2": {
+                    "From": "husky_sim_drivers__wait_ready/exit/out",
+                    "To": "move_distance/entry/in"
+                },
+                "ac93c898-47f5-4df1-8052-daaa0e5be518": {
+                    "From": "rotate/cmd_vel/out",
+                    "To": "husky_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                }
+            },
+            "NodeInst": {
+                "move_distance": {
+                    "NodeLabel": "move_distance",
+                    "Parameter": {
+                        "distance": {
+                            "Type": "string",
+                            "Value": "2"
+                        }
+                    },
+                    "Template": "move_distance",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03138536391257349
+                        },
+                        "y": {
+                            "Value": 0.014425455130583778
+                        }
+                    }
+                },
+                "rotate": {
+                    "NodeLabel": "rotate",
+                    "Parameter": {
+                        "angle": {
+                            "Type": "string",
+                            "Value": "-90"
+                        }
+                    },
+                    "Template": "rotate",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.031618547789145794
+                        },
+                        "y": {
+                            "Value": 0.023444295205134195
+                        }
+                    }
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
