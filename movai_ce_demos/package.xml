@@ -9,4 +9,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <!-- TODO: Update other dependencies here, such as navigation and localization packages -->
   <!-- <depend>movai_tugbot_ign_sim_baseline</depend> -->
+  <export>
+    <metapackage/>
+</export>
 </package>
