@@ -10,7 +10,7 @@ on:
 
 jobs:
   Test-Ros-Component:
-    uses: MOV-AI/.github/.github/workflows/ros-pkg-workflow.yml@feature/add-ros-pkg-pipeline
+    uses: MOV-AI/.github/.github/workflows/ros-pkg-workflow-noetic.yml@feature/add-ros-pkg-pipeline
     with:
       deploy: 'false'
     secrets:
