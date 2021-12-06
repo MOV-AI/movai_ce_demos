@@ -5,7 +5,7 @@ on:
 
 jobs:
   Release-Ros-Component:
-    uses: MOV-AI/.github/.github/workflows/ros-pkg-workflow.yml@feature/add-ros-pkg-pipeline
+    uses: MOV-AI/.github/.github/workflows/ros-pkg-workflow-noetic.yml@feature/add-ros-pkg-pipeline
     with:
       release: 'true'
     secrets:
