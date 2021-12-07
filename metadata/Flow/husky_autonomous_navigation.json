@@ -29,6 +29,14 @@
                     "From": "husky_sim_drivers__wait_ready/exit/out",
                     "To": "publish_initial_pose/start/in"
                 },
+                "45dcd1cb-2e9d-4b55-9c5f-76c0ab93c69c": {
+                    "From": "go_to_A/exit/out",
+                    "To": "go_to_B/entry/in"
+                },
+                "470e1def-c974-4f8d-9272-58ed88c187c4": {
+                    "From": "go_to_C/exit/out",
+                    "To": "go_to_A/entry/in"
+                },
                 "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
                     "From": "map_server/map/out",
                     "To": "amcl/map/in"
@@ -37,14 +45,17 @@
                     "From": "publish_initial_pose/initialpose/out",
                     "To": "amcl/initialpose/in"
                 },
-                "61d58a37-333f-4fd2-a38f-109506b368a7": {
-                    "Dependency": 0,
-                    "From": "go_to/action/goal",
+                "5b6c56f9-e775-4506-874d-da2d04e4ec5d": {
+                    "From": "go_to_B/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "629187e7-e7b5-450b-94ad-6e2ceba65cdd": {
                     "From": "global_planner/plugin/out",
                     "To": "move_base/base_global_planner/in"
+                },
+                "62eb4a83-086a-47d6-9423-c3db98b73d73": {
+                    "From": "go_to_A/action/goal",
+                    "To": "move_base/move_base/goal"
                 },
                 "65cb75d7-4649-4774-ba38-38e64d18a32b": {
                     "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
@@ -54,10 +65,6 @@
                     "From": "local_costmap/plugin/out",
                     "To": "move_base/local_costmap/in"
                 },
-                "7553b737-ac01-4d99-ba60-974db6941f9b": {
-                    "From": "teb_local_planner/plugin/out",
-                    "To": "move_base/base_local_planner/in"
-                },
                 "91849506-aa0f-486f-ae12-6736e24d0c7e": {
                     "From": "husky_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
@@ -66,21 +73,41 @@
                     "From": "husky_sim_drivers__velodyne__output/scan/out",
                     "To": "amcl/scan/in"
                 },
-                "9cda11f3-06d7-4104-952e-7e3f64d7a24b": {
-                    "From": "publish_initial_pose/end/out",
-                    "To": "go_to/entry/in"
+                "a34e149b-05ee-4d27-a471-4bfe68961b89": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_C/action/result"
+                },
+                "ae18dc43-a997-49fd-9302-3c1b2b4016b0": {
+                    "From": "go_to_B/exit/out",
+                    "To": "go_to_C/entry/in"
                 },
                 "aed251ae-cc83-4f7e-bf99-cfa9a5d4593f": {
                     "From": "move_base/cmd_vel/out",
                     "To": "husky_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
-                "b4e41539-3b11-4775-8e53-d08963a37742": {
+                "c9592095-ca16-4bc3-83a2-d719983045df": {
                     "From": "move_base/move_base/result",
-                    "To": "go_to/action/result"
+                    "To": "go_to_B/action/result"
+                },
+                "d089a921-7ef2-4dc2-83bc-b7d7ce91b016": {
+                    "From": "go_to_C/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
+                "e27ebfad-9ba1-42ea-a3a4-f820386d5832": {
+                    "From": "teb_local_planner/plugin/out",
+                    "To": "move_base/base_local_planner/in"
                 },
                 "e84e8095-679a-4e46-8697-27c4d0b76b7a": {
                     "From": "start/start/start",
                     "To": "husky_sim_drivers__init_sim__get_params/entry/in"
+                },
+                "e8f05ed3-71de-4420-8f2d-fe1f96bb5121": {
+                    "From": "publish_initial_pose/end/out",
+                    "To": "go_to_A/entry/in"
+                },
+                "eb9b8af3-9eff-44be-b69c-f35147f5e7f6": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_A/action/result"
                 }
             },
             "NodeInst": {
@@ -140,8 +167,8 @@
                         }
                     }
                 },
-                "go_to": {
-                    "NodeLabel": "go_to",
+                "go_to_A": {
+                    "NodeLabel": "go_to_A",
                     "Parameter": {
                         "x_position": {
                             "Type": "string",
@@ -159,10 +186,48 @@
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
-                            "Value": 0.04622553753993337
+                            "Value": 0.047022389902175235
                         },
                         "y": {
-                            "Value": 0.01999221546505901
+                            "Value": 0.020220596654682076
+                        }
+                    }
+                },
+                "go_to_B": {
+                    "NodeLabel": "go_to_B",
+                    "Parameter": {
+                        "x_position": {
+                            "Type": "any",
+                            "Value": "17.7"
+                        },
+                        "y_position": {
+                            "Type": "any",
+                            "Value": "-6.3"
+                        },
+                        "yaw_angle": {
+                            "Type": "string",
+                            "Value": "-90"
+                        }
+                    },
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.05650332622798837
+                        },
+                        "y": {
+                            "Value": 0.02916487576464577
+                        }
+                    }
+                },
+                "go_to_C": {
+                    "NodeLabel": "go_to_C",
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.06382317642741685
+                        },
+                        "y": {
+                            "Value": 0.019752264799254623
                         }
                     }
                 },
@@ -228,13 +293,123 @@
                 },
                 "teb_local_planner": {
                     "NodeLabel": "teb_local_planner",
+                    "Parameter": {
+                        "costmap_obstacles_behind_robot_dist": {
+                            "Type": "number",
+                            "Value": "0.3"
+                        },
+                        "dt_ref": {
+                            "Type": "number",
+                            "Value": "0.4"
+                        },
+                        "feasibility_check_no_poses": {
+                            "Type": "number",
+                            "Value": "2"
+                        },
+                        "footprint_model": {
+                            "Type": "any",
+                            "Value": "{\"type\":\"circular\",\"radius\":0.4}\t\n"
+                        },
+                        "global_plan_viapoint_sep": {
+                            "Type": "number",
+                            "Value": "0.2"
+                        },
+                        "include_costmap_obstacles": {
+                            "Type": "boolean",
+                            "Value": "False"
+                        },
+                        "max_global_plan_lookahead_dist": {
+                            "Type": "number",
+                            "Value": "8"
+                        },
+                        "max_number_classes": {
+                            "Type": "number",
+                            "Value": "2"
+                        },
+                        "max_vel_theta": {
+                            "Type": "any",
+                            "Value": "0.5"
+                        },
+                        "max_vel_x": {
+                            "Type": "any",
+                            "Value": "2"
+                        },
+                        "max_vel_x_backwards": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        },
+                        "min_obstacle_dist": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "obstacle_poses_affected": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "penalty_epsilon": {
+                            "Type": "number",
+                            "Value": "0.05"
+                        },
+                        "weight_acc_lim_theta": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_acc_lim_x": {
+                            "Type": "number",
+                            "Value": "100"
+                        },
+                        "weight_inflation": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "weight_kinematics_forward_drive": {
+                            "Type": "number",
+                            "Value": "1000"
+                        },
+                        "weight_kinematics_nh": {
+                            "Type": "number",
+                            "Value": "1000"
+                        },
+                        "weight_kinematics_turning_radius": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_max_vel_theta": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_max_vel_x": {
+                            "Type": "number",
+                            "Value": "50"
+                        },
+                        "weight_obstacle": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "weight_shortest_path": {
+                            "Type": "any",
+                            "Value": "50"
+                        },
+                        "weight_viapoint": {
+                            "Type": "number",
+                            "Value": "100"
+                        },
+                        "xy_goal_tolerance": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        },
+                        "yaw_goal_tolerance": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        }
+                    },
                     "Template": "teb_local_planner",
                     "Visualization": {
                         "x": {
-                            "Value": 0.018808788289219922
+                            "Value": 0.01884837849934896
                         },
                         "y": {
-                            "Value": 0.04693568460729401
+                            "Value": 0.04733819580078125
                         }
                     }
                 }
