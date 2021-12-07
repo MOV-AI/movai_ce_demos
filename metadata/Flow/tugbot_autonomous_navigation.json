@@ -16,18 +16,34 @@
             "Info": "",
             "Label": "tugbot_autonomous_navigation",
             "LastUpdate": {
-                "date": "10/11/2021 at 13:52:52",
+                "date": "06/12/2021 at 18:51:36",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
+                "124d3b6d-1a28-4ef6-9ff6-a45b67eface1": {
+                    "From": "go_to_C/exit/out",
+                    "To": "go_to_A/entry/in"
+                },
                 "15190ca2-86d2-4357-84cc-bd6ad37c40c0": {
                     "From": "publish_initial_pose/initialpose/out",
                     "To": "amcl/initialpose/in"
                 },
+                "24281f4e-d63e-4884-beae-353d3a4d3ed8": {
+                    "From": "go_to_B/exit/out",
+                    "To": "go_to_C/entry/in"
+                },
                 "25c2e6c4-03e9-48ef-bbda-d801906030ed": {
                     "From": "move_base/cmd_vel/out",
                     "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                },
+                "27ee8bef-1fa2-41c6-9c2d-fa835f9c3c81": {
+                    "From": "go_to_B/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
+                "293b5669-f2b5-4dd4-8c55-9bac5d8c0cfa": {
+                    "From": "publish_initial_pose/end/out",
+                    "To": "go_to_A/entry/in"
                 },
                 "2e4e57c9-e353-4a11-a1e9-b7b806ce6190": {
                     "From": "global_costmap/plugin/out",
@@ -45,24 +61,27 @@
                     "From": "map_server/map/out",
                     "To": "amcl/map/in"
                 },
-                "61d58a37-333f-4fd2-a38f-109506b368a7": {
-                    "Dependency": 0,
-                    "From": "go_to/action/goal",
-                    "To": "move_base/move_base/goal"
-                },
                 "629187e7-e7b5-450b-94ad-6e2ceba65cdd": {
                     "From": "global_planner/plugin/out",
                     "To": "move_base/base_global_planner/in"
+                },
+                "6566b531-0903-4426-a71d-99ea3f8ce745": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_B/action/result"
                 },
                 "6e17f659-eddc-4fd7-bec2-8c7c6ffeb244": {
                     "From": "tugbot_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
                 },
+                "6e90fad0-1649-4f13-aa2e-290dd8942ed3": {
+                    "From": "go_to_A/action/goal",
+                    "To": "move_base/move_base/goal"
+                },
                 "7132433d-23c9-4371-8fb3-2d4688d563e9": {
                     "From": "local_costmap/plugin/out",
                     "To": "move_base/local_costmap/in"
                 },
-                "7553b737-ac01-4d99-ba60-974db6941f9b": {
+                "74991498-b0c8-4190-8c2b-fc7453fc93f7": {
                     "From": "teb_local_planner/plugin/out",
                     "To": "move_base/base_local_planner/in"
                 },
@@ -70,17 +89,25 @@
                     "From": "tugbot_sim_drivers__velodyne__output/scan/out",
                     "To": "amcl/scan/in"
                 },
-                "9c1426c1-08b8-4a48-a530-73dce2cb54f8": {
-                    "From": "publish_initial_pose/end/out",
-                    "To": "go_to/entry/in"
+                "81d8e539-8e33-4922-b1e1-7dfdaddf0b3f": {
+                    "From": "go_to_A/exit/out",
+                    "To": "go_to_B/entry/in"
                 },
-                "b4e41539-3b11-4775-8e53-d08963a37742": {
+                "9d433a3e-62c0-4f79-b32c-2c7094a090f6": {
                     "From": "move_base/move_base/result",
-                    "To": "go_to/action/result"
+                    "To": "go_to_A/action/result"
+                },
+                "c331403b-e4b9-4503-b2a9-7f25ebcbcee8": {
+                    "From": "go_to_C/action/goal",
+                    "To": "move_base/move_base/goal"
                 },
                 "dbd23d0e-c262-4c53-a810-6e63995421cf": {
                     "From": "start/start/start",
                     "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
+                },
+                "fa0eccc1-fdc7-4f61-b5fa-575e9751f16e": {
+                    "From": "move_base/move_base/result",
+                    "To": "go_to_C/action/result"
                 }
             },
             "NodeInst": {
@@ -140,8 +167,8 @@
                         }
                     }
                 },
-                "go_to": {
-                    "NodeLabel": "go_to",
+                "go_to_A": {
+                    "NodeLabel": "go_to_A",
                     "Parameter": {
                         "x_position": {
                             "Type": "string",
@@ -159,10 +186,48 @@
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
-                            "Value": 0.04500554649175629
+                            "Value": 0.04690976723075583
                         },
                         "y": {
-                            "Value": 0.020058776337454842
+                            "Value": 0.02029103706200272
+                        }
+                    }
+                },
+                "go_to_B": {
+                    "NodeLabel": "go_to_B",
+                    "Parameter": {
+                        "x_position": {
+                            "Type": "any",
+                            "Value": "17.7"
+                        },
+                        "y_position": {
+                            "Type": "any",
+                            "Value": "-6.3"
+                        },
+                        "yaw_angle": {
+                            "Type": "string",
+                            "Value": "-90"
+                        }
+                    },
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.055614696730280785
+                        },
+                        "y": {
+                            "Value": 0.026920489501953113
+                        }
+                    }
+                },
+                "go_to_C": {
+                    "NodeLabel": "go_to_C",
+                    "Template": "go_to",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.06584396919121828
+                        },
+                        "y": {
+                            "Value": 0.020561511230468742
                         }
                     }
                 },
@@ -228,13 +293,123 @@
                 },
                 "teb_local_planner": {
                     "NodeLabel": "teb_local_planner",
+                    "Parameter": {
+                        "costmap_obstacles_behind_robot_dist": {
+                            "Type": "number",
+                            "Value": "0.3"
+                        },
+                        "dt_ref": {
+                            "Type": "number",
+                            "Value": "0.4"
+                        },
+                        "feasibility_check_no_poses": {
+                            "Type": "number",
+                            "Value": "2"
+                        },
+                        "footprint_model": {
+                            "Type": "any",
+                            "Value": "{\"type\":\"circular\",\"radius\":0.4}\t\n"
+                        },
+                        "global_plan_viapoint_sep": {
+                            "Type": "number",
+                            "Value": "0.2"
+                        },
+                        "include_costmap_obstacles": {
+                            "Type": "boolean",
+                            "Value": "False"
+                        },
+                        "max_global_plan_lookahead_dist": {
+                            "Type": "number",
+                            "Value": "8"
+                        },
+                        "max_number_classes": {
+                            "Type": "number",
+                            "Value": "2"
+                        },
+                        "max_vel_theta": {
+                            "Type": "any",
+                            "Value": "0.5"
+                        },
+                        "max_vel_x": {
+                            "Type": "any",
+                            "Value": "2"
+                        },
+                        "max_vel_x_backwards": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        },
+                        "min_obstacle_dist": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "obstacle_poses_affected": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "penalty_epsilon": {
+                            "Type": "number",
+                            "Value": "0.05"
+                        },
+                        "weight_acc_lim_theta": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_acc_lim_x": {
+                            "Type": "number",
+                            "Value": "100"
+                        },
+                        "weight_inflation": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "weight_kinematics_forward_drive": {
+                            "Type": "number",
+                            "Value": "1000"
+                        },
+                        "weight_kinematics_nh": {
+                            "Type": "number",
+                            "Value": "1000"
+                        },
+                        "weight_kinematics_turning_radius": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_max_vel_theta": {
+                            "Type": "number",
+                            "Value": "10"
+                        },
+                        "weight_max_vel_x": {
+                            "Type": "number",
+                            "Value": "50"
+                        },
+                        "weight_obstacle": {
+                            "Type": "number",
+                            "Value": "1"
+                        },
+                        "weight_shortest_path": {
+                            "Type": "any",
+                            "Value": "50"
+                        },
+                        "weight_viapoint": {
+                            "Type": "number",
+                            "Value": "100"
+                        },
+                        "xy_goal_tolerance": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        },
+                        "yaw_goal_tolerance": {
+                            "Type": "any",
+                            "Value": "0.1"
+                        }
+                    },
                     "Template": "teb_local_planner",
                     "Visualization": {
                         "x": {
-                            "Value": 0.018808788289219922
+                            "Value": 0.018589963358812234
                         },
                         "y": {
-                            "Value": 0.04693568460729401
+                            "Value": 0.047025058445416934
                         }
                     }
                 }
