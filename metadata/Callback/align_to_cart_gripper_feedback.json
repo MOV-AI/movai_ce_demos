@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "align_to_cart_gripper_feedback": {
+            "Info": "",
+            "Label": "align_to_cart_gripper_feedback",
+            "LastUpdate": {
+                "date": "26/11/2021 at 12:12:03",
+                "user": "movai"
+            },
+            "Message": "std_msgs/Bool",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

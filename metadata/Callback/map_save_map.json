@@ -1,0 +1,30 @@
+{
+    "Callback": {
+        "map_save_map": {
+            "Info": "",
+            "Label": "map_save_map",
+            "LastUpdate": {
+                "date": "18/10/2021 at 15:43:55",
+                "user": "movai"
+            },
+            "Message": "nav_msgs/OccupancyGrid",
+            "Py3Lib": {
+                "fromarray": {
+                    "Class": "fromarray",
+                    "Module": "PIL.Image"
+                },
+                "io": {
+                    "Class": false,
+                    "Module": "io"
+                },
+                "numpy": {
+                    "Class": false,
+                    "Module": "numpy"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

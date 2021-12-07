@@ -1,0 +1,102 @@
+{
+    "Node": {
+        "rotate": {
+            "Info": "This node generates angular velocity commands in order to perform rotation motion of the robot.",
+            "Label": "rotate",
+            "LastUpdate": {
+                "date": "01/11/2021 at 19:28:02",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "angle": {
+                    "Description": "[float] The amount of angle (deg) the robot needs to rotate in the xy plane. If the value is positive, the robot rotates in the counter clockwise direction and vise versa",
+                    "Type": "number",
+                    "Value": "90"
+                },
+                "kp": {
+                    "Description": "[float] proportional constant for the calculation of angular velocity. Higher the value the bigger the angular velocity of the robot in relation to the amount of angle (rad) the robot needs to rotate. ",
+                    "Type": "number",
+                    "Value": "1"
+                },
+                "max_vel": {
+                    "Description": "[float] Maximum angular velocity (rad/s).",
+                    "Type": "number",
+                    "Value": "0.6"
+                },
+                "rotation_error": {
+                    "Description": "[float] Acceptable error in rotation (deg). Only positive values allowed.",
+                    "Type": "number",
+                    "Value": "0.5"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "cmd_vel": {
+                    "Message": "Twist",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "rotate_entry",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "odometry": {
+                    "In": {
+                        "in": {
+                            "Callback": "rotate_odometry",
+                            "Message": "nav_msgs/Odometry"
+                        }
+                    },
+                    "Message": "Odometry",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "timer": {
+                    "In": {
+                        "in": {
+                            "Callback": "rotate_timer",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 10,
+                                "Oneshot": false
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

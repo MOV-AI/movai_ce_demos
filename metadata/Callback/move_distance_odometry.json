@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "move_distance_odometry": {
+            "Info": "",
+            "Label": "move_distance_odometry",
+            "LastUpdate": {
+                "date": "26/10/2021 at 16:17:53",
+                "user": "movai"
+            },
+            "Message": "nav_msgs/Odometry",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

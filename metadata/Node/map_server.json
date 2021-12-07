@@ -1,0 +1,75 @@
+{
+    "Node": {
+        "map_server": {
+            "CmdLine": {
+                "args": {
+                    "Description": "map config file",
+                    "Value": "maps/willow.yaml"
+                }
+            },
+            "Info": "ROS Node which offers map data as a ROS Service. It also provides the map_saver command-line utility, which allows dynamically generated maps to be saved to file",
+            "Label": "map_server",
+            "LastUpdate": {
+                "date": "29/10/2021 at 11:55:09",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": [
+                "maps"
+            ],
+            "Parameter": {
+                "_remappable": {
+                    "Description": "[bool] if it's remappable or not",
+                    "Value": "False"
+                },
+                "frame_id": {
+                    "Description": "[string] The frame to set in the header of the published map.",
+                    "Value": "map"
+                }
+            },
+            "Path": "/opt/ros/noetic/lib/map_server/map_server",
+            "Persistent": true,
+            "PortsInst": {
+                "dependency": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Message": "Dependency",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Dependency"
+                },
+                "map": {
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Template": "ROS1/Publisher"
+                },
+                "map_metadata": {
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/MapMetaData"
+                        }
+                    },
+                    "Template": "ROS1/Publisher"
+                },
+                "static_map": {
+                    "In": {
+                        "srvReq": {
+                            "Message": "nav_msgs/GetMap"
+                        }
+                    },
+                    "Template": "ROS1/ServiceServer"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

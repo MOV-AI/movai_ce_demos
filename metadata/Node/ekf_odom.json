@@ -1,0 +1,271 @@
+{
+    "Node": {
+        "ekf_odom": {
+            "Info": "Odometry estimation with EKF for robot localization. From package robot_localization.\nhttp://wiki.ros.org/robot_localization",
+            "Label": "ekf_odom",
+            "LastUpdate": {
+                "date": "25/10/2021 at 14:29:01",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "acceleration_gains": {
+                    "Description": "[double] If your robot cannot instantaneously reach its acceleration limit, the permitted change can be controlled with these gains. Only used if use_control is set to true.\n\n<rosparam param=\"acceleration_limits\">[0.8, 0.0, 0.0,\n                                       0.0, 0.0, 0.9]</rosparam>\n\n",
+                    "Value": "[0.8,0,0,0,0,0.9]"
+                },
+                "acceleration_limits": {
+                    "Description": "[double] How rapidly your robot can accelerate for each dimension. Matches the parameter order in control_config. Only used if use_control is set to true.\n\n<rosparam param=\"acceleration_limits\">[1.3, 0.0, 0.0,\n                                       0.0, 0.0, 3.2]</rosparam>\n\n",
+                    "Value": "[1,0,0,0,0,3.14]"
+                },
+                "base_link_frame": {
+                    "Description": "[str] These parameters define the operating \u201cmode\u201d for robot_localization. REP-105 specifies three principal coordinate frames: map, odom, and base_link. base_link is the coordinate frame that is affixed to the robot. The robot\u2019s position in the odom frame will drift over time, but is accurate in the short term and should be continuous. The map frame, like the odom frame, is a world-fixed coordinate frame, and while it contains the most globally accurate position estimate for your robot, it is subject to discrete jumps, e.g., due to the fusion of GPS data. Here is how to use these parameters:\n\n    Set the map_frame, odom_frame, and base_link_frame parameters to the appropriate frame names for your system.\n\n    Note\n\n    If your system does not have a map_frame, just remove it, and make sure world_frame is set to the value of odom_frame.\n\n    Note\n\n    If you are running multiple EKF instances and would like to \u201coverride\u201d the output transform and message to have this frame for its child_frame_id, you may set this. The base_link_output_frame is optional and will default to the base_link_frame. This helps to enable disconnected TF trees when multiple EKF instances are being run. When the final state is computed, we \u201coverride\u201d the output transform and message to have this frame for its child_frame_id.\n\n    If you are only fusing continuous position data such as wheel encoder odometry, visual odometry, or IMU data, set world_frame to your odom_frame value. This is the default behavior for the state estimation nodes in robot_localization, and the most common use for it.\n    If you are fusing global absolute position data that is subject to discrete jumps (e.g., GPS or position updates from landmark observations) then:\n\n        Set your world_frame to your map_frame value\n        Make sure something else is generating the odom->base_link transform. This can even be another instance of a robot_localization state estimation node. However, that instance should not fuse the global data.\n\nThe default values for map_frame, odom_frame, and base_link_frame are map, odom, and base_link, respectively. The base_link_output_frame parameter defaults to the value of base_link_frame. The world_frame parameter defaults to the value of odom_frame.",
+                    "Value": "base_link"
+                },
+                "control_config": {
+                    "Description": "[boolean] Controls which variables in the cmd_vel message are used in state prediction. The order of the values is X\u02d9,Y\u02d9,Z\u02d9,roll\u02d9,pitch\u02d9,yaw\u02d9. Only used if use_control is set to true.\n\n<rosparam param=\"control_config\">[true,  false, false,\n                                  false, false, true]</rosparam>\n\n",
+                    "Value": "[True,False,False,False,False,True]"
+                },
+                "control_timeout": {
+                    "Description": "[double] If use_control is set to true and no control command is received in this amount of time, given in seconds, the control-based acceleration term ceases to be applied.",
+                    "Value": "0.2"
+                },
+                "debug": {
+                    "Description": "[boolean] Flag that specifies whether or not to run in debug mode. WARNING: setting this to true will generate a massive amount of data. The data is written to the value of the debug_out_file parameter. Defaults to false.",
+                    "Value": "False"
+                },
+                "debug_out_file": {
+                    "Description": "[str] If debug is true, the file to which debug output is written.",
+                    "Value": "/path/to/debug/file.txt"
+                },
+                "deceleration_gains": {
+                    "Description": "[double] If your robot cannot instantaneously reach its deceleration limit, the permitted change can be controlled with these gains. Only used if use_control is set to true.",
+                    "Value": "[1,0,0,0,0,1]"
+                },
+                "deceleration_limits": {
+                    "Description": "[double] How rapidly your robot can decelerate for each dimension. Matches the parameter order in control_config. Only used if use_control is set to true.",
+                    "Value": "[1,0,0,0,0,3.14]"
+                },
+                "frequency": {
+                    "Description": "[int] The real-valued frequency, in Hz, at which the filter produces a state estimate.",
+                    "Value": "19"
+                },
+                "imu0": {
+                    "Description": "[str] For each sensor, users need to define this parameter based on the message type. For example, if we define one source of Imu messages and two sources of Odometry messages, the configuration would look like this:\n\n<param name=\"imu0\" value=\"robot/imu/data\"/>\n<param name=\"odom0\" value=\"wheel_encoder/odometry\"/>\n<param name=\"odom1\" value=\"visual_odometry/odometry\"/>\n\nThe index for each parameter name is 0-based (e.g., odom0, odom1, etc.) and must be defined sequentially (e.g., do not use pose0 and pose2 if you have not defined pose1). The values for each parameter are the topic name for that sensor.",
+                    "Value": "/imu0"
+                },
+                "imu0_config": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_config\n    ~twistN_config\n    ~imuN_config\n    ~poseN_config\n\nFor each of the sensor messages defined above, users must specify what variables of those messages should be fused into the final state estimate. An example odometry configuration might look like this:\n\n<rosparam param=\"odom0_config\">[true,  true,  false,\n                                false, false, true,\n                                true,  false, false,\n                                false, false, true,\n                                false, false, false]</rosparam>\n\nThe order of the boolean values are X,Y,Z,roll,pitch,yaw,X\u02d9,Y\u02d9,Z\u02d9,roll\u02d9,pitch\u02d9,yaw\u02d9,X\u00a8,Y\u00a8,Z\u00a8. In this example, we are fusing X and Y position, yaw, X\u02d9, and yaw\u02d9.\n\nNote\n\nThe specification is done in the frame_id of the sensor, not in the world_frame or base_link_frame. Please see the coniguration tutorial for more information. ",
+                    "Value": "[False,False,False,False,False,False,False,False,False,True,True,True,False,False,False]"
+                },
+                "imu0_differential": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_differential\n    ~imuN_differential\n    ~poseN_differential\n\nFor each of the sensor messages defined above that contain pose information, users can specify whether the pose variables should be integrated differentially. If a given value is set to true, then for a measurement at time t\nfrom the sensor in question, we first subtract the measurement at time t\u22121\n\n, and convert the resulting value to a velocity. This setting is especially useful if your robot has two sources of absolute pose information, e.g., yaw measurements from odometry and an IMU. In that case, if the variances on the input sources are not configured correctly, these measurements may get out of sync with one another and cause oscillations in the filter, but by integrating one or both of them differentially, we avoid this scenario.\n\nUsers should take care when using this parameter for orientation data, as the conversion to velocity means that the covariance for orientation state variables will grow without bound (unless another source of absolute orientation data is being fused). If you simply want all of your pose variables to start at 0\n\n, then please use the _relative parameter.\n\nNote\n\nIf you are fusing GPS information via navsat_transform_node or utm_transform_node, you should make sure that the _differential setting is false. ",
+                    "Value": "False"
+                },
+                "imu0_nodelay": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_nodelay\n    ~twistN_nodelay\n    ~imuN_nodelay\n    ~poseN_nodelay\n\nIf true, sets the tcpNoDelay transport hint. There is some evidence that Nagle\u2019s algorithm intereferes with the timely reception of large message types, such as the nav_msgs/Odometry message. Setting this to true for an input disables Nagle\u2019s algorithm for that subscriber. Defaults to false.",
+                    "Value": "True"
+                },
+                "imu0_relative": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_relative\n    ~imuN_relative\n    ~poseN_relative\n\nIf this parameter is set to true, then any measurements from this sensor will be fused relative to the first measurement received from that sensor. This is useful if, for example, you want your state estimate to always start at (0,0,0)\nand with roll,pitch, and yaw values of (0,0,0). It is similar to the _differential parameter, but instead of removing the measurement at time t\u22121, we always remove the measurement at time 0, and the measurement is not converted to a velocity.",
+                    "Value": "False"
+                },
+                "imu0_remove_gravitational_acceleration": {
+                    "Description": "If fusing accelerometer data from IMUs, this parameter determines whether or not acceleration due to gravity is removed from the acceleration measurement before fusing it.\n\nNote\n\nThis assumes that the IMU that is providing the acceleration data is also producing an absolute orientation. The orientation data is required to correctly remove gravitational acceleration. ",
+                    "Value": "True"
+                },
+                "initial_estimate_covariance": {
+                    "Description": "[double] The estimate covariance, commonly denoted P, defines the error in the current state estimate. The parameter allows users to set the initial value for the matrix, which will affect how quickly the filter converges. For example, if users set the value at position [0,0] to a very small value, e.g., 1e-12, and then attempt to fuse measurements of X position with a high variance value for X, then the filter will be very slow to \u201ctrust\u201d those measurements, and the time required for convergence will increase. Again, users should take care with this parameter. When only fusing velocity data (e.g., no absolute pose information), users will likely not want to set the initial covariance values for the absolute pose variables to large numbers. This is because those errors are going to grow without bound (owing to the lack of absolute pose measurements to reduce the error), and starting them with large values will not benefit the state estimate.",
+                    "Value": "[\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\"1e-9\"]"
+                },
+                "map_frame": {
+                    "Description": "[str] These parameters define the operating \u201cmode\u201d for robot_localization. REP-105 specifies three principal coordinate frames: map, odom, and base_link. base_link is the coordinate frame that is affixed to the robot. The robot\u2019s position in the odom frame will drift over time, but is accurate in the short term and should be continuous. The map frame, like the odom frame, is a world-fixed coordinate frame, and while it contains the most globally accurate position estimate for your robot, it is subject to discrete jumps, e.g., due to the fusion of GPS data. Here is how to use these parameters:\n\n    Set the map_frame, odom_frame, and base_link_frame parameters to the appropriate frame names for your system.\n\n    Note\n\n    If your system does not have a map_frame, just remove it, and make sure world_frame is set to the value of odom_frame.\n\n    Note\n\n    If you are running multiple EKF instances and would like to \u201coverride\u201d the output transform and message to have this frame for its child_frame_id, you may set this. The base_link_output_frame is optional and will default to the base_link_frame. This helps to enable disconnected TF trees when multiple EKF instances are being run. When the final state is computed, we \u201coverride\u201d the output transform and message to have this frame for its child_frame_id.\n\n    If you are only fusing continuous position data such as wheel encoder odometry, visual odometry, or IMU data, set world_frame to your odom_frame value. This is the default behavior for the state estimation nodes in robot_localization, and the most common use for it.\n    If you are fusing global absolute position data that is subject to discrete jumps (e.g., GPS or position updates from landmark observations) then:\n\n        Set your world_frame to your map_frame value\n        Make sure something else is generating the odom->base_link transform. This can even be another instance of a robot_localization state estimation node. However, that instance should not fuse the global data.\n\nThe default values for map_frame, odom_frame, and base_link_frame are map, odom, and base_link, respectively. The base_link_output_frame parameter defaults to the value of base_link_frame. The world_frame parameter defaults to the value of odom_frame.",
+                    "Value": "map"
+                },
+                "odom0": {
+                    "Description": "For each sensor, users need to define this parameter based on the message type. For example, if we define one source of Imu messages and two sources of Odometry messages, the configuration would look like this:\n\n<param name=\"imu0\" value=\"robot/imu/data\"/>\n<param name=\"odom0\" value=\"wheel_encoder/odometry\"/>\n<param name=\"odom1\" value=\"visual_odometry/odometry\"/>\n\nThe index for each parameter name is 0-based (e.g., odom0, odom1, etc.) and must be defined sequentially (e.g., do not use pose0 and pose2 if you have not defined pose1). The values for each parameter are the topic name for that sensor.",
+                    "Value": "/odom0"
+                },
+                "odom0_config": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_config\n    ~twistN_config\n    ~imuN_config\n    ~poseN_config\n\nFor each of the sensor messages defined above, users must specify what variables of those messages should be fused into the final state estimate. An example odometry configuration might look like this:\n\n<rosparam param=\"odom0_config\">[true,  true,  false,\n                                false, false, true,\n                                true,  false, false,\n                                false, false, true,\n                                false, false, false]</rosparam>\n\nThe order of the boolean values are X,Y,Z,roll,pitch,yaw,X\u02d9,Y\u02d9,Z\u02d9,roll\u02d9,pitch\u02d9,yaw\u02d9,X\u00a8,Y\u00a8,Z\u00a8. In this example, we are fusing X and Y position, yaw, X\u02d9, and yaw\u02d9.\n\nNote\n\nThe specification is done in the frame_id of the sensor, not in the world_frame or base_link_frame. Please see the coniguration tutorial for more information. ",
+                    "Value": "[False,False,False,False,False,False,True,True,False,False,False,False,False,False,False]"
+                },
+                "odom0_differential": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_differential\n    ~imuN_differential\n    ~poseN_differential\n\nFor each of the sensor messages defined above that contain pose information, users can specify whether the pose variables should be integrated differentially. If a given value is set to true, then for a measurement at time t\nfrom the sensor in question, we first subtract the measurement at time t\u22121\n\n, and convert the resulting value to a velocity. This setting is especially useful if your robot has two sources of absolute pose information, e.g., yaw measurements from odometry and an IMU. In that case, if the variances on the input sources are not configured correctly, these measurements may get out of sync with one another and cause oscillations in the filter, but by integrating one or both of them differentially, we avoid this scenario.\n\nUsers should take care when using this parameter for orientation data, as the conversion to velocity means that the covariance for orientation state variables will grow without bound (unless another source of absolute orientation data is being fused). If you simply want all of your pose variables to start at 0\n\n, then please use the _relative parameter.\n\nNote\n\nIf you are fusing GPS information via navsat_transform_node or utm_transform_node, you should make sure that the _differential setting is false. ",
+                    "Value": "False"
+                },
+                "odom0_nodelay": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_nodelay\n    ~twistN_nodelay\n    ~imuN_nodelay\n    ~poseN_nodelay\n\nIf true, sets the tcpNoDelay transport hint. There is some evidence that Nagle\u2019s algorithm intereferes with the timely reception of large message types, such as the nav_msgs/Odometry message. Setting this to true for an input disables Nagle\u2019s algorithm for that subscriber. Defaults to false.",
+                    "Value": "True"
+                },
+                "odom0_queue_size": {
+                    "Description": "[int] Specific parameters:\n\n    ~odomN_queue_size\n    ~twistN_queue_size\n    ~imuN_queue_size\n    ~poseN_queue_size\n\nUsers can use these parameters to adjust the callback queue sizes for each sensor. This is useful if your frequency parameter value is much lower than your sensor\u2019s frequency, as it allows the filter to incorporate all measurements that arrived in between update cycles.",
+                    "Value": "1"
+                },
+                "odom0_relative": {
+                    "Description": "[boolean] Specific parameters:\n\n    ~odomN_relative\n    ~imuN_relative\n    ~poseN_relative\n\nIf this parameter is set to true, then any measurements from this sensor will be fused relative to the first measurement received from that sensor. This is useful if, for example, you want your state estimate to always start at (0,0,0)\nand with roll,pitch, and yaw values of (0,0,0). It is similar to the _differential parameter, but instead of removing the measurement at time t\u22121, we always remove the measurement at time 0, and the measurement is not converted to a velocity.",
+                    "Value": "False"
+                },
+                "odom_frame": {
+                    "Description": "[str] These parameters define the operating \u201cmode\u201d for robot_localization. REP-105 specifies three principal coordinate frames: map, odom, and base_link. base_link is the coordinate frame that is affixed to the robot. The robot\u2019s position in the odom frame will drift over time, but is accurate in the short term and should be continuous. The map frame, like the odom frame, is a world-fixed coordinate frame, and while it contains the most globally accurate position estimate for your robot, it is subject to discrete jumps, e.g., due to the fusion of GPS data. Here is how to use these parameters:\n\n    Set the map_frame, odom_frame, and base_link_frame parameters to the appropriate frame names for your system.\n\n    Note\n\n    If your system does not have a map_frame, just remove it, and make sure world_frame is set to the value of odom_frame.\n\n    Note\n\n    If you are running multiple EKF instances and would like to \u201coverride\u201d the output transform and message to have this frame for its child_frame_id, you may set this. The base_link_output_frame is optional and will default to the base_link_frame. This helps to enable disconnected TF trees when multiple EKF instances are being run. When the final state is computed, we \u201coverride\u201d the output transform and message to have this frame for its child_frame_id.\n\n    If you are only fusing continuous position data such as wheel encoder odometry, visual odometry, or IMU data, set world_frame to your odom_frame value. This is the default behavior for the state estimation nodes in robot_localization, and the most common use for it.\n    If you are fusing global absolute position data that is subject to discrete jumps (e.g., GPS or position updates from landmark observations) then:\n\n        Set your world_frame to your map_frame value\n        Make sure something else is generating the odom->base_link transform. This can even be another instance of a robot_localization state estimation node. However, that instance should not fuse the global data.\n\nThe default values for map_frame, odom_frame, and base_link_frame are map, odom, and base_link, respectively. The base_link_output_frame parameter defaults to the value of base_link_frame. The world_frame parameter defaults to the value of odom_frame.",
+                    "Value": "odom"
+                },
+                "print_diagnostics": {
+                    "Description": "[boolean] If true, the state estimation node will publish diagnostic messages to the /diagnostics topic. This is useful for debugging your configuration and sensor data.",
+                    "Value": "True"
+                },
+                "process_noise_covariance": {
+                    "Description": "[double] The process noise covariance, commonly denoted Q, is used to model uncertainty in the prediction stage of the filtering algorithms. It can be difficult to tune, and has been exposed as a parameter for easier customization. This parameter can be left alone, but you will achieve superior results by tuning it. In general, the larger the value for Q relative to the variance for a given variable in an input message, the faster the filter will converge to the value in the measurement.",
+                    "Value": "[0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.06,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.06,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.04,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.015]"
+                },
+                "publish_acceleration": {
+                    "Description": "[boolean] If true, the state estimation node will publish the linear acceleration state. Defaults to false.",
+                    "Value": "False"
+                },
+                "publish_tf": {
+                    "Description": "[boolean] If true, the state estimation node will publish the transform from the frame specified by the world_frame parameter to its child. If the world_frame is the same as the map_frame it will publish the transform from the map_frame to the odom_frame and if the world_frame is the same as the odom_frame it will publish the transform from the odom_frame to the base_link_frame. Defaults to true.",
+                    "Value": "True"
+                },
+                "sensor_timeout": {
+                    "Description": "[double] The real-valued period, in seconds, after which we consider any sensor to have timed out. In this event, we carry out a predict cycle on the EKF without correcting it. This parameter can be thought of as the inverse of the minimum frequency at which the filter will generate new output.",
+                    "Value": "0.2"
+                },
+                "stamped_control": {
+                    "Description": "[boolean] If true and use_control is also true, looks for a geometry_msgs/TwistStamped message instead of a geometry_msgs/Twist message.",
+                    "Value": "False"
+                },
+                "transform_time_offset": {
+                    "Description": "[int] Some packages require that your transforms are future-dated by a small time offset. The value of this parameter will be added to the timestamp of map->odom or odom->base_link transform being generated by the state estimation nodes in robot_localization.",
+                    "Value": "0"
+                },
+                "transform_timeout": {
+                    "Description": "[double] The robot_localization package uses tf2\u2019s lookupTransform method to request transformations. This parameter specifies how long we would like to wait if a transformation is not available yet. Defaults to 0 if not set. The value 0 means we just get us the latest available (see tf2 implementation) transform so we are not blocking the filter. Specifying a non-zero transform_timeout affects the filter\u2019s timing since it waits for a maximum of the transform_timeout for a transform to become available. This directly implies that mostly the specified desired output rate is not met since the filter has to wait for transforms when updating.",
+                    "Value": "0.1"
+                },
+                "two_d_mode": {
+                    "Description": "[boolean] If your robot is operating in a planar environment and you\u2019re comfortable with ignoring the subtle variations in the ground (as reported by an IMU), then set this to true. It will fuse 0 values for all 3D variables (Z, roll, pitch, and their respective velocities and accelerations). This keeps the covariances for those values from exploding while ensuring that your robot\u2019s state estimate remains affixed to the X-Y plane.",
+                    "Value": "True"
+                },
+                "use_control": {
+                    "Description": "[boolean] If true, the state estimation node will listen to the cmd_vel topic for a geometry_msgs/Twist message, and use that to generate an acceleration term. This term is then used in the robot\u2019s state prediction. This is especially useful in situations where even small amounts of lag in convergence for a given state variable cause problems in your application (e.g., LIDAR shifting during rotations). Defaults to false.\n\nNote\n\nThe presence and inclusion of linear acceleration data from an IMU will currently \u201coverride\u201d the predicted linear acceleration value. ",
+                    "Value": "True"
+                },
+                "world_frame": {
+                    "Description": "[str] These parameters define the operating \u201cmode\u201d for robot_localization. REP-105 specifies three principal coordinate frames: map, odom, and base_link. base_link is the coordinate frame that is affixed to the robot. The robot\u2019s position in the odom frame will drift over time, but is accurate in the short term and should be continuous. The map frame, like the odom frame, is a world-fixed coordinate frame, and while it contains the most globally accurate position estimate for your robot, it is subject to discrete jumps, e.g., due to the fusion of GPS data. Here is how to use these parameters:\n\n    Set the map_frame, odom_frame, and base_link_frame parameters to the appropriate frame names for your system.\n\n    Note\n\n    If your system does not have a map_frame, just remove it, and make sure world_frame is set to the value of odom_frame.\n\n    Note\n\n    If you are running multiple EKF instances and would like to \u201coverride\u201d the output transform and message to have this frame for its child_frame_id, you may set this. The base_link_output_frame is optional and will default to the base_link_frame. This helps to enable disconnected TF trees when multiple EKF instances are being run. When the final state is computed, we \u201coverride\u201d the output transform and message to have this frame for its child_frame_id.\n\n    If you are only fusing continuous position data such as wheel encoder odometry, visual odometry, or IMU data, set world_frame to your odom_frame value. This is the default behavior for the state estimation nodes in robot_localization, and the most common use for it.\n    If you are fusing global absolute position data that is subject to discrete jumps (e.g., GPS or position updates from landmark observations) then:\n\n        Set your world_frame to your map_frame value\n        Make sure something else is generating the odom->base_link transform. This can even be another instance of a robot_localization state estimation node. However, that instance should not fuse the global data.\n\nThe default values for map_frame, odom_frame, and base_link_frame are map, odom, and base_link, respectively. The base_link_output_frame parameter defaults to the value of base_link_frame. The world_frame parameter defaults to the value of odom_frame.",
+                    "Value": "odom"
+                }
+            },
+            "Path": "/opt/ros/noetic/lib/robot_localization/ekf_localization_node",
+            "Persistent": false,
+            "PortsInst": {
+                "accel/filtered": {
+                    "Message": "AccelWithCovarianceStamped",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/AccelWithCovarianceStamped"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "diagnostics": {
+                    "Message": "DiagnosticArray",
+                    "Out": {
+                        "out": {
+                            "Message": "diagnostic_msgs/DiagnosticArray"
+                        }
+                    },
+                    "Package": "diagnostic_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "enable": {
+                    "In": {
+                        "in": {
+                            "Message": "std_srvs/Empty"
+                        }
+                    },
+                    "Message": "Empty",
+                    "Package": "std_srvs",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "imu0": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/Imu"
+                        }
+                    },
+                    "Message": "Imu",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "odom0": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "nav_msgs/Odometry"
+                        }
+                    },
+                    "Message": "Odometry",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "odometry/filtered": {
+                    "Message": "Odometry",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/Odometry"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "set_pose": {
+                    "In": {
+                        "in": {
+                            "Message": "robot_localization/SetPose"
+                        }
+                    },
+                    "Message": "SetPose",
+                    "Package": "robot_localization",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "tf_in": {
+                    "In": {
+                        "in": {
+                            "Message": "tf2_msgs/TFMessage"
+                        }
+                    },
+                    "Message": "TFMessage",
+                    "Package": "tf2_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "tf_out": {
+                    "Message": "tfMessage",
+                    "Out": {
+                        "out": {
+                            "Message": "tf/tfMessage"
+                        }
+                    },
+                    "Package": "tf",
+                    "Template": "ROS1/Publisher"
+                },
+                "toggle": {
+                    "In": {
+                        "in": {
+                            "Message": "robot_localization/ToggleFilterProcessing"
+                        }
+                    },
+                    "Message": "ToggleFilterProcessing",
+                    "Package": "robot_localization",
+                    "Template": "ROS1/ServiceServer"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

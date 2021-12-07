@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "map_saver_movai_save_map": {
+            "Info": "",
+            "Label": "map_saver_movai_save_map",
+            "LastUpdate": {
+                "date": "18/10/2021 at 16:07:38",
+                "user": "movai"
+            },
+            "Message": "std_msgs/Empty",
+            "Py3Lib": {
+                "sleep": {
+                    "Class": "sleep",
+                    "Module": "time"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

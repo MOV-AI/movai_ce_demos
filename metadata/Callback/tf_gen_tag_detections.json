@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "tf_gen_tag_detections": {
+            "Info": "",
+            "Label": "tf_gen_tag_detections",
+            "LastUpdate": {
+                "date": "28/11/2021 at 20:12:20",
+                "user": "movai"
+            },
+            "Message": "apriltag_ros/AprilTagDetectionArray",
+            "Py3Lib": {
+                "math": {
+                    "Class": false,
+                    "Module": "math"
+                }
+            },
+            "User": "joao",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

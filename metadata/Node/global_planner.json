@@ -1,0 +1,101 @@
+{
+    "Node": {
+        "global_planner": {
+            "Info": "Parameters for global planner",
+            "Label": "global_planner",
+            "LastUpdate": {
+                "date": "22/10/2021 at 14:19:03",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "allow_unknown": {
+                    "Description": "[bool] Specifies whether or not to allow the planner to create plans that traverse unknown space. NOTE: if you are using a layered costmap_2d costmap with a voxel or obstacle layer, you must also set the track_unknown_space param for that layer to be true, or it will convert all your unknown space to free space (which planner will then happily go right through.",
+                    "Value": "True"
+                },
+                "cost_factor": {
+                    "Description": "[double] Factor to multiply each cost from costmap by (dynamic reconfigure)",
+                    "Value": "3.0"
+                },
+                "default_tolerance": {
+                    "Description": "[double] A tolerance on the goal point for the planner. The planner will attempt to create a plan that is as close to the specified goal as possible but no further than default_tolerance away.",
+                    "Value": "0.0"
+                },
+                "lethal_cost": {
+                    "Description": "[int] Lethal Cost (dynamic reconfigure)",
+                    "Value": "253"
+                },
+                "neutral_cost": {
+                    "Description": "[int] Neutral Cost (dynamic reconfigure)",
+                    "Value": "50"
+                },
+                "old_navfn_behavior": {
+                    "Description": "[bool] If for some reason, you want global_planner to exactly mirror the behavior of navfn, set this to true (and use the defaults for the other boolean parameters",
+                    "Value": "False"
+                },
+                "orientation_mode": {
+                    "Description": "[int] How to set the orientation of each point (None=0, Forward=1, Interpolate=2, ForwardThenInterpolate=3, Backward=4, Leftward=5, Rightward=6 (dynamic reconfigure)",
+                    "Value": "0"
+                },
+                "orientation_window_size": {
+                    "Description": "[int] What window to use to determine the orientation based on the position derivative specified by the orientation mode (dynamic reconfigure)",
+                    "Value": "1"
+                },
+                "outline_map": {
+                    "Description": "[bool] Outlines the global costmap with lethal obstacles. For the usage of a non static (rolling window global costmap this needs to be set to false",
+                    "Value": "True"
+                },
+                "publish_potential": {
+                    "Description": "[bool] Publish Potential Costmap (dynamic reconfigure)",
+                    "Value": "True"
+                },
+                "use_dijkstra": {
+                    "Description": "[bool] If true, use dijkstra's algorithm. Otherwise, A*.",
+                    "Value": "True"
+                },
+                "use_grid_path": {
+                    "Description": "[bool] If true, create a path that follows the grid boundaries. Otherwise, use a gradient descent method.",
+                    "Value": "False"
+                },
+                "use_quadratic": {
+                    "Description": "[bool] If true, use the quadratic approximation of the potential. Otherwise, use a simpler calculation.",
+                    "Value": "True"
+                },
+                "visualize_potential": {
+                    "Description": "[bool] Specifies whether or not to visualize the potential area computed via a PointCloud2.",
+                    "Value": "False"
+                }
+            },
+            "Path": "GlobalPlanner",
+            "Persistent": false,
+            "PortsInst": {
+                "depends": {
+                    "Message": "Dependency",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Depends"
+                },
+                "plugin": {
+                    "Message": "Plugin",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginClient"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Plugin",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

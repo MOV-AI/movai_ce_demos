@@ -1,0 +1,306 @@
+{
+    "Node": {
+        "move_base": {
+            "Info": "The move_base package provides an implementation of an action (see the actionlib package) that, given a goal in the world, will attempt to reach it with a mobile base\n\nDocuementation: http://wiki.ros.org/move_base",
+            "Label": "move_base",
+            "LastUpdate": {
+                "date": "22/10/2021 at 14:21:46",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "base_global_planner": {
+                    "Description": "[string] The name of the plugin for the global planner to use with move_base, see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseGlobalPlanner interface specified in the nav_core package",
+                    "Value": "global_planner/GlobalPlanner"
+                },
+                "base_local_planner": {
+                    "Description": "[string] The name of the plugin for the local planner to use with move_base see pluginlib documentation for more details on plugins. This plugin must adhere to the nav_core::BaseLocalPlanner interface specified in the nav_core package",
+                    "Value": "teb_local_planner/TebLocalPlannerROS"
+                },
+                "clearing_rotation_allowed": {
+                    "Description": "[bool] Determines whether or not the robot will attempt an in-place rotation when attempting to clear out space. Note: This parameter is only used when the default recovery behaviors are in use, meaning the user has not set the recovery_behaviors parameter to anything custom",
+                    "Value": "False"
+                },
+                "cmd_vel": {
+                    "Description": "[string] name of the topic responsible for streaming velocity commands meant for execution by a mobile base.\n",
+                    "Value": "/teb/cmd_vel_raw"
+                },
+                "controller_frequency": {
+                    "Description": "[double] The rate in Hz at which to run the control loop and send velocity commands to the base",
+                    "Value": "10"
+                },
+                "planner_frequency": {
+                    "Description": "[double] The rate in Hz at which to run the global planning loop. If the frequency is set to 0.0, the global planner will only run when a new goal is received or the local planner reports that its path is blocked",
+                    "Value": "0"
+                },
+                "planner_patience": {
+                    "Description": "[double] How long the planner will wait in seconds in an attempt to find a valid plan before space-clearing operations are performed",
+                    "Value": "0"
+                },
+                "recovery_behavior_enabled": {
+                    "Description": "[bool] Whether or not to enable the move_base recovery behaviors to attempt to clear out space",
+                    "Value": "False"
+                },
+                "static_map": {
+                    "Description": "[string] parameter determines whether or not the costmap should initialize itself based on a map served by the map_server",
+                    "Value": "enabled"
+                }
+            },
+            "Path": "/opt/ros/noetic/lib/move_base/move_base",
+            "Persistent": false,
+            "PortsInst": {
+                "base_global_planner": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Message": "Plugin",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginServer"
+                },
+                "base_local_planner": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Message": "Plugin",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginServer"
+                },
+                "cmd_vel": {
+                    "Message": "Twist",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "global_costmap": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Message": "Plugin",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginServer"
+                },
+                "laser_back/scan": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "laser_front/scan": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "local_costmap": {
+                    "In": {
+                        "in": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Message": "Plugin",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginServer"
+                },
+                "map": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Template": "ROS1/Subscriber"
+                },
+                "move_base": {
+                    "In": {
+                        "cancel": {
+                            "Message": "actionlib_msgs/GoalID"
+                        },
+                        "goal": {
+                            "Message": "move_base_msgs/MoveBaseActionGoal"
+                        }
+                    },
+                    "Message": "MoveBaseAction",
+                    "Out": {
+                        "feedback": {
+                            "Message": "move_base_msgs/MoveBaseActionFeedback"
+                        },
+                        "result": {
+                            "Message": "move_base_msgs/MoveBaseActionResult"
+                        },
+                        "status": {
+                            "Message": "actionlib_msgs/GoalStatusArray"
+                        }
+                    },
+                    "Package": "move_base_msgs",
+                    "Template": "ROS1/ActionServer"
+                },
+                "path": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "nav_msgs/Path"
+                        }
+                    },
+                    "Message": "Path",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "points0": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/PointCloud2"
+                        }
+                    },
+                    "Message": "PointCloud2",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "points1": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/PointCloud2"
+                        }
+                    },
+                    "Message": "PointCloud2",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "scan_omni": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "tf": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "movai_msgs/TF",
+                            "Parameter": {
+                                "Child": "from",
+                                "Parent": "to"
+                            }
+                        }
+                    },
+                    "Message": "TF",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/TFSubscriber"
+                },
+                "~TebLocalPlannerROS/global_plan": {
+                    "Message": "Path",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/Path"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "~TebLocalPlannerROS/local_plan": {
+                    "Message": "Path",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/Path"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "~TebLocalPlannerROS/parameter_updates": {
+                    "Message": "Config",
+                    "Out": {
+                        "out": {
+                            "Message": "dynamic_reconfigure/Config"
+                        }
+                    },
+                    "Package": "dynamic_reconfigure",
+                    "Template": "ROS1/Publisher"
+                },
+                "~clear_costmaps": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "std_srvs/Empty"
+                        }
+                    },
+                    "Message": "Empty",
+                    "Package": "std_srvs",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "~global_costmap/costmap": {
+                    "Message": "OccupancyGrid",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "~global_costmap/costmap_updates": {
+                    "Message": "OccupancyGrid",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "~local_costmap/costmap": {
+                    "Message": "OccupancyGrid",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "~local_costmap/costmap_updates": {
+                    "Message": "OccupancyGrid",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

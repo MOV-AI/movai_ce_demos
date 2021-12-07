@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "move_distance_entry": {
+            "Info": "",
+            "Label": "move_distance_entry",
+            "LastUpdate": {
+                "date": "28/10/2021 at 11:17:39",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Transition",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

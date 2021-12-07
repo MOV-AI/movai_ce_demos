@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "tf_gen_tag_tf_sub": {
+            "Info": "",
+            "Label": "tf_gen_tag_tf_sub",
+            "LastUpdate": {
+                "date": "25/11/2021 at 17:47:49",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Any",
+            "Py3Lib": {
+                "Pose": {
+                    "Class": "Pose",
+                    "Module": "geometry_msgs.msg"
+                }
+            },
+            "User": "movai",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

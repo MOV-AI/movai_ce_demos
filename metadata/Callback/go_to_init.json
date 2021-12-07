@@ -1,0 +1,34 @@
+{
+    "Callback": {
+        "go_to_init": {
+            "Info": "",
+            "Label": "go_to_init",
+            "LastUpdate": {
+                "date": "02/12/2021 at 10:31:24",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Init",
+            "Py3Lib": {
+                "MoveBaseGoal": {
+                    "Class": "MoveBaseGoal",
+                    "Module": "move_base_msgs.msg"
+                },
+                "radians": {
+                    "Class": "radians",
+                    "Module": "math"
+                },
+                "rospy": {
+                    "Class": false,
+                    "Module": "rospy"
+                },
+                "transformations": {
+                    "Class": "transformations",
+                    "Module": "tf"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

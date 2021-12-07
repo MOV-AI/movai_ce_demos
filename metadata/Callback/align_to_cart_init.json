@@ -1,0 +1,30 @@
+{
+    "Callback": {
+        "align_to_cart_init": {
+            "Info": "",
+            "Label": "align_to_cart_init",
+            "LastUpdate": {
+                "date": "28/11/2021 at 20:20:12",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Init",
+            "Py3Lib": {
+                "Twist": {
+                    "Class": "Twist",
+                    "Module": "geometry_msgs.msg"
+                },
+                "ast": {
+                    "Class": false,
+                    "Module": "ast"
+                },
+                "sleep": {
+                    "Class": "sleep",
+                    "Module": "time"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

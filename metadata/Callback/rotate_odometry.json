@@ -1,0 +1,22 @@
+{
+    "Callback": {
+        "rotate_odometry": {
+            "Info": "",
+            "Label": "rotate_odometry",
+            "LastUpdate": {
+                "date": "01/11/2021 at 17:41:30",
+                "user": "movai"
+            },
+            "Message": "nav_msgs/Odometry",
+            "Py3Lib": {
+                "transformations": {
+                    "Class": "transformations",
+                    "Module": "tf"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "tf_gen_enable": {
+            "Info": "",
+            "Label": "tf_gen_enable",
+            "LastUpdate": {
+                "date": "25/11/2021 at 17:33:08",
+                "user": "movai"
+            },
+            "Message": "std_msgs/Bool",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
