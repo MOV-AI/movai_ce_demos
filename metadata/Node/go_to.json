@@ -1,0 +1,99 @@
+{
+    "Node": {
+        "go_to": {
+            "Info": "This node publishes a goal/position in the map (x_position, y_position and angle) using action client protocol. If connected with move_base and if the goal is valid move_base will be able to successfully actuate the robot to the given location in the map. The goal can be customized using the parameters.",
+            "Label": "go_to",
+            "LastUpdate": {
+                "date": "02/12/2021 at 10:31:05",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "x_position": {
+                    "Description": "[float] x position of the goal with respect to the origin coordinates of the map",
+                    "Type": "any",
+                    "Value": "0.0"
+                },
+                "y_position": {
+                    "Description": "[float] y position of the goal with respect to the origin coordinates of the map",
+                    "Type": "any",
+                    "Value": "0.0"
+                },
+                "yaw_angle": {
+                    "Description": "[float] angle (degrees) of the final heading of the robot with respect to the origin coordinates of the map",
+                    "Type": "any",
+                    "Value": "0.0"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "action": {
+                    "In": {
+                        "feedback": {
+                            "Callback": "place_holder",
+                            "Message": "move_base_msgs/MoveBaseActionFeedback"
+                        },
+                        "result": {
+                            "Callback": "go_to_action_result",
+                            "Message": "move_base_msgs/MoveBaseActionResult"
+                        },
+                        "status": {
+                            "Callback": "place_holder",
+                            "Message": "actionlib_msgs/GoalStatusArray"
+                        }
+                    },
+                    "Message": "MoveBaseAction",
+                    "Out": {
+                        "cancel": {
+                            "Message": "actionlib_msgs/GoalID"
+                        },
+                        "goal": {
+                            "Message": "move_base_msgs/MoveBaseActionGoal"
+                        }
+                    },
+                    "Package": "move_base_msgs",
+                    "Template": "ROS1/ActionClient"
+                },
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "global/Callback/place_holder",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "init": {
+                    "In": {
+                        "in": {
+                            "Callback": "go_to_init",
+                            "Message": "movai_msgs/Init"
+                        }
+                    },
+                    "Message": "Init",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Init"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

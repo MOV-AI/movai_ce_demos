@@ -1,0 +1,103 @@
+{
+    "Node": {
+        "global_costmap": {
+            "Info": "global costmap for navigation as a plugin for the ROS navigation package",
+            "Label": "global_costmap",
+            "LastUpdate": {
+                "date": "22/10/2021 at 16:06:03",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "always_send_full_costmap": {
+                    "Description": "[bool] If true the full costmap is published to \"~<name>/costmap\" every update. If false only the part of the costmap that has changed is published on the \"~<name>/costmap_updates\" topic.",
+                    "Value": "True"
+                },
+                "footprint_padding": {
+                    "Description": "[double] Amount to pad footprint (m)",
+                    "Value": "0"
+                },
+                "global_frame": {
+                    "Description": "[string] The global frame for the costmap to operate in",
+                    "Value": "map"
+                },
+                "inflation_layer": {
+                    "Description": "[dictionary] parameters for the inflation layer",
+                    "Value": "{\"cost_scaling_factor\":5,\"enabled\":True,\"inflation_radius\":0.5}"
+                },
+                "map_type": {
+                    "Description": "[string] What map type to use. \"voxel\" or \"costmap\" are the supported types, with the difference between them being a 3D-view of the world vs. a 2D-view of the world",
+                    "Value": "costmap"
+                },
+                "obstacle_detector_layer": {
+                    "Description": "[dictionary] parameters for the obstacle detector layer",
+                    "Value": "{\"combination_method\":1,\n \"enabled\":False,\n \"inf_is_valid\":True,\n \"inflation_radius\":1,\n \"max_obstacle_height\":2,\n \"observation_sources\":\"obstacle_detector\",\n \"obstacle_detector\":\n     {\"clearing\":True,\"data_type\":\"PointCloud2\",\n      \"marking\":True,\n      \"observation_persistence\":0,\n      \"topic\":\"/obstacle_detector/obstacle_cloud\"\n     },\n     \"obstacle_range\":5,\"raytrace_range\":5,\"track_unknown_space\":False\n}"
+                },
+                "obstacle_layer": {
+                    "Description": "[dictionary] parameters for the obstacle layer",
+                    "Value": "{ \"combination_method\":1,\n  \"enabled\":False,\n  \"inf_is_valid\":True,\n  \"max_obstacle_height\":2.5,\n  \"observation_sources\":\"scan_front scan_omni points_3d\",\n  \"obstacle_range\":5.0,\n  \"raytrace_range\":5.0,\n  \"track_unknown_space\":False,\n  \"scan_front\":\n      {\"clearing\":True,\"data_type\":\"LaserScan\",\"marking\":True,\"observation_persistence\":0,\"topic\":\"/laser_front/scan\"}, \n  \"scan_omni\":\n      {\"clearing\":True,\"data_type\":\"LaserScan\",\"marking\":True,\"observation_persistence\":0,\"topic\":\"/scan_omni\"},\n  \"points_3d\":\n      {\"clearing\":True,\n       \"data_type\":\"PointCloud2\",\n       \"marking\":True,\n       \"observation_persistence\":0,\n       \"min_obstacle_height\":0.1 ,\n       \"topic\":\"/points0\",\n       \"raytrace_range\":5.0,\n       \"obstacle_range\":5.0\n      }\n}"
+                },
+                "plugins": {
+                    "Description": "[list] Sequence of plugin specifications, one per layer. Each specification is a dictionary with name and type fields. The name is used to define the parameter namespace for the plugin",
+                    "Value": "[{'name': 'static_layer', 'type': 'costmap_2d::StaticLayer'},\n {'name': 'obstacle_layer', 'type': 'costmap_2d::ObstacleLayer'},\n {'name': 'inflation_layer', 'type': 'costmap_2d::InflationLayer'},\n {'name': 'obstacle_detector_layer', 'type': 'costmap_2d::ObstacleLayer'}]"
+                },
+                "publish_frequency": {
+                    "Description": "[double] The frequency in Hz for the map to be publish display information",
+                    "Value": "1"
+                },
+                "publish_voxel_map": {
+                    "Description": "[bool] Whether or not to publish the underlying voxel grid for visualization purposes",
+                    "Value": "False"
+                },
+                "robot_base_frame": {
+                    "Description": "[string] The name of the frame for the base link of the robot",
+                    "Value": "base_link"
+                },
+                "robot_radius": {
+                    "Description": "[double] Robot radius to use, if footprint coordinates not provided",
+                    "Value": "0.5"
+                },
+                "rolling_window": {
+                    "Description": "[bool] Whether or not to use a rolling window version of the costmap. If the static_map parameter is set to true, this parameter must be set to false",
+                    "Value": "False"
+                },
+                "static_layer": {
+                    "Description": "[dictionary] parameters for the static layer",
+                    "Value": "{\"enabled\":True,\"map_topic\":\"map\"}"
+                },
+                "static_map": {
+                    "Description": "[bool] whether or not to use the static map. The static map incorporates mostly unchanging data from an external source",
+                    "Value": "True"
+                },
+                "transform_tolerance": {
+                    "Description": "[double] Specifies the delay in transform (tf) data that is tolerable in seconds. This parameter serves as a safeguard to losing a link in the tf tree while still allowing an amount of latency the user is comfortable with to exist in the system. For example, a transform being 0.2 seconds out-of-date may be tolerable, but a transform being 8 seconds out of date is not. If the tf transform between the coordinate frames specified by the global_frame and robot_base_frame parameters is transform_tolerance seconds older than ros::Time::now(), then the navigation stack will stop the robot.",
+                    "Value": "1.5"
+                },
+                "update_frequency": {
+                    "Description": "[float] The frequency in Hz for the map to be updated",
+                    "Value": "5"
+                }
+            },
+            "Path": "global_costmap",
+            "Persistent": false,
+            "PortsInst": {
+                "plugin": {
+                    "Message": "Plugin",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginClient"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Plugin",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

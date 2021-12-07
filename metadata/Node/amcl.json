@@ -1,0 +1,303 @@
+{
+    "Node": {
+        "amcl": {
+            "Info": "amcl is a probabilistic localization system for a robot moving in 2D. It implements the adaptive: or KLD-sampling Monte Carlo localization approach: as described by Dieter Fox, which uses a particle filter to track the pose of a robot against a known map.\n\nDocumentation: http://wiki.ros.org/amcl\n",
+            "Label": "amcl",
+            "LastUpdate": {
+                "date": "25/10/2021 at 13:36:44",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "base_frame_id": {
+                    "Description": "[string] Which frame to use for the robot base",
+                    "Value": "base_link"
+                },
+                "first_map_only": {
+                    "Description": "[bool] When set to true, AMCL will only use the first map it subscribes to, rather than updating each time a new one is received. New in navigation 1.4.2",
+                    "Value": "False"
+                },
+                "global_frame_id": {
+                    "Description": "[string] The name of the coordinate frame published by the localization system",
+                    "Value": "map"
+                },
+                "gui_publish_rate": {
+                    "Description": "[double] Maximum rate (Hz) at which scans and paths are published for visualization, -1.0 to disable.",
+                    "Value": "-1.0"
+                },
+                "initial_cov_aa": {
+                    "Description": "[double] Initial pose covariance (yaw*yaw), used to initialize filter with Gaussian distribution.",
+                    "Value": "0.06853891945200942"
+                },
+                "initial_cov_xx": {
+                    "Description": "[double] Initial pose covariance (x*x), used to initialize filter with Gaussian distribution.",
+                    "Value": "0.25"
+                },
+                "initial_cov_yy": {
+                    "Description": "[double] Initial pose covariance (y*y), used to initialize filter with Gaussian distribution.",
+                    "Value": "0.25"
+                },
+                "initial_pose_a": {
+                    "Description": "[double] Initial pose mean (yaw), used to initialize filter with Gaussian distribution.",
+                    "Value": "0.0"
+                },
+                "initial_pose_x": {
+                    "Description": "[double] Initial pose mean (x), used to initialize filter with Gaussian distribution.",
+                    "Value": "0.0"
+                },
+                "initial_pose_y": {
+                    "Description": "[double] Initial pose mean (y), used to initialize filter with Gaussian distribution.",
+                    "Value": "0.0"
+                },
+                "kld_err": {
+                    "Description": "[double] Maximum error between the True distribution and the estimated distribution.",
+                    "Value": "0.01"
+                },
+                "kld_z": {
+                    "Description": "[double] Upper standard normal quantile for 1 - p where p is the probability that the error on the estimated distrubition will be less than kld_err.",
+                    "Value": "0.99"
+                },
+                "laser_lambda_short": {
+                    "Description": "[double] Exponential decay parameter for z_short part of model.",
+                    "Value": "0.1"
+                },
+                "laser_likelihood_max_dist": {
+                    "Description": "[double] Maximum distance to do obstacle inflation on map, for use in likelihood_field model.",
+                    "Value": "2.0"
+                },
+                "laser_max_beams": {
+                    "Description": "[int] How many evenly-spaced beams in each scan to be used when updating the filter.",
+                    "Value": "30"
+                },
+                "laser_max_range": {
+                    "Description": "[double] Maximum scan range to be considered; -1.0 will cause the laser's reported maximum range to be used.",
+                    "Value": "-1.0"
+                },
+                "laser_min_range": {
+                    "Description": "[double] Minimum scan range to be considered; -1.0 will cause the laser's reported minimum range to be used.",
+                    "Value": "-1.0"
+                },
+                "laser_model_type": {
+                    "Description": "[string] Which model to use, either beam, likelihood_field, or likelihood_field_prob (same as likelihood_field but incorporates the beamskip feature, if enabled).",
+                    "Value": "likelihood_field"
+                },
+                "laser_sigma_hit": {
+                    "Description": "[double] Standard deviation for Gaussian model used in z_hit part of the model.",
+                    "Value": "0.2"
+                },
+                "laser_z_hit": {
+                    "Description": "[double] Mixture weight for the z_hit part of the model.",
+                    "Value": "0.95"
+                },
+                "laser_z_max": {
+                    "Description": "[double] Mixture weight for the z_max part of the model.",
+                    "Value": "0.05"
+                },
+                "laser_z_rand": {
+                    "Description": "[double] Mixture weight for the z_rand part of the model.",
+                    "Value": "0.05"
+                },
+                "laser_z_short": {
+                    "Description": "[double] Mixture weight for the z_short part of the model.",
+                    "Value": "0.1"
+                },
+                "max_particles": {
+                    "Description": "[int] Maximum allowed number of particles.",
+                    "Value": "5000"
+                },
+                "min_particles": {
+                    "Description": "[int] Minimum allowed number of particles.",
+                    "Value": "100"
+                },
+                "odom_alpha1": {
+                    "Description": "[double] Specifies the expected noise in odometry's rotation estimate from the rotational component of the robot's motion.",
+                    "Value": "0.2"
+                },
+                "odom_alpha2": {
+                    "Description": "[double] Specifies the expected noise in odometry's rotation estimate from translational component of the robot's motion.",
+                    "Value": "0.2"
+                },
+                "odom_alpha3": {
+                    "Description": "[double] Specifies the expected noise in odometry's translation estimate from the translational component of the robot's motion.",
+                    "Value": "0.2"
+                },
+                "odom_alpha4": {
+                    "Description": "[double] Specifies the expected noise in odometry's translation estimate from the rotational component of the robot's motion.",
+                    "Value": "0.2"
+                },
+                "odom_alpha5": {
+                    "Description": "[double] Translation-related noise parameter (only used if model is \"omni\").",
+                    "Value": "0.2"
+                },
+                "odom_frame_id": {
+                    "Description": "[string] Which frame to use for odometry.",
+                    "Value": "odom"
+                },
+                "odom_model_type": {
+                    "Description": "[string] Which model to use, either \"diff\", \"omni\", \"diff-corrected\" or \"omni-corrected\".",
+                    "Value": "diff"
+                },
+                "recovery_alpha_fast": {
+                    "Description": "[double] Exponential decay rate for the fast average weight filter, used in deciding when to recover by adding random poses. A good value might be 0.1.",
+                    "Value": "0.0"
+                },
+                "recovery_alpha_slow": {
+                    "Description": "[double] Exponential decay rate for the slow average weight filter, used in deciding when to recover by adding random poses. A good value might be 0.001.",
+                    "Value": "0.0"
+                },
+                "resample_interval": {
+                    "Description": "[int] Number of filter updates required before resampling.",
+                    "Value": "2"
+                },
+                "save_pose_rate": {
+                    "Description": "[double] Maximum rate (Hz) at which to store the last estimated pose and covariance to the parameter server, in the variables ~initial_pose_* and ~initial_cov_*. This saved pose will be used on subsequent runs to initialize the filter. -1.0 to disable.",
+                    "Value": "0.5"
+                },
+                "selective_resampling": {
+                    "Description": "[bool] When set to true, will reduce the resampling rate when not needed and help avoid particle deprivation. The resampling will only happen if the effective number of particles (N_eff = 1/(sum(k_i^2))) is lower than half the current number of particles. Reference: Grisetti, Giorgio, Cyrill Stachniss, and Wolfram Burgard. Improved techniques for grid mapping with rao-blackwellized particle filters. IEEE transactions on Robotics 23.1 (2007)",
+                    "Value": "False"
+                },
+                "tf_broadcast": {
+                    "Description": "[bool] Set this to False to prevent amcl from publishing the transform between the global frame and the odometry frame.",
+                    "Value": "True"
+                },
+                "transform_tolerance": {
+                    "Description": "[double] Time with which to post-date the transform that is published, to indicate that this transform is valid into the future.",
+                    "Value": "0.1"
+                },
+                "update_min_a": {
+                    "Description": "[double] Rotational movement required before performing a filter update.",
+                    "Value": "0.5235987755982988"
+                },
+                "update_min_d": {
+                    "Description": "[double] Translational movement required before performing a filter update.",
+                    "Value": "0.2"
+                },
+                "use_map_topic": {
+                    "Description": "[bool] When set to True, AMCL will subscribe to the map topic rather than making a service call to receive its map. New in navigation 1.4.2",
+                    "Value": "False"
+                }
+            },
+            "Path": "/opt/ros/noetic/lib/amcl/amcl",
+            "Persistent": false,
+            "PortsInst": {
+                "amcl_pose": {
+                    "Message": "PoseWithCovarianceStamped",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/PoseWithCovarianceStamped"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "depends": {
+                    "Message": "Dependency",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Depends"
+                },
+                "global_localization": {
+                    "In": {
+                        "in": {
+                            "Message": "std_srvs/Empty"
+                        }
+                    },
+                    "Message": "Empty",
+                    "Package": "std_srvs",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "initialpose": {
+                    "In": {
+                        "in": {
+                            "Message": "geometry_msgs/PoseWithCovarianceStamped"
+                        }
+                    },
+                    "Message": "PoseWithCovarianceStamped",
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "map": {
+                    "In": {
+                        "in": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Message": "OccupancyGrid",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "particlecloud": {
+                    "Message": "PoseArray",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/PoseArray"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "request_nomotion_update": {
+                    "In": {
+                        "in": {
+                            "Message": "std_srvs/Empty"
+                        }
+                    },
+                    "Message": "Empty",
+                    "Package": "std_srvs",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "scan": {
+                    "In": {
+                        "in": {
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "set_map": {
+                    "In": {
+                        "in": {
+                            "Message": "nav_msgs/SetMap"
+                        }
+                    },
+                    "Message": "SetMap",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "static_map": {
+                    "Message": "GetMap",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/GetMap"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/ServiceClient"
+                },
+                "tf": {
+                    "Message": "tfMessage",
+                    "Out": {
+                        "out": {
+                            "Message": "tf/tfMessage"
+                        }
+                    },
+                    "Package": "tf",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

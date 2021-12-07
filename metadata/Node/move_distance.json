@@ -1,0 +1,102 @@
+{
+    "Node": {
+        "move_distance": {
+            "Info": "This state node publishes a command velocity such that the robot moves forward or backward (x direction of base_link frame of the robot) for an afore set distance. The node utilizes the odometry feedback from the robot. It is also possible to add an acceptable error margin for the distance. The node can also control the minimum and maximum velocity constraint for the robot. The default parameters will send command velocity such that the robot moves 1m forward with a maximum velocity of 0.5m/s. ",
+            "Label": "move_distance",
+            "LastUpdate": {
+                "date": "01/11/2021 at 19:27:44",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "distance": {
+                    "Description": "[float] The amount of distance the robot needs to translate. If the value is negative, the robot moves in the negative x direction of the base_link frame",
+                    "Type": "number",
+                    "Value": "1.0"
+                },
+                "distance_error": {
+                    "Description": "[float] Acceptable error in distance (m)",
+                    "Type": "number",
+                    "Value": "0.01"
+                },
+                "kp": {
+                    "Description": "[float] proportional constant for the calculation of velocity. Higher the value the bigger the velocity of the robot in relation to the amount of distance the robot needs to traverse. ",
+                    "Type": "number",
+                    "Value": "1"
+                },
+                "max_vel": {
+                    "Description": "[float] Maximum velocity (m/s). The value should always be zero or positive.",
+                    "Type": "number",
+                    "Value": "0.5"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "cmd_vel": {
+                    "Message": "Twist",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/Twist"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "entry": {
+                    "In": {
+                        "in": {
+                            "Callback": "move_distance_entry",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "exit": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "odometry": {
+                    "In": {
+                        "in": {
+                            "Callback": "move_distance_odometry",
+                            "Message": "nav_msgs/Odometry"
+                        }
+                    },
+                    "Message": "Odometry",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "timer": {
+                    "In": {
+                        "in": {
+                            "Callback": "move_distance_timer",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 10,
+                                "Oneshot": false
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                }
+            },
+            "Remappable": true,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

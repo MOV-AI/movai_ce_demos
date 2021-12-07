@@ -1,0 +1,126 @@
+{
+    "Node": {
+        "apriltag_ros_continuous_node": {
+            "Info": "A ROS wrapper of the AprilTag 3 visual fiducial detection algorithm. Provides full access to the core AprilTag 3 algorithm's customizations and makes the tag detection image and detected tags' poses available over ROS topics:including tf",
+            "Label": "apriltag_ros_continuous_node",
+            "LastUpdate": "",
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "camera_frame": {
+                    "Description": "[string] Camera frame name",
+                    "Value": "camera"
+                },
+                "publish_tf": {
+                    "Description": "[bool] Enable publishing the tag-camera relative poses on the /tf topic",
+                    "Value": "False"
+                },
+                "standalone_tags": {
+                    "Description": "[list] Standalone tag definitions",
+                    "Value": "[]"
+                },
+                "tag_blur": {
+                    "Description": "[double] What Gaussian blur should be applied to the segmented image (used for quad detection?) Parameter is the standard deviation in pixels. Very noisy images benefit from non-zero values e.g. 0.8.",
+                    "Value": "0.0"
+                },
+                "tag_border": {
+                    "Description": "[int] Width of the tag outer (circumference black border)",
+                    "Value": "1"
+                },
+                "tag_decimate": {
+                    "Description": "[double] Detection of quads can be done on a lower-resolution image, improving speed at a cost of pose accuracy and a slight decrease in detection rate. Decoding the binary payload is still done at full resolution.",
+                    "Value": "1.0"
+                },
+                "tag_family": {
+                    "Description": "[string] AprilTag family to use for detection. Supported: tag36h11, tag36h10, tag25h9, tag25h7 and tag16h5.",
+                    "Value": "tag36h11"
+                },
+                "tag_refine_decode": {
+                    "Description": "[int] When non-zero, detections are refined in a way intended to increase the number of detected tags. Especially effective for very small tags near the resolution threshold (e.g. 10px on a side).",
+                    "Value": "0"
+                },
+                "tag_refine_edges": {
+                    "Description": "[int] When non-zero,the edges of the each quad are adjusted to 'snap to' strong gradients nearby. This is useful when decimation is employed as it can increase the quality of the initial quad estimate substantially. Generally recommended to be on (1). Very computationally inexpensive. Option is ignored if tag_decimate==1.0.",
+                    "Value": "1"
+                },
+                "tag_refine_pose": {
+                    "Description": "[int] When non-zero, detections are refined in a way intended to increase the accuracy of the extracted pose. This is done by maximizing the contrast around the black and white border of the tag. This generally increases the number of successfully detected tags, though not as effectively (or quickly) as tag_refine_decode.",
+                    "Value": "0"
+                },
+                "tag_threads": {
+                    "Description": "[int] How many threads should the AprilTag 2 core algorithm use?",
+                    "Value": "4"
+                }
+            },
+            "Path": "/opt/ros/noetic/lib/apriltag_ros/apriltag_ros_continuous_node",
+            "Persistent": false,
+            "PortsInst": {
+                "camera_info": {
+                    "In": {
+                        "in": {
+                            "Message": "sensor_msgs/CameraInfo"
+                        }
+                    },
+                    "Message": "CameraInfo",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "depends": {
+                    "Message": "Dependency",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Dependency"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Depends"
+                },
+                "image_rect": {
+                    "In": {
+                        "in": {
+                            "Message": "sensor_msgs/Image"
+                        }
+                    },
+                    "Message": "Image",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                },
+                "tag_detections": {
+                    "Message": "AprilTagDetectionArray",
+                    "Out": {
+                        "out": {
+                            "Message": "apriltag_ros/AprilTagDetectionArray"
+                        }
+                    },
+                    "Package": "apriltag_ros",
+                    "Template": "ROS1/Publisher"
+                },
+                "tag_detections_image": {
+                    "Message": "Image",
+                    "Out": {
+                        "out": {
+                            "Message": "sensor_msgs/Image"
+                        }
+                    },
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "tf": {
+                    "Message": "TF",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/TF"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Publisher"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

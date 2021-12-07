@@ -1,0 +1,216 @@
+{
+    "Node": {
+        "gmapping": {
+            "Info": "Create a 2-D occupancy grid map (like a building floorplan) from laser and pose data collected by a mobile robot.",
+            "Label": "gmapping",
+            "LastUpdate": "",
+            "Launch": "",
+            "PackageDepends": "",
+            "Parameter": {
+                "angularUpdate": {
+                    "Type": "number",
+                    "Value": 0.5
+                },
+                "astep": {
+                    "Type": "number",
+                    "Value": 0.05
+                },
+                "base_frame": {
+                    "Type": "string",
+                    "Value": "base_link"
+                },
+                "delta": {
+                    "Type": "number",
+                    "Value": 0.05
+                },
+                "iterations": {
+                    "Type": "number",
+                    "Value": 5
+                },
+                "kernelSize": {
+                    "Type": "number",
+                    "Value": 1
+                },
+                "lasamplerange": {
+                    "Type": "number",
+                    "Value": 0.005
+                },
+                "lasamplestep": {
+                    "Type": "number",
+                    "Value": 0.005
+                },
+                "linearUpdate": {
+                    "Type": "number",
+                    "Value": 1
+                },
+                "llsamplerange": {
+                    "Type": "number",
+                    "Value": 0.01
+                },
+                "llsamplestep": {
+                    "Type": "number",
+                    "Value": 0.01
+                },
+                "lsigma": {
+                    "Type": "number",
+                    "Value": 0.075
+                },
+                "lskip": {
+                    "Type": "number",
+                    "Value": 0
+                },
+                "lstep": {
+                    "Type": "number",
+                    "Value": 0.05
+                },
+                "map_frame": {
+                    "Type": "string",
+                    "Value": "map"
+                },
+                "map_update_interval": {
+                    "Type": "number",
+                    "Value": 5
+                },
+                "maxRange": {
+                    "Type": "number",
+                    "Value": 40
+                },
+                "maxUrange": {
+                    "Type": "number",
+                    "Value": 20
+                },
+                "minimumScore": {
+                    "Type": "number",
+                    "Value": 0
+                },
+                "occ_thresh": {
+                    "Type": "number",
+                    "Value": 0.25
+                },
+                "odom_frame": {
+                    "Type": "string",
+                    "Value": "odom"
+                },
+                "ogain": {
+                    "Type": "number",
+                    "Value": 3
+                },
+                "particles": {
+                    "Type": "number",
+                    "Value": 30
+                },
+                "resampleThreshold": {
+                    "Type": "number",
+                    "Value": 0.5
+                },
+                "sigma": {
+                    "Type": "number",
+                    "Value": 0.05
+                },
+                "srr": {
+                    "Type": "number",
+                    "Value": 0.1
+                },
+                "srt": {
+                    "Type": "number",
+                    "Value": 0.2
+                },
+                "str": {
+                    "Type": "number",
+                    "Value": 0.1
+                },
+                "stt": {
+                    "Type": "number",
+                    "Value": 0.2
+                },
+                "temporalUpdate": {
+                    "Type": "number",
+                    "Value": -1
+                },
+                "throttle_scans": {
+                    "Type": "number",
+                    "Value": 1
+                },
+                "transform_publish_period": {
+                    "Type": "number",
+                    "Value": 0.05
+                },
+                "xmax": {
+                    "Type": "number",
+                    "Value": 100
+                },
+                "xmin": {
+                    "Type": "number",
+                    "Value": -100
+                },
+                "ymax": {
+                    "Type": "number",
+                    "Value": 100
+                },
+                "ymin": {
+                    "Type": "number",
+                    "Value": -100
+                }
+            },
+            "Path": "/opt/ros/noetic/lib/gmapping/slam_gmapping",
+            "Persistent": "",
+            "PortsInst": {
+                "dynamic_map": {
+                    "In": {
+                        "in": {
+                            "Message": "nav_msgs/GetMap"
+                        }
+                    },
+                    "Message": "GetMap",
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/ServiceServer"
+                },
+                "entropy": {
+                    "Message": "Float64",
+                    "Out": {
+                        "out": {
+                            "Message": "std_msgs/Float64"
+                        }
+                    },
+                    "Package": "std_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "map": {
+                    "Message": "OccupancyGrid",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/OccupancyGrid"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "map_metadata": {
+                    "Message": "MapMetaData",
+                    "Out": {
+                        "out": {
+                            "Message": "nav_msgs/MapMetaData"
+                        }
+                    },
+                    "Package": "nav_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "scan": {
+                    "In": {
+                        "in": {
+                            "Message": "sensor_msgs/LaserScan"
+                        }
+                    },
+                    "Message": "LaserScan",
+                    "Package": "sensor_msgs",
+                    "Template": "ROS1/Subscriber"
+                }
+            },
+            "Remappable": "",
+            "Type": "ROS1/Node",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

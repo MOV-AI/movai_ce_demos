@@ -1,0 +1,86 @@
+{
+    "Node": {
+        "initial_pose_publisher": {
+            "Info": "Publish a ros message of the type geometry_msgs/PoseWithCovarianceStamped to a topic. The node is used to send an initial position estimate to the amcl node. The position and orientation can be customized using the parameters.",
+            "Label": "initial_pose_publisher",
+            "LastUpdate": {
+                "date": "10/11/2021 at 10:35:53",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "frame_id": {
+                    "Description": "Frame id in the geometry_msgs/PoseWithCovarianceStamped message",
+                    "Type": "string",
+                    "Value": "map"
+                },
+                "orientation": {
+                    "Description": "Quaternion oritentation component in the geometry_msgs/PoseWithCovarianceStamped message represented as [x, y, z, w]",
+                    "Type": "string",
+                    "Value": "[0, 0, 0, 1]"
+                },
+                "position": {
+                    "Description": "Position component in the geometry_msgs/PoseWithCovarianceStamped message represented as [x, y, z]",
+                    "Type": "array",
+                    "Value": "[0, 0, 0]"
+                }
+            },
+            "Path": "",
+            "Persistent": false,
+            "PortsInst": {
+                "end": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
+                },
+                "initialpose": {
+                    "Message": "PoseWithCovarianceStamped",
+                    "Out": {
+                        "out": {
+                            "Message": "geometry_msgs/PoseWithCovarianceStamped"
+                        }
+                    },
+                    "Package": "geometry_msgs",
+                    "Template": "ROS1/Publisher"
+                },
+                "start": {
+                    "In": {
+                        "in": {
+                            "Callback": "place_holder",
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Message": "Transition",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionTo"
+                },
+                "timer": {
+                    "In": {
+                        "in": {
+                            "Callback": "initial_pose_publisher_timer",
+                            "Message": "movai_msgs/Timer",
+                            "Parameter": {
+                                "Frequency": 0.25,
+                                "Oneshot": true
+                            }
+                        }
+                    },
+                    "Message": "Timer",
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/Timer"
+                }
+            },
+            "Remappable": false,
+            "Type": "MovAI/State",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

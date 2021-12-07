@@ -1,0 +1,26 @@
+{
+    "Callback": {
+        "tf_gen_init": {
+            "Info": "",
+            "Label": "tf_gen_init",
+            "LastUpdate": {
+                "date": "25/11/2021 at 17:36:58",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Any",
+            "Py3Lib": {
+                "numpy": {
+                    "Class": false,
+                    "Module": "numpy"
+                },
+                "tf": {
+                    "Class": false,
+                    "Module": "tf"
+                }
+            },
+            "User": "movai",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

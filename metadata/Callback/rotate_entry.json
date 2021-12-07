@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "rotate_entry": {
+            "Info": "",
+            "Label": "rotate_entry",
+            "LastUpdate": {
+                "date": "01/11/2021 at 17:42:37",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Transition",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

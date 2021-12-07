@@ -1,0 +1,30 @@
+{
+    "Callback": {
+        "rotate_timer": {
+            "Info": "",
+            "Label": "rotate_timer",
+            "LastUpdate": {
+                "date": "01/11/2021 at 19:30:31",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Timer",
+            "Py3Lib": {
+                "Twist": {
+                    "Class": "Twist",
+                    "Module": "geometry_msgs.msg"
+                },
+                "math": {
+                    "Class": false,
+                    "Module": "math"
+                },
+                "transformations": {
+                    "Class": "transformations",
+                    "Module": "tf"
+                }
+            },
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "Callback": {
+        "map_saver_movai_init": {
+            "Info": "",
+            "Label": "map_saver_movai_init",
+            "LastUpdate": {
+                "date": "19/10/2021 at 12:02:30",
+                "user": "movai"
+            },
+            "Message": "movai_msgs/Init",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}

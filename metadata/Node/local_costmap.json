@@ -1,0 +1,119 @@
+{
+    "Node": {
+        "local_costmap": {
+            "Info": "Local costmap as a plugin for the ROS navigation (costmap_2d package)",
+            "Label": "local_costmap",
+            "LastUpdate": {
+                "date": "22/10/2021 at 15:47:57",
+                "user": "movai"
+            },
+            "Launch": true,
+            "PackageDepends": "",
+            "Parameter": {
+                "footprint_padding": {
+                    "Description": "[float] Padding around footprint",
+                    "Value": "0"
+                },
+                "global_frame": {
+                    "Description": "[str] The global frame for the costmap to operate in.",
+                    "Value": "map"
+                },
+                "height": {
+                    "Description": "[float] The height of the map [m] (can be overwritten by some layers, namely the static map layer).",
+                    "Value": "8"
+                },
+                "inflation_layer": {
+                    "Description": "[float] cost_scaling_factor: A scaling factor to apply to cost values during inflation: exp(-1.0 * cost_scaling_factor * (distance_from_obstacle - inscribed_radius)) * (costmap_2d::INSCRIBED_INFLATED_OBSTACLE - 1)\n[bool] enabled\n[float] inflation_radius: The radius in meters to which the map inflates obstacle cost values.",
+                    "Value": "{\"cost_scaling_factor\":5.0,\"enabled\":True,\"inflation_radius\":0.1}"
+                },
+                "map_type": {
+                    "Description": "[str] map type, can be \"costmap\" for 2D or \"voxel\" for 3D",
+                    "Value": "costmap"
+                },
+                "obstacle_detector_layer": {
+                    "Description": "[int] combination_method: Changes the behaviour how the obstacle_layer handles incoming data from layers beyond it. Possible values are \"Overwrite\" (0), \"Maximum\" (1) and \"Nothing\" (99).\n[bool] inf_is_valid: Allows for Inf values in \"LaserScan\" observation messages. The Inf values are converted to the laser maximum range.\n[float] max_obstacle_height: The maximum height of any obstacle to be inserted into the costmap in meters. This parameter should be set to be slightly higher than the height of your robot.\n[float] inflation_radius: obstacle inflation radius (m)\nobservation_sources: A list of observation source names separated by spaces. Each source_name in observation_sources defines a namespace in which parameters can be set:\n                                        - [bool] clearing: Whether or not this observation should be used to clear out freespace.\n                                        - [str] data_type: The data type associated with the topic, right now only \"PointCloud\", \"PointCloud2\", and \"LaserScan\" are supported.\n                                        - [bool] marking: Whether or not this observation should be used to mark obstacles.\n                                        - [float] observation_persistence: How long to keep each sensor reading [s]. A value of 0.0 will only keep the most recent reading.\n                                        - [str] topic: The topic on which sensor data comes in for this source. Defaults to the name of the source.\n[float] obstacle_range: The default maximum distance from the robot at which an obstacle will be inserted into the cost map in meters. This can be over-ridden on a per-sensor basis.\n[float] raytrace_range: The default range in meters at which to raytrace out obstacles from the map using sensor data. This can be over-ridden on a per-sensor basis.\n[bool] track_unknown_space: If false, each pixel has one of 2 states: lethal obstacle or free. If true, each pixel has one of 3 states: lethal obstacle, free, or unknown.\n",
+                    "Value": "{\"combination_method\":1,\n \"enabled\":False,\n \"inf_is_valid\":True,\n \"inflation_radius\":1,\n \"max_obstacle_height\":2,\n \"observation_sources\":\"obstacle_detector\",\n \"obstacle_detector\":\n     {\"clearing\":True,\n      \"data_type\":\"PointCloud2\",\n      \"marking\":True,\n      \"observation_persistence\":0,\n      \"topic\":\"/obstacle_detector/obstacle_cloud\"\n     },\n  \"obstacle_range\":5,\n  \"raytrace_range\":5,\n  \"track_unknown_space\":False\n}"
+                },
+                "obstacle_layer": {
+                    "Description": "[int] combination_method: Changes the behaviour how the obstacle_layer handles incoming data from layers beyond it. Possible values are \"Overwrite\" (0), \"Maximum\" (1) and \"Nothing\" (99).\n[bool] inf_is_valid: Allows for Inf values in \"LaserScan\" observation messages. The Inf values are converted to the laser maximum range.\n[float] max_obstacle_height: The maximum height of any obstacle to be inserted into the costmap in meters. This parameter should be set to be slightly higher than the height of your robot.\nobservation_sources: A list of observation source names separated by spaces. Each source_name in observation_sources defines a namespace in which parameters can be set:\n                                        - [bool] clearing: Whether or not this observation should be used to clear out freespace.\n                                        - [str] data_type: The data type associated with the topic, right now only \"PointCloud\", \"PointCloud2\", and \"LaserScan\" are supported.\n                                        - [bool] marking: Whether or not this observation should be used to mark obstacles.\n                                        - [float] observation_persistence: How long to keep each sensor reading [s]. A value of 0.0 will only keep the most recent reading.\n                                        - [str] topic: The topic on which sensor data comes in for this source. Defaults to the name of the source.\n                                        - [float] min_obstacle_height: The minimum height in meters of a sensor reading considered valid. This is usually set to be at ground height, but can be set higher or lower based on the noise model of your sensor.\n[float] obstacle_range: The default maximum distance from the robot at which an obstacle will be inserted into the cost map in meters. This can be over-ridden on a per-sensor basis.\n[float] raytrace_range: The default range in meters at which to raytrace out obstacles from the map using sensor data. This can be over-ridden on a per-sensor basis.\n[bool] track_unknown_space: If false, each pixel has one of 2 states: lethal obstacle or free. If true, each pixel has one of 3 states: lethal obstacle, free, or unknown.\n",
+                    "Value": "{ \"combination_method\":1,\n  \"enabled\":False,\n  \"inf_is_valid\":True,\n  \"max_obstacle_height\":2.5,\n  \"observation_sources\":\"scan_front scan_omni points_3d\",\n  \"obstacle_range\":5.0,\n  \"raytrace_range\":5.0,\n  \"track_unknown_space\":False,\n  \"scan_front\":\n      {\"clearing\":True,\n       \"data_type\":\"LaserScan\",\n       \"marking\":True,\n       \"observation_persistence\":0,\n       \"topic\":\"/laser_front/scan\"}, \n  \"scan_omni\":\n      {\"clearing\":True,\n       \"data_type\":\"LaserScan\",\n       \"marking\":True,\n       \"observation_persistence\":0,\n       \"topic\":\"/scan_omni\"},\n  \"points_3d\":\n      {\"clearing\":True,\n       \"data_type\":\"PointCloud2\",\n       \"marking\":True,\n       \"observation_persistence\":0,\n       \"min_obstacle_height\":0.1 ,\n       \"topic\":\"/points0\",\n       \"raytrace_range\":5.0,\n       \"obstacle_range\":5.0\n      }\n}"
+                },
+                "origin_x": {
+                    "Description": "[float] The x origin of the map in the global frame (m).",
+                    "Value": "0"
+                },
+                "origin_y": {
+                    "Description": "[float] The y origin of the map in the global frame (m).",
+                    "Value": "0"
+                },
+                "plugins": {
+                    "Description": "Sequence of plugin specifications, one per layer. Each specification is a dictionary with name and type fields. The name is used to define the parameter namespace for the plugin",
+                    "Value": "[{'name': 'static_layer', 'type': 'costmap_2d::StaticLayer'},\n {'name': 'obstacle_layer', 'type': 'costmap_2d::ObstacleLayer'},\n {'name': 'inflation_layer', 'type': 'costmap_2d::InflationLayer'},\n {'name': 'obstacle_detector_layer', 'type': 'costmap_2d::ObstacleLayer'}]"
+                },
+                "publish_frequency": {
+                    "Description": "[float] The frequency (Hz) for the map to be publish display information.",
+                    "Value": "5"
+                },
+                "publish_voxel_map": {
+                    "Description": "[bool] Whether or not to publish the underlying voxel grid for visualization purposes (obstacle layer)",
+                    "Value": "False"
+                },
+                "resolution": {
+                    "Description": "[float] The resolution of the map (m/cell).",
+                    "Value": "0.3"
+                },
+                "robot_base_frame": {
+                    "Description": "[str] The name of the frame for the base link of the robot.",
+                    "Value": "base_link"
+                },
+                "robot_radius": {
+                    "Description": "[float] The radius of the robot in meters, this parameter should only be set for circular robots, all others should use the \"footprint\" parameter.",
+                    "Value": "0.4"
+                },
+                "rolling_window": {
+                    "Description": "[bool] Whether or not to use a rolling window version of the costmap. If the static_map parameter is set to true, this parameter must be set to false.",
+                    "Value": "True"
+                },
+                "static_layer": {
+                    "Description": "Static layer parameters:",
+                    "Value": "{\"enabled\":True,\"map_topic\":\"map\"}"
+                },
+                "static_map": {
+                    "Description": "[bool] Whether or not the costmap is initialised based on a static map (from map_server).",
+                    "Value": "False"
+                },
+                "transform_tolerance": {
+                    "Description": "[float] Specifies the delay in transform (tf) data that is tolerable (s).",
+                    "Value": "1.5"
+                },
+                "update_frequency": {
+                    "Description": "[float] The frequency (Hz) for the map to be updated.",
+                    "Value": "5"
+                },
+                "width": {
+                    "Description": "[float] The width of the map [m] (can be overwritten by some layers, namely the static map layer)",
+                    "Value": "8"
+                }
+            },
+            "Path": "local_costmap",
+            "Persistent": false,
+            "PortsInst": {
+                "plugin": {
+                    "Message": "Plugin",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Plugin"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "ROS1/PluginClient"
+                }
+            },
+            "Remappable": true,
+            "Type": "ROS1/Plugin",
+            "User": "",
+            "Version": "",
+            "VersionDelta": {}
+        }
+    }
+}
