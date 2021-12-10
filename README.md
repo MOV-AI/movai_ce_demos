@@ -16,7 +16,6 @@ This repository will provide you the following:
 To adapt the project to your needs, follow the TODOs placed throughout the project source and tests.
 
 
-
 ## Versioning and branching
 
 The branches and meanings:
