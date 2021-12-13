@@ -4,7 +4,7 @@
             "Info": "Node that converts an occupancy grid into a map (png + yaml) and save the same in the database. The save action is executed by publishing an Empty message to the trigger port of the node.",
             "Label": "map_saver",
             "LastUpdate": {
-                "date": "13/12/2021 at 14:39:45",
+                "date": "13/12/2021 at 15:05:34",
                 "user": "movai"
             },
             "Launch": true,
@@ -18,7 +18,7 @@
                 "map_name": {
                     "Description": "[string] Name of the map to be saved",
                     "Type": "any",
-                    "Value": "saved_map"
+                    "Value": "new_map"
                 },
                 "threshold_free": {
                     "Description": "[int] Threshold value to consider a cell free",
