@@ -2,6 +2,6 @@
 logger.info('Map save was called')
 
 # enable map port
-gd.iport['map'].unregister()
+gd.iport['get_map'].unregister()
 sleep(2)
-gd.iport['map'].register()
+gd.iport['get_map'].register()

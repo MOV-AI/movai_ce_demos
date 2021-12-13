@@ -36,10 +36,10 @@ Callback: rotate_entry
 Callback: rotate_odometry
 Callback: rotate_timer
 
-Node: map_saver_movai
-Callback: map_save_map
-Callback: map_saver_movai_init
-Callback: map_saver_movai_save_map
+Node: map_saver
+Callback: map_save_get_map
+Callback: map_saver_init
+Callback: map_saver_trigger
 
 Node: tf_gen
 Callback: tf_gen_enable

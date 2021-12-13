@@ -6,18 +6,18 @@
             "Info": "",
             "Label": "visualize_map",
             "LastUpdate": {
-                "date": "05/11/2021 at 12:23:02",
+                "date": "13/12/2021 at 14:55:36",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
+                "2cb77688-053a-404b-9117-0636adeba25a": {
+                    "From": "launch_map_server/depends/out",
+                    "To": "map_server/dependency/in"
+                },
                 "303cec34-7e28-4345-b8f6-71bff6b12d60": {
                     "From": "start/start/start",
                     "To": "launch_map_server/entry/in"
-                },
-                "a6b42438-6331-4b29-a893-3d6781c94d13": {
-                    "From": "launch_map_server/depends/out",
-                    "To": "map_server/dependency/in"
                 }
             },
             "NodeInst": {
@@ -34,19 +34,14 @@
                     }
                 },
                 "map_server": {
-                    "CmdLine": {
-                        "args": {
-                            "Value": "maps/new_map.yaml"
-                        }
-                    },
                     "NodeLabel": "map_server",
                     "Template": "map_server",
                     "Visualization": {
                         "x": {
-                            "Value": 0.022031494140625
+                            "Value": 0.027498984781901045
                         },
                         "y": {
-                            "Value": 0.008314101155598958
+                            "Value": 0.008006096903483074
                         }
                     }
                 }

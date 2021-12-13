@@ -2,6 +2,20 @@
     "Flow": {
         "tugbot_mapping": {
             "Container": {
+                "ign_empty_topic_publisher": {
+                    "ContainerFlow": "ignition_empty_sub",
+                    "ContainerLabel": "ign_empty_topic_publisher",
+                    "Parameter": {
+                        "topic_name": {
+                            "Type": "any",
+                            "Value": "save_map"
+                        }
+                    },
+                    "Visualization": [
+                        0.033076635742187506,
+                        0.014631667073567708
+                    ]
+                },
                 "tugbot_sim_drivers": {
                     "ContainerFlow": "tugbot_sim_drivers",
                     "ContainerLabel": "tugbot_sim_drivers",
@@ -16,11 +30,19 @@
             "Info": "",
             "Label": "tugbot_mapping",
             "LastUpdate": {
-                "date": "04/11/2021 at 16:47:16",
+                "date": "13/12/2021 at 14:43:08",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
+                "06fa2099-8f73-40ac-a2a3-2d9caecdce7c": {
+                    "From": "gmapping/map/out",
+                    "To": "map_saver/get_map/in"
+                },
+                "22d13f0b-0704-46d8-9e2c-837773f8c798": {
+                    "From": "ign_empty_topic_publisher__remap/empty_msg/out",
+                    "To": "map_saver/trigger/in"
+                },
                 "3e9bca01-125f-4b1a-885a-faf41dfd210b": {
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
@@ -29,25 +51,17 @@
                     "From": "tugbot_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
                 },
+                "932834dd-c3b9-4237-9690-7888c9749106": {
+                    "From": "tugbot_sim_drivers__wait_ready/exit/out",
+                    "To": "ign_empty_topic_publisher__depend/entry/in"
+                },
                 "b5480430-4e23-47f3-987e-78b7bc1d98f9": {
                     "From": "tugbot_sim_drivers__velodyne__output/scan/out",
                     "To": "gmapping/scan/in"
                 },
-                "b7cf9b18-8ee8-4c6c-9480-045793fa5eaa": {
-                    "From": "gmapping/map/out",
-                    "To": "map_saver/map/in"
-                },
-                "b9613092-366a-44c4-8ab6-20ac0748d0e5": {
-                    "From": "wait/exit/out",
-                    "To": "map_saver/entry/in"
-                },
                 "ede73bd0-c35b-4b30-9851-ceaed88f0a72": {
                     "From": "start/start/start",
                     "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
-                },
-                "fe0941d6-83cf-423a-b074-5b4965650ed1": {
-                    "From": "tugbot_sim_drivers__wait_ready/exit/out",
-                    "To": "wait/entry/in"
                 }
             },
             "NodeInst": {
@@ -88,37 +102,13 @@
                 },
                 "map_saver": {
                     "NodeLabel": "map_saver",
-                    "Parameter": {
-                        "map_name": {
-                            "Type": "string",
-                            "Value": "new_map"
-                        }
-                    },
-                    "Template": "map_saver_movai",
+                    "Template": "map_saver",
                     "Visualization": {
                         "x": {
-                            "Value": 0.042503057861921184
+                            "Value": 0.044168367513020834
                         },
                         "y": {
-                            "Value": 0.01467972486552385
-                        }
-                    }
-                },
-                "wait": {
-                    "NodeLabel": "wait",
-                    "NodeLayers": [],
-                    "Parameter": {
-                        "wait_time": {
-                            "Value": "5"
-                        }
-                    },
-                    "Template": "wait_state",
-                    "Visualization": {
-                        "x": {
-                            "Value": 0.031552612304687526
-                        },
-                        "y": {
-                            "Value": 0.013646996053059897
+                            "Value": 0.0095524658203125
                         }
                     }
                 }

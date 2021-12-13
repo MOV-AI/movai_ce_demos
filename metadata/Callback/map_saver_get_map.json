@@ -1,10 +1,10 @@
 {
     "Callback": {
-        "map_save_map": {
+        "map_saver_get_map": {
             "Info": "",
-            "Label": "map_save_map",
+            "Label": "map_saver_get_map",
             "LastUpdate": {
-                "date": "18/10/2021 at 15:43:55",
+                "date": "13/12/2021 at 14:35:38",
                 "user": "movai"
             },
             "Message": "nav_msgs/OccupancyGrid",
