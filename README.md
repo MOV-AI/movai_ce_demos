@@ -9,6 +9,17 @@ This repository will provide you the following:
 
 ## Continuous Integration Status
 
-| Package         | Melodic         | Noetic |
-| :---:           | :---:           | :---:  |
-| movai_ce_demos      | N/A | [![CI - On main/dev/release branches](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/TestOnPR.yml/badge.svg)](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/TestOnPR.yml)
+| Package         | Noetic |
+| :---:           | :---:  |
+| movai_ce_demos  | [![CI - On main/dev/release branches](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/TestOnPR.yml/badge.svg)](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/TestOnPR.yml)
+
+## Deploy to main Status
+| Package         | Noetic |
+| :---:           | :---:  |
+| movai_ce_demos      | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/DeployOnMergeMain.yml)
+
+
+## Release Status
+| Package         | Noetic |
+| :---:           | :---:  |
+| movai_ce_demos      | [![Deploy - To Nexus On Github Release](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/DeployOnGitRelease.yml/badge.svg)](https://github.com/MOV-AI/movai_ce_demos/actions/workflows/DeployOnGitRelease.yml)
