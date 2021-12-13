@@ -31,7 +31,7 @@ In terms of versioning, we basically use semantic versioning but with a 4th digi
 If your component has a straight relation with a centralized system, we suggest keeping a relation with it in terms of major,minor and patch to ease support.
 
 ## Testing
--
+- Testing
 
 
 ## Component packaging
