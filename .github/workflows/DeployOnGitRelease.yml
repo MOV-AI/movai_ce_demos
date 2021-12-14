@@ -8,7 +8,7 @@ jobs:
     uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@feature/add-ros-pkg-pipeline
     with:
       release: 'true'
-      ros_distro: '["melodic"]'
+      ros_distro: '["noetic"]'
     secrets:
       auto_commit_user: ${{ secrets.RAISE_BOT_COMMIT_USER }}
       auto_commit_mail: ${{ secrets.RAISE_BOT_COMMIT_MAIL }}
