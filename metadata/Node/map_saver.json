@@ -1,10 +1,10 @@
 {
     "Node": {
-        "map_saver_movai": {
-            "Info": "Node that converts an occupancy grid into a map (png + yaml) and save the same in the database.",
-            "Label": "map_saver_movai",
+        "map_saver": {
+            "Info": "Node that converts an occupancy grid into a map (png + yaml) and save the same in the database. The save action is executed by publishing an Empty message to the trigger port of the node.",
+            "Label": "map_saver",
             "LastUpdate": {
-                "date": "19/10/2021 at 12:04:09",
+                "date": "13/12/2021 at 15:05:34",
                 "user": "movai"
             },
             "Launch": true,
@@ -12,50 +12,32 @@
             "Parameter": {
                 "filepath": {
                     "Description": "[string] Path of where to save the map file. \nIf empty, the map will not be saved into any file, only database.",
+                    "Type": "any",
                     "Value": "\"\""
                 },
                 "map_name": {
                     "Description": "[string] Name of the map to be saved",
-                    "Value": "saved_map"
+                    "Type": "any",
+                    "Value": "new_map"
                 },
                 "threshold_free": {
                     "Description": "[int] Threshold value to consider a cell free",
+                    "Type": "any",
                     "Value": "25"
                 },
                 "threshold_occupied": {
                     "Description": "[int] Threshold value to consider a cell occupied",
+                    "Type": "any",
                     "Value": "65"
                 }
             },
             "Path": "",
             "Persistent": false,
             "PortsInst": {
-                "entry": {
+                "get_map": {
                     "In": {
                         "in": {
-                            "Callback": "place_holder",
-                            "Message": "movai_msgs/Transition"
-                        }
-                    },
-                    "Message": "Transition",
-                    "Package": "movai_msgs",
-                    "Template": "MovAI/TransitionTo"
-                },
-                "init": {
-                    "In": {
-                        "in": {
-                            "Callback": "map_saver_movai_init",
-                            "Message": "movai_msgs/Init"
-                        }
-                    },
-                    "Message": "Init",
-                    "Package": "movai_msgs",
-                    "Template": "MovAI/Init"
-                },
-                "map": {
-                    "In": {
-                        "in": {
-                            "Callback": "map_save_map",
+                            "Callback": "map_saver_get_map",
                             "Message": "nav_msgs/OccupancyGrid"
                         }
                     },
@@ -63,10 +45,21 @@
                     "Package": "nav_msgs",
                     "Template": "ROS1/Subscriber"
                 },
-                "save_map": {
+                "init": {
                     "In": {
                         "in": {
-                            "Callback": "map_saver_movai_save_map",
+                            "Callback": "map_saver_init",
+                            "Message": "movai_msgs/Init"
+                        }
+                    },
+                    "Message": "Init",
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/Init"
+                },
+                "trigger": {
+                    "In": {
+                        "in": {
+                            "Callback": "map_saver_trigger",
                             "Message": "std_msgs/Empty"
                         }
                     },
@@ -76,7 +69,7 @@
                 }
             },
             "Remappable": true,
-            "Type": "MovAI/State",
+            "Type": "MovAI/Node",
             "User": "",
             "Version": "",
             "VersionDelta": {}

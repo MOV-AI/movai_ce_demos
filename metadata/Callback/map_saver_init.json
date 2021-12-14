@@ -1,10 +1,10 @@
 {
     "Callback": {
-        "map_saver_movai_init": {
+        "map_saver_init": {
             "Info": "",
-            "Label": "map_saver_movai_init",
+            "Label": "map_saver_init",
             "LastUpdate": {
-                "date": "19/10/2021 at 12:02:30",
+                "date": "13/12/2021 at 14:35:59",
                 "user": "movai"
             },
             "Message": "movai_msgs/Init",
