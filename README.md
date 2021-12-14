@@ -1,10 +1,8 @@
 # movai-ce-demos
 
-**main branch:** main
-
 This repository will provide you the following:
-- A set of mov.ai flows, nodes, callbacks and their corresponding ros packages (package.xml)
-- The repository will provide mov.ai flows to be run in combination with the ignition simulator and rviz will create a set of robot actions.
+- A set of MOV.AI flows, nodes, callbacks and their corresponding ROS packages (package.xml)
+- The repository will provide MOV.AI flows to be run in combination with the Ignition simulator and rviz will create a set of robot actions.
 - The flows and the corresponding functionalities are described below.
 
 ## Release Status
