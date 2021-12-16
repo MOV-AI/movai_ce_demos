@@ -29,6 +29,10 @@
                     "From": "move_base/move_base/result",
                     "To": "go_to_pickup_zone/action/result"
                 },
+                "0d59da6b-125d-4412-8196-43af4ae49f42": {
+                    "From": "teb_local_planner/plugin/out",
+                    "To": "move_base/base_local_planner/in"
+                },
                 "1c23b129-c44f-4c50-a83c-31a92ba43886": {
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "go_forward_1m/odometry/in"
@@ -49,10 +53,6 @@
                     "From": "move_base/cmd_vel/out",
                     "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
-                "2e4e57c9-e353-4a11-a1e9-b7b806ce6190": {
-                    "From": "global_costmap/plugin/out",
-                    "To": "move_base/global_costmap/in"
-                },
                 "2eecb9ee-d7c0-411d-a978-903aad884c87": {
                     "From": "center_gripper/exit/out",
                     "To": "align_to_cart/start/in"
@@ -68,6 +68,10 @@
                 "37ae645a-4f6e-4c87-9551-87407864d87f": {
                     "From": "move_base/move_base/result",
                     "To": "go_to_drop_zone/action/result"
+                },
+                "3bb46610-f650-4789-9353-c430f37204fb": {
+                    "From": "local_costmap/plugin/out",
+                    "To": "move_base/local_costmap/in"
                 },
                 "46d6e94c-a925-4110-a002-825050edea63": {
                     "From": "exit_pick_up_zone/action/goal",
@@ -85,10 +89,6 @@
                     "From": "go_to_pickup_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
-                "596d2d85-ae2f-4fce-be05-c68d9c120aaa": {
-                    "From": "teb_local_planner/plugin/out",
-                    "To": "move_base/base_local_planner/in"
-                },
                 "5e0886e4-f1d3-4f45-9be0-2e23c8d4eeb8": {
                     "From": "tugbot_sim_drivers__camera_back__output/image_raw/out",
                     "To": "back_camera_apriltag_ros_continous_node/image_rect/in"
@@ -100,10 +100,6 @@
                 "6e17f659-eddc-4fd7-bec2-8c7c6ffeb244": {
                     "From": "tugbot_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
-                },
-                "7132433d-23c9-4371-8fb3-2d4688d563e9": {
-                    "From": "local_costmap/plugin/out",
-                    "To": "move_base/local_costmap/in"
                 },
                 "786ce8c8-8449-47ae-9aed-d712f265472a": {
                     "From": "tugbot_sim_drivers__velodyne__output/scan/out",
@@ -156,6 +152,10 @@
                 "c175a6c2-a182-4f08-9288-5b7892b55f1f": {
                     "From": "tugbot_sim_drivers__gripper_controller/gripper_inductive_sensor/out",
                     "To": "align_to_cart/gripper_feedback/in"
+                },
+                "c6f8bc93-7686-4af6-820a-50cfcaf2c49b": {
+                    "From": "global_costmap/plugin/out",
+                    "To": "move_base/global_costmap/in"
                 },
                 "ce5bc56c-528d-4166-ac2a-a550e6fcf323": {
                     "From": "go_forward_1m/exit/out",
@@ -342,10 +342,10 @@
                     "Template": "global_costmap",
                     "Visualization": {
                         "x": {
-                            "Value": 0.018651660103551248
+                            "Value": 0.018889583333333335
                         },
                         "y": {
-                            "Value": 0.05341428247539442
+                            "Value": 0.05326666666666667
                         }
                     }
                 },
@@ -435,13 +435,27 @@
                 },
                 "local_costmap": {
                     "NodeLabel": "local_costmap",
+                    "Parameter": {
+                        "obstacle_layer": {
+                            "Type": "any",
+                            "Value": "{ \"combination_method\":1,\n  \"enabled\":True,\n  \"inf_is_valid\":True,\n  \"max_obstacle_height\":2.5,\n  \"observation_sources\":\"scan_omni\",\n  \"obstacle_range\":5.0,\n  \"raytrace_range\":5.0,\n  \"track_unknown_space\":False,\n  \"scan_omni\":\n      {\"clearing\":True,\n       \"data_type\":\"LaserScan\",\n       \"marking\":True,\n       \"observation_persistence\":0,\n       \"topic\":\"/velodyne_points/scan\"}\n}"
+                        },
+                        "plugins": {
+                            "Type": "any",
+                            "Value": "[{'name': 'static_layer', 'type': 'costmap_2d::StaticLayer'},\n {'name': 'obstacle_layer', 'type': 'costmap_2d::ObstacleLayer'},\n {'name': 'inflation_layer', 'type': 'costmap_2d::InflationLayer'}]"
+                        },
+                        "resolution": {
+                            "Type": "any",
+                            "Value": "0.05"
+                        }
+                    },
                     "Template": "local_costmap",
                     "Visualization": {
                         "x": {
-                            "Value": 0.01860441382702912
+                            "Value": 0.01882291666666667
                         },
                         "y": {
-                            "Value": 0.059700737292708715
+                            "Value": 0.06046666666666667
                         }
                     }
                 },
@@ -484,6 +498,10 @@
                 "teb_local_planner": {
                     "NodeLabel": "teb_local_planner",
                     "Parameter": {
+                        "acc_lim_theta": {
+                            "Type": "any",
+                            "Value": "0.3"
+                        },
                         "costmap_obstacles_behind_robot_dist": {
                             "Type": "number",
                             "Value": "0.3"
@@ -502,11 +520,11 @@
                         },
                         "global_plan_viapoint_sep": {
                             "Type": "number",
-                            "Value": "0.2"
+                            "Value": "2.0"
                         },
-                        "include_costmap_obstacles": {
+                        "include_dynamic_obstacles": {
                             "Type": "boolean",
-                            "Value": "False"
+                            "Value": "True"
                         },
                         "max_global_plan_lookahead_dist": {
                             "Type": "number",
@@ -530,7 +548,7 @@
                         },
                         "min_obstacle_dist": {
                             "Type": "number",
-                            "Value": "1"
+                            "Value": "0.1"
                         },
                         "obstacle_poses_affected": {
                             "Type": "number",
@@ -574,7 +592,7 @@
                         },
                         "weight_obstacle": {
                             "Type": "number",
-                            "Value": "1"
+                            "Value": "200"
                         },
                         "weight_shortest_path": {
                             "Type": "any",
@@ -596,10 +614,10 @@
                     "Template": "teb_local_planner",
                     "Visualization": {
                         "x": {
-                            "Value": 0.018808788289219922
+                            "Value": 0.018689583333333336
                         },
                         "y": {
-                            "Value": 0.04693568460729401
+                            "Value": 0.047066666666666666
                         }
                     }
                 },
