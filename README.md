@@ -34,3 +34,4 @@ This repository will provide you the following:
 | " | [husky_mapping](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_mapping.json) | Map a new world using gmapping and ekf_localization |
 | " | [husky_autonomous_navigation](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_autonomous_navigation.json) | Localize the robot using amcl and autonomously navigate using move_base, global and local planners |
 | N/A | [visualize_map](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/visualize_map.json) |   |
+
