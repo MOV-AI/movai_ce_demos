@@ -21,6 +21,10 @@
             },
             "Layers": {},
             "Links": {
+                "0084eab6-21a1-4c43-9f9a-ad15169196af": {
+                    "From": "move_base/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_check/cmd_vel/in"
+                },
                 "0263364e-013e-4cf3-9085-fbe3eb3b8995": {
                     "From": "align_to_cart/enable_tf_generator/out",
                     "To": "tf_generator/enable/in"
@@ -49,10 +53,6 @@
                     "From": "go_to_charge_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
-                "25c2e6c4-03e9-48ef-bbda-d801906030ed": {
-                    "From": "move_base/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
-                },
                 "2eecb9ee-d7c0-411d-a978-903aad884c87": {
                     "From": "center_gripper/exit/out",
                     "To": "align_to_cart/start/in"
@@ -64,6 +64,10 @@
                 "2ff4ed0a-2f13-4ed3-bc4b-c5f19d9f44dd": {
                     "From": "go_to_drop_zone/exit/out",
                     "To": "detach_gripper_to_drop_cart/entry/in"
+                },
+                "31caeb3e-cdc2-4c7b-93df-2b9793bcf525": {
+                    "From": "go_forward_1m/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_check/cmd_vel/in"
                 },
                 "37ae645a-4f6e-4c87-9551-87407864d87f": {
                     "From": "move_base/move_base/result",
@@ -109,17 +113,9 @@
                     "From": "back_camera_apriltag_ros_continous_node/tag_detections/out",
                     "To": "tf_generator/tag_detections/in"
                 },
-                "9d821085-2453-4152-b4e4-4d46676c1269": {
-                    "From": "align_to_cart/cmd_vel_pub/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
-                },
                 "9f2e01e8-6f47-4dfb-90f6-bece96ba247d": {
                     "From": "move_base/move_base/result",
                     "To": "exit_pick_up_zone/action/result"
-                },
-                "a005ee0e-ed4b-4379-b600-a3351cec3a8f": {
-                    "From": "go_forward_1m/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "a30b870f-5c83-44af-931f-055b194c3fe0": {
                     "From": "detach_gripper/std_msgs_publisher/out",
@@ -369,7 +365,7 @@
                             "Value": 0.07334559585796134
                         },
                         "y": {
-                            "Value": 0.030592983551743128
+                            "Value": 0.02992631688507646
                         }
                     }
                 },
@@ -429,7 +425,7 @@
                             "Value": 0.04236776046834032
                         },
                         "y": {
-                            "Value": 0.029577981653410954
+                            "Value": 0.02991131498674429
                         }
                     }
                 },

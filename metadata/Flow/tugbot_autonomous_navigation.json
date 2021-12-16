@@ -33,10 +33,6 @@
                     "From": "go_to_B/exit/out",
                     "To": "go_to_C/entry/in"
                 },
-                "25c2e6c4-03e9-48ef-bbda-d801906030ed": {
-                    "From": "move_base/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
-                },
                 "27ee8bef-1fa2-41c6-9c2d-fa835f9c3c81": {
                     "From": "go_to_B/action/goal",
                     "To": "move_base/move_base/goal"
@@ -48,6 +44,10 @@
                 "310b2415-c436-4c89-965b-0a7170909e6f": {
                     "From": "tugbot_sim_drivers__wait_ready/exit/out",
                     "To": "publish_initial_pose/start/in"
+                },
+                "49bd180a-7fe7-4a42-932c-48cf96658141": {
+                    "From": "move_base/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_check/cmd_vel/in"
                 },
                 "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
                     "From": "map_server/map/out",
