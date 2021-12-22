@@ -45,9 +45,9 @@
                     "From": "tugbot_sim_drivers__wait_ready/exit/out",
                     "To": "publish_initial_pose/start/in"
                 },
-                "49bd180a-7fe7-4a42-932c-48cf96658141": {
+                "35ec76be-30bf-4fba-976b-21069bbc2f61": {
                     "From": "move_base/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__emergency_sim_check/cmd_vel/in"
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
                     "From": "map_server/map/out",
