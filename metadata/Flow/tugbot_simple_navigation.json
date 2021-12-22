@@ -21,9 +21,13 @@
             },
             "Layers": {},
             "Links": {
-                "64c7fd42-0557-431c-864d-6751a939db98": {
+                "4d47e95a-9aa2-45de-953d-192aaf90ef63": {
+                    "From": "move_distance/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
+                },
+                "561150db-c6e2-4980-afa6-d554938e847f": {
                     "From": "rotate/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__emergency_sim_check/cmd_vel/in"
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "9c71ffd8-0383-4503-a933-f785622846d4": {
                     "From": "rotate/exit/out",
@@ -48,10 +52,6 @@
                 "ea491e9e-910d-4790-87c6-11df5d268a20": {
                     "From": "move_distance/exit/out",
                     "To": "rotate/entry/in"
-                },
-                "ec963546-3b47-48d7-98de-e2275aba7e03": {
-                    "From": "move_distance/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__emergency_sim_check/cmd_vel/in"
                 }
             },
             "NodeInst": {
