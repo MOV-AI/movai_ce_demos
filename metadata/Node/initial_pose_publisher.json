@@ -4,7 +4,7 @@
             "Info": "Publish a ros message of the type geometry_msgs/PoseWithCovarianceStamped to a topic. The node is used to send an initial position estimate to the amcl node. The position and orientation can be customized using the parameters.",
             "Label": "initial_pose_publisher",
             "LastUpdate": {
-                "date": "10/11/2021 at 10:35:53",
+                "date": "22/12/2021 at 16:44:25",
                 "user": "movai"
             },
             "Launch": true,
@@ -66,7 +66,7 @@
                             "Callback": "initial_pose_publisher_timer",
                             "Message": "movai_msgs/Timer",
                             "Parameter": {
-                                "Frequency": 0.25,
+                                "Frequency": 0.5,
                                 "Oneshot": true
                             }
                         }
