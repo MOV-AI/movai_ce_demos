@@ -16,7 +16,7 @@
             "Info": "",
             "Label": "tugbot_pick_and_drop",
             "LastUpdate": {
-                "date": "02/12/2021 at 09:50:09",
+                "date": "22/12/2021 at 16:46:24",
                 "user": "movai"
             },
             "Layers": {},
@@ -49,9 +49,9 @@
                     "From": "go_to_charge_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
-                "25c2e6c4-03e9-48ef-bbda-d801906030ed": {
+                "27aa251a-c927-46e5-99fa-23622613d353": {
                     "From": "move_base/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "2eecb9ee-d7c0-411d-a978-903aad884c87": {
                     "From": "center_gripper/exit/out",
@@ -64,6 +64,10 @@
                 "2ff4ed0a-2f13-4ed3-bc4b-c5f19d9f44dd": {
                     "From": "go_to_drop_zone/exit/out",
                     "To": "detach_gripper_to_drop_cart/entry/in"
+                },
+                "32520668-b0b1-4f1c-affd-5c2ff16c64e5": {
+                    "From": "align_to_cart/cmd_vel_pub/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "37ae645a-4f6e-4c87-9551-87407864d87f": {
                     "From": "move_base/move_base/result",
@@ -97,6 +101,10 @@
                     "From": "global_planner/plugin/out",
                     "To": "move_base/base_global_planner/in"
                 },
+                "6bfa3777-c1a5-4cac-8f69-7a5fe605674b": {
+                    "From": "go_forward_1m/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
+                },
                 "6e17f659-eddc-4fd7-bec2-8c7c6ffeb244": {
                     "From": "tugbot_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
@@ -109,17 +117,9 @@
                     "From": "back_camera_apriltag_ros_continous_node/tag_detections/out",
                     "To": "tf_generator/tag_detections/in"
                 },
-                "9d821085-2453-4152-b4e4-4d46676c1269": {
-                    "From": "align_to_cart/cmd_vel_pub/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
-                },
                 "9f2e01e8-6f47-4dfb-90f6-bece96ba247d": {
                     "From": "move_base/move_base/result",
                     "To": "exit_pick_up_zone/action/result"
-                },
-                "a005ee0e-ed4b-4379-b600-a3351cec3a8f": {
-                    "From": "go_forward_1m/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "a30b870f-5c83-44af-931f-055b194c3fe0": {
                     "From": "detach_gripper/std_msgs_publisher/out",
@@ -133,9 +133,17 @@
                     "From": "center_gripper/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/center/in"
                 },
+                "b45804d2-7f0f-4ecb-9231-6b1bb4d5c17b": {
+                    "From": "initial_pose_publisher/end/out",
+                    "To": "go_to_pickup_zone/entry/in"
+                },
                 "b4b52934-203d-4216-9538-89abdc92e7cf": {
                     "From": "exit_pick_up_zone/exit/out",
                     "To": "go_to_drop_zone/entry/in"
+                },
+                "b9a2f288-e2d9-4117-8279-6311d5f27484": {
+                    "From": "tugbot_sim_drivers__wait_ready/exit/out",
+                    "To": "initial_pose_publisher/start/in"
                 },
                 "ba962633-ac21-4a9b-a511-d7a08e086e3d": {
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
@@ -145,10 +153,6 @@
                     "From": "detach_gripper/exit/out",
                     "To": "center_gripper/entry/in"
                 },
-                "bebfa595-425a-4fce-bde4-63f7fcb4c681": {
-                    "From": "tugbot_sim_drivers__wait_ready/exit/out",
-                    "To": "go_to_pickup_zone/entry/in"
-                },
                 "c175a6c2-a182-4f08-9288-5b7892b55f1f": {
                     "From": "tugbot_sim_drivers__gripper_controller/gripper_inductive_sensor/out",
                     "To": "align_to_cart/gripper_feedback/in"
@@ -156,6 +160,10 @@
                 "c6f8bc93-7686-4af6-820a-50cfcaf2c49b": {
                     "From": "global_costmap/plugin/out",
                     "To": "move_base/global_costmap/in"
+                },
+                "cddf9755-8909-45b3-a5df-71304d99568b": {
+                    "From": "initial_pose_publisher/initialpose/out",
+                    "To": "amcl/initialpose/in"
                 },
                 "ce5bc56c-528d-4166-ac2a-a550e6fcf323": {
                     "From": "go_forward_1m/exit/out",
@@ -369,7 +377,7 @@
                             "Value": 0.07334559585796134
                         },
                         "y": {
-                            "Value": 0.030592983551743128
+                            "Value": 0.02992631688507646
                         }
                     }
                 },
@@ -378,10 +386,10 @@
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
-                            "Value": 0.09363033783838064
+                            "Value": 0.09355234304671398
                         },
                         "y": {
-                            "Value": 0.02265591295030375
+                            "Value": 0.022733911810980834
                         }
                     }
                 },
@@ -429,7 +437,19 @@
                             "Value": 0.04236776046834032
                         },
                         "y": {
-                            "Value": 0.029577981653410954
+                            "Value": 0.02991131498674429
+                        }
+                    }
+                },
+                "initial_pose_publisher": {
+                    "NodeLabel": "initial_pose_publisher",
+                    "Template": "initial_pose_publisher",
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.03515625
+                        },
+                        "y": {
+                            "Value": 0.029266666666666667
                         }
                     }
                 },

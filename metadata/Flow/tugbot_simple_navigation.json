@@ -21,9 +21,13 @@
             },
             "Layers": {},
             "Links": {
-                "497984c9-c6ad-4b53-80b2-b8b13eadef4c": {
+                "4d47e95a-9aa2-45de-953d-192aaf90ef63": {
                     "From": "move_distance/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
+                },
+                "561150db-c6e2-4980-afa6-d554938e847f": {
+                    "From": "rotate/cmd_vel/out",
+                    "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "9c71ffd8-0383-4503-a933-f785622846d4": {
                     "From": "rotate/exit/out",
@@ -32,10 +36,6 @@
                 "c0029d92-eaea-4fa0-878e-49d0722369b2": {
                     "From": "start/start/start",
                     "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
-                },
-                "cc687f44-3225-43ea-b76d-9747ba711fb7": {
-                    "From": "rotate/cmd_vel/out",
-                    "To": "tugbot_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "da740748-7243-4ef2-8c18-45372600c51a": {
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
