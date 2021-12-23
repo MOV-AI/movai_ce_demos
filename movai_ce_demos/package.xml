@@ -19,7 +19,7 @@
   <depend>global_planner</depend>
   <depend>apriltag_ros</depend>
   <export>
-        <build_version>8</build_version>
+        <build_version>9</build_version>
     <metapackage />
   </export>
 </package>
