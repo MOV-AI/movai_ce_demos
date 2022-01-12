@@ -9,15 +9,19 @@
   <buildtool_depend>catkin</buildtool_depend>
   <!-- TODO: Update other dependencies here, such as navigation and localization packages -->
   <!-- <depend>movai_tugbot_ign_sim_baseline</depend> -->
-  <depend>robot_localization</depend>
-  <depend>gmapping</depend>
-  <depend>amcl</depend>
-  <depend>map_server</depend>
-  <depend>move_base</depend>
-  <depend>teb_local_planner</depend>
-  <depend>costmap_2d</depend>
-  <depend>global_planner</depend>
-  <depend>apriltag_ros</depend>
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  <exec_depend>teb_local_planner</exec_depend>
+  <exec_depend>costmap_2d</exec_depend>
+  <exec_depend>global_planner</exec_depend>
+  <exec_depend>apriltag_ros</exec_depend>
+
+  <exec_depend>movai_tugbot_ign_sim</exec_depend>
+  <exec_depend>movai_husky_ign_sim</exec_depend>
+
   <export>
         <build_version>7</build_version>
     <metapackage />
