@@ -10,9 +10,9 @@ on:
 
 jobs:
   Deploy:
-    uses: MOV-AI/.github/.github/workflows/ros-workflow-deploy.yml@v1
+    uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@feature/add-ros-pkg-pipeline
     with:
-      deploy: true
+      deploy: 'true'
       ros_distro: '["noetic"]'
     secrets:
       auto_commit_user: ${{ secrets.RAISE_BOT_COMMIT_USER }}
