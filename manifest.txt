@@ -60,3 +60,6 @@ Callback:initial_pose_publisher_timer
 
 # graphic scenes and maps
 Package:maps
+
+# frontend app configurations
+Configuration:app-custom-ide

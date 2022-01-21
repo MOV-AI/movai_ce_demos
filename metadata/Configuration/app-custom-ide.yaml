@@ -1,0 +1,43 @@
+Samples:
+  - title: 'Simple navigation: Husky'
+    description: This flow is a demo for robot navigation using wheel odometry feedback. We use the depot ignition world and husky robot to navigate the robot in a square fashion. In the flow the move_distance node is used to send a command velocity in the x direction of the robot until the robot moved a specific distance, which is checked using the wheel odometry feedback. The rotate functions similarly but it rotates the robot instead of translation. When you run the flow the robot is suppose to move is a sqare path of 2mx2m. As time progresses you can see the accumulative error from the wheel odometry feedback.
+    url: global/Flow/husky_simple_navigation
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
+  - title: 'Simple navigation: Tugbot'
+    description: This flow is a demo for robot navigation using wheel odometry feedback. We use the depot ignition world and tugbot robot to navigate the robot in a square fashion. In the flow the move_distance node is used to send a command velocity in the x direction of the robot until the robot moved a specific distance, which is checked using the wheel odometry feedback. The rotate functions similarly but it rotates the robot instead of translation. When you run the flow the robot is suppose to move is a sqare path of 2mx2m. As time progresses you can see the accumulative error from the wheel odometry feedback.
+    url: global/Flow/tugbot_simple_navigation
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
+  - title: 'Mapping: Husky'
+    description: Performs the mapping of a location using SLAM. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The new generated map is uploaded to the database.
+    url: global/Flow/husky_mapping
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
+  - title: 'Mapping: Tugbot'
+    description: Performs the mapping of a location using SLAM. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The new generated map is uploaded to the database.
+    url: global/Flow/tugbot_mapping
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
+  - title: 'Autonomous navigation: Husky'
+    description: This flow is a demo for autonomous navigation using husky robot. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node.
+    url: global/Flow/husky_autonomous_navigation
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
+  - title: 'Autonomous navigation: Tugbot'
+    description: This flow is a demo for autonomous navigation using tugbot robot. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node.
+    url: global/Flow/tugbot_autonomous_navigation
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
+  - title: 'Pick and drop: Tugbot'
+    description: This flow demonstrates the pick and drop operation using the Tugbot robot. For the alignment of the robot with the cart we use back camera and apriltag detector.
+    url: global/Flow/tugbot_pick_and_drop
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
