@@ -5,6 +5,12 @@
                 "husky_sim_drivers": {
                     "ContainerFlow": "husky_sim_drivers",
                     "ContainerLabel": "husky_sim_drivers",
+                    "Parameter": {
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "husky"
+                        }
+                    },
                     "Visualization": [
                         0.017672039286295575,
                         0.00736222635904948

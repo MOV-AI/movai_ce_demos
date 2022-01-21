@@ -5,9 +5,15 @@
                 "husky_sim_drivers": {
                     "ContainerFlow": "husky_sim_drivers",
                     "ContainerLabel": "husky_sim_drivers",
+                    "Parameter": {
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "husky"
+                        }
+                    },
                     "Visualization": [
-                        0.016289583333333333,
-                        0.014733333333333334
+                        0.016222916666666667,
+                        0.0148
                     ]
                 }
             },
@@ -16,7 +22,7 @@
             "Info": "",
             "Label": "husky_autonomous_navigation",
             "LastUpdate": {
-                "date": "14/12/2021 at 17:54:05",
+                "date": "21/01/2022 at 11:29:29",
                 "user": "movai"
             },
             "Layers": {},
