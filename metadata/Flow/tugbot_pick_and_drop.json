@@ -17,12 +17,12 @@
                     ]
                 }
             },
-            "Description": "This flow is a demo for autonomous navigation. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. When you run the flow there is a 15 second delay for you to localize the robot using rviz and the 2D Pose Estimate functionality. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node ",
+            "Description": "This flow demonstrates the pick and drop operation using the Tugbot robot. For the alignment of the robot with the cart we use back camera and apriltag detector.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "tugbot_pick_and_drop",
             "LastUpdate": {
-                "date": "22/12/2021 at 16:46:24",
+                "date": "21/01/2022 at 23:14:09",
                 "user": "movai"
             },
             "Layers": {},
