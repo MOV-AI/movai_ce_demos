@@ -94,3 +94,6 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+
+# SonarQube files
+sonar-issues.json

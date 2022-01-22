@@ -19,6 +19,12 @@
                 "tugbot_sim_drivers": {
                     "ContainerFlow": "tugbot_sim_drivers",
                     "ContainerLabel": "tugbot_sim_drivers",
+                    "Parameter": {
+                        "robot_name": {
+                            "Type": "any",
+                            "Value": "tugbot"
+                        }
+                    },
                     "Visualization": [
                         0.01408812967936198,
                         0.008320118204752605
