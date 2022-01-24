@@ -1,7 +1,7 @@
 {
     "Flow": {
         "visualize_map": {
-            "Description": "Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. Use the command line property of the map_server to alter the map name to be visualized.",
+            "Description": "Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "visualize_map",
@@ -34,6 +34,11 @@
                     }
                 },
                 "map_server": {
+                    "CmdLine": {
+                        "args": {
+                            "Value": "maps/new_map.yaml"
+                        }
+                    },
                     "NodeLabel": "map_server",
                     "Template": "map_server",
                     "Visualization": {

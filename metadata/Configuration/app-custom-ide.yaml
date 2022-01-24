@@ -23,6 +23,12 @@ Samples:
     externalLink: "https://movai.readme.io/"
     externalLinkLabel: "Readme"
     certified: true
+  - title: 'Visualize map using RVIZ'
+    description: Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized.
+    url: global/Flow/visualize_map
+    externalLink: "https://movai.readme.io/"
+    externalLinkLabel: "Readme"
+    certified: true
   - title: 'Autonomous navigation: Husky'
     description: This flow is a demo for autonomous navigation using husky robot. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node.
     url: global/Flow/husky_autonomous_navigation
