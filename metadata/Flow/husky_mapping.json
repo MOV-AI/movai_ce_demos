@@ -31,7 +31,7 @@
                     ]
                 }
             },
-            "Description": "Performs the mapping of a location using SLAM. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The new generated map is uploaded to the database.",
+            "Description": "Performs the mapping of a location using SLAM with Husky robot. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The default map name is new_map (can be changed on map_saver node parameters in the flow). The generated map is uploaded to the database.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "husky_mapping",
