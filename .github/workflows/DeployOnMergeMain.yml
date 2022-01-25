@@ -10,7 +10,7 @@ on:
 
 jobs:
   Deploy:
-    uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@feature/add-ros-pkg-pipeline
+    uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@v1
     with:
       deploy: 'true'
       ros_distro: '["noetic"]'
