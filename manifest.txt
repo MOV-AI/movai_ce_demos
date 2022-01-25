@@ -63,3 +63,4 @@ Package:maps
 
 # frontend app configurations
 Configuration:app-custom-ide
+Configuration:app-custom-ide-ce
