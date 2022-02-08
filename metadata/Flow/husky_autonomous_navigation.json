@@ -27,17 +27,13 @@
             },
             "Layers": {},
             "Links": {
-                "45dcd1cb-2e9d-4b55-9c5f-76c0ab93c69c": {
-                    "From": "go_to_A/exit/out",
-                    "To": "go_to_B/entry/in"
-                },
-                "470e1def-c974-4f8d-9272-58ed88c187c4": {
-                    "From": "go_to_C/exit/out",
-                    "To": "go_to_A/entry/in"
-                },
                 "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
                     "From": "map_server/map/out",
                     "To": "amcl/map/in"
+                },
+                "4aad97cb-55e1-4163-93ed-965e712f39e9": {
+                    "From": "go_to_B/success/out",
+                    "To": "go_to_C/entry/in"
                 },
                 "5978ea71-432b-47f9-a02c-b10bde5e34aa": {
                     "From": "publish_initial_pose/initialpose/out",
@@ -59,6 +55,10 @@
                     "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
                 },
+                "6616ee12-869e-42d2-9255-8dd0e00daac0": {
+                    "From": "go_to_C/success/out",
+                    "To": "go_to_A/entry/in"
+                },
                 "91849506-aa0f-486f-ae12-6736e24d0c7e": {
                     "From": "husky_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
@@ -71,13 +71,13 @@
                     "From": "husky_sim_drivers__velodyne__output/scan/out",
                     "To": "amcl/scan/in"
                 },
+                "9763fc61-2525-4a32-bbd5-eea6de47a73a": {
+                    "From": "go_to_A/success/out",
+                    "To": "go_to_B/entry/in"
+                },
                 "a34e149b-05ee-4d27-a471-4bfe68961b89": {
                     "From": "move_base/move_base/result",
                     "To": "go_to_C/action/result"
-                },
-                "ae18dc43-a997-49fd-9302-3c1b2b4016b0": {
-                    "From": "go_to_B/exit/out",
-                    "To": "go_to_C/entry/in"
                 },
                 "aed251ae-cc83-4f7e-bf99-cfa9a5d4593f": {
                     "From": "move_base/cmd_vel/out",
@@ -195,7 +195,7 @@
                             "Value": 0.047022389902175235
                         },
                         "y": {
-                            "Value": 0.020220596654682076
+                            "Value": 0.02012546522564562
                         }
                     }
                 },
@@ -230,10 +230,10 @@
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
-                            "Value": 0.06382317642741685
+                            "Value": 0.06391830989095852
                         },
                         "y": {
-                            "Value": 0.019752264799254623
+                            "Value": 0.019847398262796287
                         }
                     }
                 },
