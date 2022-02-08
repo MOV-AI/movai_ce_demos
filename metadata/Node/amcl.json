@@ -179,7 +179,7 @@
                     "Value": "False"
                 }
             },
-            "Path": "/opt/ros/noetic/lib/amcl/amcl",
+            "Path": "/amcl/amcl",
             "Persistent": false,
             "PortsInst": {
                 "amcl_pose": {

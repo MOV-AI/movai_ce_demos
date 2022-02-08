@@ -52,7 +52,7 @@
                     "Value": "4"
                 }
             },
-            "Path": "/opt/ros/noetic/lib/apriltag_ros/apriltag_ros_continuous_node",
+            "Path": "/apriltag_ros/apriltag_ros_continuous_node",
             "Persistent": false,
             "PortsInst": {
                 "camera_info": {

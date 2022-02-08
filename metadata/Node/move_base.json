@@ -47,7 +47,7 @@
                     "Value": "enabled"
                 }
             },
-            "Path": "/opt/ros/noetic/lib/move_base/move_base",
+            "Path": "/move_base/move_base",
             "Persistent": false,
             "PortsInst": {
                 "base_global_planner": {
