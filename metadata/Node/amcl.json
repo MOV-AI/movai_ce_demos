@@ -179,7 +179,7 @@
                     "Value": "False"
                 }
             },
-            "Path": "/lib/amcl/amcl",
+            "Path": "/amcl/amcl",
             "Persistent": false,
             "PortsInst": {
                 "amcl_pose": {

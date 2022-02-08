@@ -155,7 +155,7 @@
                     "Value": "odom"
                 }
             },
-            "Path": "/lib/robot_localization/ekf_localization_node",
+            "Path": "/robot_localization/ekf_localization_node",
             "Persistent": false,
             "PortsInst": {
                 "accel/filtered": {
