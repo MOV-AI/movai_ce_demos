@@ -152,7 +152,7 @@
                     "Value": -100
                 }
             },
-            "Path": "/opt/ros/noetic/lib/gmapping/slam_gmapping",
+            "Path": "/lib/gmapping/slam_gmapping",
             "Persistent": "",
             "PortsInst": {
                 "dynamic_map": {
