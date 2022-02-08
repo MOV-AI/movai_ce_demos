@@ -31,6 +31,7 @@ Samples:
     externalLinkLabel: "Readme"
     certified: true
   - title: 'Mapping: Tugbot'
+    description:
       'Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
       Simulator world: tugbot_depot or tugbot_warehouse (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot mapping group on the left menu).
@@ -75,7 +76,6 @@ Samples:
     certified: true
   - title: 'Pick and drop: Tugbot'
     description:
-    This flow demonstrates the pick and drop operation using the Tugbot robot. For the alignment of the robot with the cart we use back camera and apriltag detector.
       'Purpose: Pick and drop operation using Tugbot robot.
       Simulator world: tugbot_warehouse (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot pick and drop group on the left menu).
