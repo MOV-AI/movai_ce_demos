@@ -67,10 +67,6 @@
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
                 },
-                "2ff4ed0a-2f13-4ed3-bc4b-c5f19d9f44dd": {
-                    "From": "go_to_drop_zone/exit/out",
-                    "To": "detach_gripper_to_drop_cart/entry/in"
-                },
                 "32520668-b0b1-4f1c-affd-5c2ff16c64e5": {
                     "From": "align_to_cart/cmd_vel_pub/out",
                     "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
@@ -91,10 +87,6 @@
                     "From": "map_server/map/out",
                     "To": "amcl/map/in"
                 },
-                "4b2d290f-0b03-40c3-bde9-7288d38a6b34": {
-                    "From": "go_to_pickup_zone/exit/out",
-                    "To": "detach_gripper/entry/in"
-                },
                 "4d7b8469-db56-439f-9403-3079ae50d6f6": {
                     "From": "go_to_pickup_zone/action/goal",
                     "To": "move_base/move_base/goal"
@@ -102,6 +94,10 @@
                 "5e0886e4-f1d3-4f45-9be0-2e23c8d4eeb8": {
                     "From": "tugbot_sim_drivers__camera_back__output/image_raw/out",
                     "To": "back_camera_apriltag_ros_continous_node/image_rect/in"
+                },
+                "61de7310-f6c7-4f11-8b92-0a7abd40c0a6": {
+                    "From": "go_to_drop_zone/success/out",
+                    "To": "detach_gripper_to_drop_cart/entry/in"
                 },
                 "629187e7-e7b5-450b-94ad-6e2ceba65cdd": {
                     "From": "global_planner/plugin/out",
@@ -135,6 +131,10 @@
                     "From": "detach_gripper_to_drop_cart/exit/out",
                     "To": "go_to_charge_zone/entry/in"
                 },
+                "ae7109cd-f343-4bbd-a911-029ad633bc18": {
+                    "From": "exit_pick_up_zone/success/out",
+                    "To": "go_to_drop_zone/entry/in"
+                },
                 "b04fb13d-eb6f-4bee-92bc-aec0d55f83c7": {
                     "From": "center_gripper/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/center/in"
@@ -142,10 +142,6 @@
                 "b45804d2-7f0f-4ecb-9231-6b1bb4d5c17b": {
                     "From": "initial_pose_publisher/end/out",
                     "To": "go_to_pickup_zone/entry/in"
-                },
-                "b4b52934-203d-4216-9538-89abdc92e7cf": {
-                    "From": "exit_pick_up_zone/exit/out",
-                    "To": "go_to_drop_zone/entry/in"
                 },
                 "b9a2f288-e2d9-4117-8279-6311d5f27484": {
                     "From": "tugbot_sim_drivers__wait_ready/exit/out",
@@ -194,6 +190,10 @@
                 "f48c7a30-7511-4ba8-a586-3f1524266e0e": {
                     "From": "detach_gripper_to_drop_cart/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/attach/in"
+                },
+                "f61daa87-a013-40fc-9587-f3d6fbdc1a08": {
+                    "From": "go_to_pickup_zone/success/out",
+                    "To": "detach_gripper/entry/in"
                 }
             },
             "NodeInst": {
@@ -344,10 +344,10 @@
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
-                            "Value": 0.07711795542232415
+                            "Value": 0.07707597951086582
                         },
                         "y": {
-                            "Value": 0.022534235532547527
+                            "Value": 0.022618183286453777
                         }
                     }
                 },
@@ -392,10 +392,10 @@
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
-                            "Value": 0.09355234304671398
+                            "Value": 0.09359431895817232
                         },
                         "y": {
-                            "Value": 0.022733911810980834
+                            "Value": 0.02277588568793396
                         }
                     }
                 },
@@ -443,7 +443,7 @@
                             "Value": 0.04236776046834032
                         },
                         "y": {
-                            "Value": 0.02991131498674429
+                            "Value": 0.029533558232186997
                         }
                     }
                 },

@@ -4,7 +4,7 @@
             "Info": "This node publishes a goal/position in the map (x_position, y_position and angle) using action client protocol. If connected with move_base and if the goal is valid move_base will be able to successfully actuate the robot to the given location in the map. The goal can be customized using the parameters.",
             "Label": "go_to",
             "LastUpdate": {
-                "date": "02/12/2021 at 10:31:05",
+                "date": "08/02/2022 at 20:37:15",
                 "user": "movai"
             },
             "Launch": true,
@@ -67,7 +67,7 @@
                     "Package": "movai_msgs",
                     "Template": "MovAI/TransitionTo"
                 },
-                "exit": {
+                "failure": {
                     "Message": "Transition",
                     "Out": {
                         "out": {
@@ -87,6 +87,16 @@
                     "Message": "Init",
                     "Package": "movai_msgs",
                     "Template": "MovAI/Init"
+                },
+                "success": {
+                    "Message": "Transition",
+                    "Out": {
+                        "out": {
+                            "Message": "movai_msgs/Transition"
+                        }
+                    },
+                    "Package": "movai_msgs",
+                    "Template": "MovAI/TransitionFor"
                 }
             },
             "Remappable": true,

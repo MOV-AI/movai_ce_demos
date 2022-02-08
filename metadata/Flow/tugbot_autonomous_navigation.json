@@ -27,17 +27,9 @@
             },
             "Layers": {},
             "Links": {
-                "124d3b6d-1a28-4ef6-9ff6-a45b67eface1": {
-                    "From": "go_to_C/exit/out",
-                    "To": "go_to_A/entry/in"
-                },
                 "15190ca2-86d2-4357-84cc-bd6ad37c40c0": {
                     "From": "publish_initial_pose/initialpose/out",
                     "To": "amcl/initialpose/in"
-                },
-                "24281f4e-d63e-4884-beae-353d3a4d3ed8": {
-                    "From": "go_to_B/exit/out",
-                    "To": "go_to_C/entry/in"
                 },
                 "27ee8bef-1fa2-41c6-9c2d-fa835f9c3c81": {
                     "From": "go_to_B/action/goal",
@@ -87,17 +79,25 @@
                     "From": "tugbot_sim_drivers__velodyne__output/scan/out",
                     "To": "amcl/scan/in"
                 },
-                "81d8e539-8e33-4922-b1e1-7dfdaddf0b3f": {
-                    "From": "go_to_A/exit/out",
-                    "To": "go_to_B/entry/in"
-                },
                 "9d433a3e-62c0-4f79-b32c-2c7094a090f6": {
                     "From": "move_base/move_base/result",
                     "To": "go_to_A/action/result"
                 },
+                "a5ed8b5c-14f7-4a11-83b7-ccb9e11adafb": {
+                    "From": "go_to_C/success/out",
+                    "To": "go_to_A/entry/in"
+                },
+                "ac4f71c0-c36a-4dee-bb89-a42b6b8daa9c": {
+                    "From": "go_to_A/success/out",
+                    "To": "go_to_B/entry/in"
+                },
                 "c331403b-e4b9-4503-b2a9-7f25ebcbcee8": {
                     "From": "go_to_C/action/goal",
                     "To": "move_base/move_base/goal"
+                },
+                "d00f0917-96f1-4c36-b814-de05971c5da5": {
+                    "From": "go_to_B/success/out",
+                    "To": "go_to_C/entry/in"
                 },
                 "dbd23d0e-c262-4c53-a810-6e63995421cf": {
                     "From": "start/start/start",
