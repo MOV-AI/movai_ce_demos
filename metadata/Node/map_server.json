@@ -27,7 +27,7 @@
                     "Value": "map"
                 }
             },
-            "Path": "/opt/ros/noetic/lib/map_server/map_server",
+            "Path": "/map_server/map_server",
             "Persistent": true,
             "PortsInst": {
                 "dependency": {

@@ -3,5 +3,9 @@
 message = msg.status.text
 logger.info(f'Navigation action result: {message}')
 
-# exit the node
-gd.oport['exit'].send()
+# if navigation returns status 3 (Sucess) go to exit port, else go to failure port
+if msg.status.status == 3:
+    gd.oport['success'].send()
+else:
+    # exit the node
+    gd.oport['failure'].send()
