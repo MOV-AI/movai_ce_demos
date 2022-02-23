@@ -8,7 +8,7 @@ jobs:
     uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@v1
     with:
       release: 'true'
-      ros_distro: '["noetic"]'
+      ros_distro: '["melodic"]'
     secrets:
       auto_commit_user: ${{ secrets.RAISE_BOT_COMMIT_USER }}
       auto_commit_mail: ${{ secrets.RAISE_BOT_COMMIT_MAIL }}
