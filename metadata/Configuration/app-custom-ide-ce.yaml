@@ -1,87 +1,103 @@
-Samples:
-  - title: 'Simple navigation: Husky'
+Examples:
+  - title: "Simple navigation: Husky"
     description:
-      'Purpose: Simple Husky robot navigation using wheel odometry feedback.
+      "Purpose: Simple Husky robot navigation using wheel odometry feedback.
       Simulator world: husky_depot (Launch the world before running the flow).
-      Detail: The robot moves is a sqare path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback.'
-    url: global/Flow/husky_simple_navigation
-    scope: Flow
-    externalLink: "https://movai.readme.io/"
+      Detail: The robot moves is a sqare path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+    url: husky_simple_navigation
+    scope: Flow 
+    externalLink: "https://movai-flow.readme.io/reference/husky_simple_navigation"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Simple navigation: Tugbot'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Simple navigation: Tugbot"
     description:
-      'Purpose: Simple Tugbot robot navigation using wheel odometry feedback.
+      "Purpose: Simple Tugbot robot navigation using wheel odometry feedback.
       Simulator world: tugbot_depot (Launch the world before running the flow).
-      Detail: The robot moves is a sqare path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback.'
-    url: global/Flow/tugbot_simple_navigation
+      Detail: The robot moves is a sqare path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+    url: tugbot_simple_navigation
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/tugbot_simple_navigation"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Mapping: Husky'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Mapping: Husky"
     description:
-      'Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
+      "Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
       Simulator world: husky_depot (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Husky mapping group on the left menu).
-      Detail: Use ignition teleop plugin (Topic: /model/husky/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map.'
-    url: global/Flow/husky_mapping
+      Detail: Use ignition teleop plugin (Topic: /model/husky/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map."
+    url: husky_mapping
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/husky_mapping"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Mapping: Tugbot'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Mapping: Tugbot"
     description:
-      'Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
+      "Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
       Simulator world: tugbot_depot or tugbot_warehouse (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot mapping group on the left menu).
-      Detail: Use ignition teleop plugin (Topic: /model/tugbot/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map.'
-    url: global/Flow/tugbot_mapping
+      Detail: Use ignition teleop plugin (Topic: /model/tugbot/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map."
+    url: tugbot_mapping
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/tugbot_mapping"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Visualize map using RVIZ'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Visualize map using RVIZ"
     description:
-      'Purpose: Visalize a map in RVIZ.
+      "Purpose: Visalize a map in RVIZ.
       Simulator world: No need of simulator for this demo.
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Visualize Map group on the left menu).
-      Detail: Use the Command Line propery of the map server node on the flow to select the map to be visualized.'
-    url: global/Flow/visualize_map
+      Detail: Use the Command Line propery of the map server node on the flow to select the map to be visualized."
+    url: visualize_map
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/visualize_map"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Autonomous navigation: Husky'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Autonomous navigation: Husky"
     description:
-      'Purpose: Autonomous navigation and localization using Husky robot.
+      "Purpose: Autonomous navigation and localization using Husky robot.
       Simulator world: husky_depot (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Husky autonomous navigation group on the left menu).
-      Detail: Robot moves between three locations of the depot map autonomously repeatedly.'
-    url: global/Flow/husky_autonomous_navigation
+      Detail: Robot moves between three locations of the depot map autonomously repeatedly."
+    url: husky_autonomous_navigation
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/husky_autonomous_navigation"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Autonomous navigation: Tugbot'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Autonomous navigation: Tugbot"
     description:
-      'Purpose: Autonomous navigation and localization using Tugbot robot.
+      "Purpose: Autonomous navigation and localization using Tugbot robot.
       Simulator world: tugbot_depot (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot autonomous navigation group on the left menu).
-      Detail: Robot moves between three locations of the depot map autonomously repeatedly.'
-    url: global/Flow/tugbot_autonomous_navigation
+      Detail: Robot moves between three locations of the depot map autonomously repeatedly."
+    url: tugbot_autonomous_navigation
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/tugbot_autonomous_navigation"
     externalLinkLabel: "Readme"
     certified: true
-  - title: 'Pick and drop: Tugbot'
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+  - title: "Pick and drop: Tugbot"
     description:
-      'Purpose: Pick and drop operation using Tugbot robot.
+      "Purpose: Pick and drop operation using Tugbot robot.
       Simulator world: tugbot_warehouse (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot pick and drop group on the left menu).
-      Detail: Robot moves to pick up area, align and grab the cart, autonomously drop the cart and go to charging station.'
-    url: global/Flow/tugbot_pick_and_drop
+      Detail: Robot moves to pick up area, align and grab the cart, autonomously drop the cart and go to charging station."
+    url: tugbot_pick_and_drop
     scope: Flow
-    externalLink: "https://movai.readme.io/"
+    externalLink: "https://movai-flow.readme.io/reference/tugbot_pick_and_drop"
     externalLinkLabel: "Readme"
     certified: true
+    imageDescription: ""
+    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
