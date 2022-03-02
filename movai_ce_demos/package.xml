@@ -5,7 +5,7 @@
   <description>Main flow and maps of the community edition demos.</description>
   <maintainer email="mithun@mov.ai">Mithun Kinarullathil</maintainer>
   <url>https://github.com/MOV-AI/movai_ce_demos</url>
-  <license>BSD</license>
+  <license>Mov.AI License version 1.0</license>
   <buildtool_depend>catkin</buildtool_depend>
   <!-- TODO: Update other dependencies here, such as navigation and localization packages -->
   <!-- <depend>movai_tugbot_ign_sim_baseline</depend> -->
