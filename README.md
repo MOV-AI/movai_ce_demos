@@ -4,6 +4,7 @@ This repository will provide you the following:
 - A set of MOV.AI flows, nodes, callbacks and their corresponding ROS packages (package.xml)
 - The repository will provide MOV.AI flows to be run in combination with the Ignition simulator and rviz will create a set of robot actions.
 - The flows and the corresponding functionalities are described below.
+- This package depends on ros packages with licenses such as 3-Clause BSD License which are being installed from APT. They are not modified and should bring their own licenses on installation. 
 
 ## Release Status
 | Package         | Noetic |
