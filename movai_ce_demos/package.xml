@@ -23,7 +23,7 @@
   <exec_depend>movai_husky_ign_sim_ce</exec_depend>
 
   <export>
-        <build_version>21</build_version>
+        <build_version>22</build_version>
     <metapackage />
   </export>
 </package>
