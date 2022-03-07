@@ -61,7 +61,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: ""
+    imageLink: "https://files.readme.io/72ad840-rviz_mapping.png"
   - title: "Autonomous navigation: Husky"
     description:
       "Purpose: Autonomous navigation and localization using Husky robot.
