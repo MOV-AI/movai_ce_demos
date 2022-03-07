@@ -10,7 +10,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/f33116b-husky2.png"
   - title: "Simple navigation: Tugbot"
     description:
       "Purpose: Simple Tugbot robot navigation using wheel odometry feedback.
@@ -22,7 +22,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/7ba7ea7-tugbot4.png"
   - title: "Mapping: Husky"
     description:
       "Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
@@ -35,7 +35,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/f33116b-husky2.png"
   - title: "Mapping: Tugbot"
     description:
       "Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping).
@@ -48,7 +48,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/7ba7ea7-tugbot4.png"
   - title: "Visualize map using RVIZ"
     description:
       "Purpose: Visalize a map in RVIZ.
@@ -61,7 +61,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/72ad840-rviz_mapping.png"
   - title: "Autonomous navigation: Husky"
     description:
       "Purpose: Autonomous navigation and localization using Husky robot.
@@ -74,7 +74,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/f33116b-husky2.png"
   - title: "Autonomous navigation: Tugbot"
     description:
       "Purpose: Autonomous navigation and localization using Tugbot robot.
@@ -87,7 +87,7 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/7ba7ea7-tugbot4.png"
   - title: "Pick and drop: Tugbot"
     description:
       "Purpose: Pick and drop operation using Tugbot robot.
@@ -100,4 +100,4 @@ Examples:
     externalLinkLabel: "Readme"
     certified: true
     imageDescription: ""
-    imageLink: "https://www.mov.ai/wp-content/uploads/2021/04/blog_3-1024x536.jpg"
+    imageLink: "https://files.readme.io/f865e10-tugbot2.png"
