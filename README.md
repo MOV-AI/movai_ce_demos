@@ -4,7 +4,7 @@ This repository will provide you the following:
 - A set of MOV.AI flows, nodes, callbacks and their corresponding ROS packages (package.xml)
 - The repository will provide MOV.AI flows to be run in combination with the Ignition simulator and rviz will create a set of robot actions.
 - The flows and the corresponding functionalities are described below.
-- This package depends on ros packages with licenses such as 3-Clause BSD License which are being installed from APT. They are not modified and should bring their own licenses on installation. 
+- This package depends on ros packages with licenses such as 3-Clause BSD License which are being installed from APT. They are not modified and should bring their own licenses on installation.
 
 ## Release Status
 | Package         | Noetic |
@@ -34,5 +34,5 @@ This repository will provide you the following:
 | Husky | [husky_simple_navigation](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_simple_navigation.json) | Robot repeats a pattern of 2m forward and 90° CW with odometry feedback |
 | " | [husky_mapping](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_mapping.json) | Map a new world using gmapping and ekf_localization |
 | " | [husky_autonomous_navigation](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_autonomous_navigation.json) | Localize the robot using amcl and autonomously navigate using move_base, global and local planners |
-| N/A | [visualize_map](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/visualize_map.json) |   |
+| N/A | [visualize_map](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/visualize_map.json) |  Visualize map in rviz by publishing in map topic |
 
