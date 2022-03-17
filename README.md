@@ -34,5 +34,6 @@ This repository will provide you the following:
 | Husky | [husky_simple_navigation](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_simple_navigation.json) | Robot repeats a pattern of 2m forward and 90° CW with odometry feedback |
 | " | [husky_mapping](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_mapping.json) | Map a new world using gmapping and ekf_localization |
 | " | [husky_autonomous_navigation](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/husky_autonomous_navigation.json) | Localize the robot using amcl and autonomously navigate using move_base, global and local planners |
+| Panda arm | [panda_hello_world](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/panda_hello_world.json) | Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly |
 | N/A | [visualize_map](https://github.com/MOV-AI/movai_ce_demos/blob/main/metadata/Flow/visualize_map.json) |  Visualize map in rviz by publishing in map topic |
 

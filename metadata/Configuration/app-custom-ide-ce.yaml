@@ -101,3 +101,15 @@ Examples:
     certified: true
     imageDescription: ""
     imageLink: "https://files.readme.io/f865e10-tugbot2.png"
+  - title: "Hello world: Panda"
+    description:
+      "Purpose: Simple rotation of one joint of Panda arm.
+      Simulator world: panda_demo (Launch the world before running the flow).
+      Detail: Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly"
+    url: global/Flow/panda_hello_world
+    scope: Flow
+    externalLink: "https://movai-flow.readme.io/reference/panda_hello_world"
+    externalLinkLabel: "Readme"
+    certified: true
+    imageDescription: ""
+    imageLink: "https://files.readme.io/bdd413d-panda_demo_snap.png"
