@@ -7,6 +7,7 @@ Flow:visualize_map
 Flow:husky_autonomous_navigation
 Flow:tugbot_autonomous_navigation
 Flow:tugbot_pick_and_drop
+Flow:panda_hello_world
 
 # nodes and callbacks
 # thirdparty nodes
