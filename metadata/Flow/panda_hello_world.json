@@ -15,12 +15,12 @@
                     }
                 }
             },
-            "Description": "",
+            "Description": "Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly",
             "ExposedPorts": {},
             "Info": "",
             "Label": "panda_hello_world",
             "LastUpdate": {
-                "date": "17/03/2022 at 15:44:56",
+                "date": "17/03/2022 at 16:38:59",
                 "user": "movai"
             },
             "Layers": {},
