@@ -21,6 +21,7 @@
 
   <exec_depend>movai_tugbot_ign_sim_ce</exec_depend>
   <exec_depend>movai_husky_ign_sim_ce</exec_depend>
+  <exec_depend>movai_panda_ign_sim_ce</exec_depend>
 
   <export>
         <build_version>2</build_version>
