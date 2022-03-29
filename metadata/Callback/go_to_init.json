@@ -4,7 +4,7 @@
             "Info": "",
             "Label": "go_to_init",
             "LastUpdate": {
-                "date": "02/12/2021 at 10:31:24",
+                "date": "29/03/2022 at 16:20:11",
                 "user": "movai"
             },
             "Message": "movai_msgs/Init",
@@ -20,6 +20,10 @@
                 "rospy": {
                     "Class": false,
                     "Module": "rospy"
+                },
+                "sleep": {
+                    "Class": "sleep",
+                    "Module": "time"
                 },
                 "transformations": {
                     "Class": "transformations",

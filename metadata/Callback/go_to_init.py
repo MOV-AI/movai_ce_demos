@@ -28,5 +28,8 @@ quaternion.y = yaw_angle_quaternion[1]
 quaternion.z = yaw_angle_quaternion[2]
 quaternion.w = yaw_angle_quaternion[3]
 
+# wait for the node to register properly
+sleep(3)
+
 # publish the goal message through the out port 'goal' at 'action' action client
 gd.oport['goal@action'].send(message)
