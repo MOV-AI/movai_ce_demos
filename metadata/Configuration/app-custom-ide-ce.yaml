@@ -3,7 +3,7 @@ Examples:
     description:
       "Purpose: Simple Husky robot navigation using wheel odometry feedback.
       Simulator world: husky_depot (Launch the world before running the flow).
-      Detail: The robot moves is a sqare path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+      Detail: The robot moves is a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
     url: global/Flow/husky_simple_navigation
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/husky_simple_navigation"
@@ -15,7 +15,7 @@ Examples:
     description:
       "Purpose: Simple Tugbot robot navigation using wheel odometry feedback.
       Simulator world: tugbot_depot (Launch the world before running the flow).
-      Detail: The robot moves is a sqare path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+      Detail: The robot moves is a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
     url: global/Flow/tugbot_simple_navigation
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/tugbot_simple_navigation"
