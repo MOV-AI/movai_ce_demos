@@ -1,4 +1,4 @@
-from tf.transformations import euler_from_quaternion #cannot import outside
+from tf.transformations import euler_from_quaternion  # cannot import outside
 
 # getting parameters
 name = gd.params.get('map_name', 'saved_map')
@@ -9,8 +9,8 @@ threshold_occupied = gd.params.get('threshold_occupied', 65)
 # Logging info about the map to save
 info = msg.info
 data = msg.data
-logger.info(f"Saving map: {name}")
-logger.info(f"{info.width} X {info.height} map @ {info.resolution:.3f} m/cell")
+logger.info(f'Saving map: {name}')
+logger.info(f'{info.width} X {info.height} map @ {info.resolution:.3f} m/cell')
 
 
 # Colors to use
@@ -33,7 +33,7 @@ for y in range(height):
 
 
 # Create an image from the array and convert to binary
-img = fromarray(img_data, 'L') #PIL.Image module
+img = fromarray(img_data, 'L')  # PIL.Image module
 buf = io.BytesIO()
 img.save(buf, format='PNG')
 img_save = buf.getvalue()
@@ -44,8 +44,8 @@ try:
 except:
     p = Package('maps', new=True)
 
-logger.debug(f"Uploading {name}.png to database")
-f = p.add('File', f"{name}.png")
+logger.debug(f'Uploading {name}.png to database')
+f = p.add('File', f'{name}.png')
 f.Value = img_save
 f.FileLabel = name
 
@@ -64,19 +64,19 @@ free_thresh: 0.196
 """
 
 # Upload yaml to Redis
-logger.debug(f"Uploading {name}.yaml to database")
-f = p.add('File', f"{name}.yaml")
+logger.debug(f'Uploading {name}.yaml to database')
+f = p.add('File', f'{name}.yaml')
 f.Value = yaml_data
 f.FileLabel = name
 
 # Same image and yaml to file
 if filepath:
-    logger.debug(f"Saving file {filepath}/{name}.png ")
-    img.save(f"{filepath}/{name}.png")
+    logger.debug(f'Saving file {filepath}/{name}.png ')
+    img.save(f'{filepath}/{name}.png')
 
-    logger.debug(f"Saving file {filepath}/{name}.yaml ")
-    f = open(f"{filepath}/{name}.yaml", "w")
+    logger.debug(f'Saving file {filepath}/{name}.yaml ')
+    f = open(f'{filepath}/{name}.yaml', 'w')
     f.write(yaml_data)
     f.close()
 
-logger.info("Map saved with success")
+logger.info('Map saved with success')

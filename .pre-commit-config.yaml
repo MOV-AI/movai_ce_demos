@@ -1,22 +1,25 @@
 repos:
-
-  # black needs to run before `trailing-whitespace` since it removes them for Python code
-  - repo: https://github.com/ambv/black
-    rev: 21.12b0
-    hooks:
-    - id: black
-
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
-    - id: flake8
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.2.0
     hooks:
+    - id: check-docstring-first
+    - id: check-json
     - id: check-added-large-files
     - id: check-merge-conflict
     - id: check-yaml
     - id: debug-statements
+    - id: double-quote-string-fixer
     - id: mixed-line-ending
+      args: [--fix=lf]
+    - id: requirements-txt-fixer
     - id: trailing-whitespace
+  - repo: https://github.com/ambv/black
+    rev: 22.3.0
+    hooks:
+    - id: black
+      args: [--skip-string-normalization]
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+    - id: flake8
+      args: ['--builtins=count,gd,logger,msg,run,Configuration,FleetRobot,PortName,Robot,Scene,Var', '--extend-ignore=E203,E501']
