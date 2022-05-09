@@ -2,19 +2,19 @@
 # This is the main loop for the align_to_cart cart node
 
 # This function aligns the robot with the cart tag (back camera points to tag).
-# The robot moves backwards. The manoeuvres consist of changes in position and 
-# orientation.The function receives inputs from odometry (current position and 
+# The robot moves backwards. The manoeuvres consist of changes in position and
+# orientation.The function receives inputs from odometry (current position and
 # attitude measurements).
 # The procedure consists in the following 4 steps:
-# - Step 1: at P1 (initial position) and perform rotatation. Point back camera 
+# - Step 1: at P1 (initial position) and perform rotatation. Point back camera
 #           to a location some distance in front of tag.
 # - Step 2: translation from P1 to P2 (point in front of tag).
 # - Step 3: rotatation at P2. Point to tag.
-# - Step 4: translation from P2 to P3 (point in front of tag, closer to it than 
+# - Step 4: translation from P2 to P3 (point in front of tag, closer to it than
 #           P2).
 # This callback is associated with the align_to_cart node.
 
-# The function uses target angles and points determined from the transforms 
+# The function uses target angles and points determined from the transforms
 # computed at odometry initialization.
 
 # parameters
@@ -47,19 +47,23 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
     elif camera == 'front':
         direction = +1
     else:
-        logger.error('Please set the correct value for the camera paramter (back/front)')
+        logger.error(
+            'Please set the correct value for the camera paramter (back/front)'
+        )
 
     # Rotation: point to tag
     # Location P1: starting point
     if gd.shared.step == 0:
         # log once
         if not gd.shared.is_printed:
-            logger.debug("Aligning to cart tag corrected")
+            logger.debug('Aligning to cart tag corrected')
             gd.shared.is_printed = True
 
         # convert attitude from quaternion to Euler angles (pitch, yaw, roll)
         ori = gd.shared.odom.orientation
-        euler_odom = tf.transformations.euler_from_quaternion([ori.x, ori.y, ori.z, ori.w])
+        euler_odom = tf.transformations.euler_from_quaternion(
+            [ori.x, ori.y, ori.z, ori.w]
+        )
         # get current yaw angle [rad]
         odom_y = euler_odom[2]
 
@@ -90,7 +94,7 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
     # Move to point in front of tag
     elif gd.shared.step == 1:
         if gd.shared.is_printed:
-            logger.debug("Linear movement to cart tag corrected")
+            logger.debug('Linear movement to cart tag corrected')
             gd.shared.is_printed = True
 
         # get current robot position
@@ -100,7 +104,9 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
         # Get robot distance to P2.
         # gd.shared.lin1: distance between points P1 and P2 [m]
         # gd.shared.odom_x0, gd.shared.odom_y0: robot position at initialization (P1) [m]
-        prsc2 = gd.shared.lin1 -  math.sqrt(pow(odom_x - gd.shared.odom_x0, 2) + pow(odom_y - gd.shared.odom_y0, 2))
+        prsc2 = gd.shared.lin1 - math.sqrt(
+            pow(odom_x - gd.shared.odom_x0, 2) + pow(odom_y - gd.shared.odom_y0, 2)
+        )
 
         # translation => angular velocity is 0
         vel_ang = 0.0
@@ -116,16 +122,18 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
     # Rotate to align with tag
     elif gd.shared.step == 2:
         if not gd.shared.is_printed:
-            logger.debug("Rotate to match cart")
+            logger.debug('Rotate to match cart')
             gd.shared.is_printed = True
 
         # get current robot attitude
         ori = gd.shared.odom.orientation
-        euler_odom = tf.transformations.euler_from_quaternion([ori.x, ori.y, ori.z, ori.w])
+        euler_odom = tf.transformations.euler_from_quaternion(
+            [ori.x, ori.y, ori.z, ori.w]
+        )
         odom_y = euler_odom[2]
 
         if gd.shared.odom_yaw0 < 0 and odom_y > 2:
-                odom_y = odom_y - 2 * math.pi
+            odom_y = odom_y - 2 * math.pi
         if gd.shared.odom_yaw0 > 0 and odom_y < -2:
             odom_y = odom_y + 2 * math.pi
 
@@ -152,13 +160,15 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
     # Final distance to tag (P3) is received as parameter.
     elif gd.shared.step == 3:
         if not gd.shared.is_printed:
-            logger.debug("Final movement to attach")
+            logger.debug('Final movement to attach')
             # is this to be replaced by response?
-            #gd.oport['back_cam'].send(False)
+            # gd.oport['back_cam'].send(False)
             gd.shared.is_printed = True
 
         ori = gd.shared.odom.orientation
-        euler_odom = tf.transformations.euler_from_quaternion([ori.x, ori.y, ori.z, ori.w])
+        euler_odom = tf.transformations.euler_from_quaternion(
+            [ori.x, ori.y, ori.z, ori.w]
+        )
         gd.shared.odom_yaw0 = euler_odom[2]
 
         # get current position of the robot
@@ -167,12 +177,17 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
 
         # Get current distance from P2 [m].
         # odom0 is now odometry in P2.
-        current_dist = math.sqrt(pow(odom_x - gd.shared.odom_x0, 2) + pow(odom_y - gd.shared.odom_y0, 2))
+        current_dist = math.sqrt(
+            pow(odom_x - gd.shared.odom_x0, 2) + pow(odom_y - gd.shared.odom_y0, 2)
+        )
 
         # translation => angular velocity is 0
         vel_ang = 0.0
         # set linear velocity [m/s]
-        if abs(current_dist) < gd.shared.move_back_dist and not gd.shared.inductive_switch:
+        if (
+            abs(current_dist) < gd.shared.move_back_dist
+            and not gd.shared.inductive_switch
+        ):
             vel_lin = gd.shared.final_speed * direction
         else:
             vel_lin = 0.0
@@ -193,7 +208,7 @@ if gd.shared.receive_tf == True and gd.shared.init_odom is not None:
     # angular velocity for rotation along the z axis
     vel_msg.angular.z = vel_ang
     if abs(vel_msg.angular.z) > gd.shared.max_vel_ang:
-        vel_msg.angular.z = gd.shared.max_vel_ang*sign(vel_msg.angular.z)
+        vel_msg.angular.z = gd.shared.max_vel_ang * sign(vel_msg.angular.z)
 
     # send output message
     gd.oport['cmd_vel_pub'].send(vel_msg)
