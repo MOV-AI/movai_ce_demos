@@ -30,18 +30,21 @@ if odom_position is not None:
         if vel > max_vel:
             vel = max_vel
 
-        # move forward (positive velocity) when the distance to be covered is positive and vise versa  
+        # move forward (positive velocity) when the distance to be covered is positive and vise versa
         if distance > 0:
             vel_msg.linear.x = vel
         else:
             vel_msg.linear.x = -vel
-        
+
         # publish command velocity
         gd.oport['cmd_vel'].send(vel_msg)
-        
+
         # calculate and update the current distance to goal
-        gd.shared.current_distance = sqrt( (odom_position.x - init_odom_position.x)**2 + (odom_position.y - init_odom_position.y)**2 )
-        
+        gd.shared.current_distance = sqrt(
+            (odom_position.x - init_odom_position.x) ** 2
+            + (odom_position.y - init_odom_position.y) ** 2
+        )
+
     else:
         # log
         logger.info('Goal reached')
@@ -49,6 +52,6 @@ if odom_position is not None:
         # publish zero command velocity to stop the robot
         vel_msg.linear.x = 0
         gd.oport['cmd_vel'].send(vel_msg)
-        
+
         # transition throught exit port
         gd.oport['exit'].send()

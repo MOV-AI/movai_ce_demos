@@ -9,15 +9,17 @@ gd.iport['tag_detections'].start_enabled = False
 camera = gd.params['camera']
 
 # define static rotation matrix for back and front camera
-camera_back_rot_matrix = numpy.array([[0, -1, 0, 0], [0, 0, -1, 0], \
-                                                [1,  0, 0, 0], [0, 0,  0, 1]])
-camera_front_rot_matrix = numpy.array([[ 0, -1, 0, 0], [0, 0, 1, 0], \
-                                        [-1,  0, 0, 0], [0, 0, 0, 1]])
+camera_back_rot_matrix = numpy.array(
+    [[0, -1, 0, 0], [0, 0, -1, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
+)
+camera_front_rot_matrix = numpy.array(
+    [[0, -1, 0, 0], [0, 0, 1, 0], [-1, 0, 0, 0], [0, 0, 0, 1]]
+)
 
 # choose the rotation matrix based on the choosen camera
-if camera == "back":
+if camera == 'back':
     transformationMatrix = camera_back_rot_matrix
-elif camera == "front":
+elif camera == 'front':
     transformationMatrix = camera_front_rot_matrix
 
 # get the quaternion from matrtix

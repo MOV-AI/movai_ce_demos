@@ -25,8 +25,8 @@ for tag in tag_detections:
         x = tag.pose.pose.pose.position.x
         y = tag.pose.pose.pose.position.y
         z = tag.pose.pose.pose.position.z
-        
-        tag_distance = math.sqrt(math.pow(x,2) + math.pow(y,2) + math.pow(z,2))
+
+        tag_distance = math.sqrt(math.pow(x, 2) + math.pow(y, 2) + math.pow(z, 2))
         all_tags[tag_id] = tag_distance
 
 # log
@@ -41,7 +41,7 @@ if all_tags:
     gd.shared.tag_frame = tag_frame
     # set the child frame in the TF subscriber port
     gd.iport['tag_tf_sub'].child_frame = tag_frame
-    # registere the TF subscriber for the apriltag TF 
+    # registere the TF subscriber for the apriltag TF
     gd.iport['tag_tf_sub'].register()
 else:
     # warn the user if the expected tag is not found in the apriltag detections
