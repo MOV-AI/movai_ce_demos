@@ -5,7 +5,7 @@ on:
 
 jobs:
   Release-Ros-Component:
-    uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@feat/enable-multi-prod-publish
+    uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@v1
     with:
       release: 'true'
       ros_distro: '["noetic"]'
@@ -15,8 +15,8 @@ jobs:
       auto_commit_mail: ${{ secrets.RAISE_BOT_COMMIT_MAIL }}
       registry_user: ${{ secrets.PORTUS_APP_USER }}
       registry_password: ${{ secrets.PORTUS_APP_TOKEN }}
-      nexus_publisher_user: ${{ secrets.TMP_PACKAGE_DEPLOYER_NX_USR }}
-      nexus_publisher_password: ${{ secrets.TMP_PACKAGE_DEPLOYER_NX_PWD }}
+      nexus_publisher_user: ${{ secrets.NEXUS_PUBLISHER_USR }}
+      nexus_publisher_password: ${{ secrets.NEXUS_PUBLISHER_PWD }}
       aws_sqs_rosdep_access_key: ${{ secrets.AWS_SQS_ROSDEP_ACCESS_KEY }}
       aws_sqs_rosdep_secret_access_key: ${{ secrets.AWS_SQS_ROSDEP_SECRET_ACCESS_KEY }}
       gh_token: ${{ secrets.GITHUB_TOKEN }}
