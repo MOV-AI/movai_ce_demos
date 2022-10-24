@@ -11,122 +11,154 @@
                             "Value": "husky"
                         }
                     },
-                    "Visualization": [
-                        0.016222916666666667,
-                        0.0148
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.016222916666666667
+                        },
+                        "y": {
+                            "Value": 0.0148
+                        }
+                    }
                 }
             },
-            "Description": "This flow is a demo for autonomous navigation  using husky robot. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node.",
+            "Description": "Purpose: Autonomous navigation and localization using Husky robot. Simulator world: husky_depot (Launch the world before running the flow). Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Husky autonomous navigation group on the left menu). Detail: The robot moves between three locations of the depot map autonomously repeatedly. This flow is a demo for autonomous navigation  using husky robot. We use the depot map combined with amcl and ekf to localize and move_base combined with the global planner and teb local planner as well as the global costmap and local cost map to navigate the robot. In the flow, the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "husky_autonomous_navigation",
             "LastUpdate": {
-                "date": "21/01/2022 at 22:39:28",
+                "date": "24/10/2022 at 12:26:41",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
+                    "Dependency": 0,
                     "From": "map_server/map/out",
                     "To": "amcl/map/in"
                 },
                 "4aad97cb-55e1-4163-93ed-965e712f39e9": {
+                    "Dependency": 0,
                     "From": "go_to_B/success/out",
                     "To": "go_to_C/entry/in"
                 },
                 "5978ea71-432b-47f9-a02c-b10bde5e34aa": {
+                    "Dependency": 0,
                     "From": "publish_initial_pose/initialpose/out",
                     "To": "amcl/initialpose/in"
                 },
                 "5b6c56f9-e775-4506-874d-da2d04e4ec5d": {
+                    "Dependency": 0,
                     "From": "go_to_B/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "629187e7-e7b5-450b-94ad-6e2ceba65cdd": {
+                    "Dependency": 0,
                     "From": "global_planner/plugin/out",
                     "To": "move_base/base_global_planner/in"
                 },
                 "62eb4a83-086a-47d6-9423-c3db98b73d73": {
+                    "Dependency": 0,
                     "From": "go_to_A/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "65cb75d7-4649-4774-ba38-38e64d18a32b": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
                 },
                 "6616ee12-869e-42d2-9255-8dd0e00daac0": {
+                    "Dependency": 0,
                     "From": "go_to_C/success/out",
                     "To": "go_to_A/entry/in"
                 },
                 "91849506-aa0f-486f-ae12-6736e24d0c7e": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
                 },
                 "9545014a-8a9b-49eb-9d44-08585ea23ea0": {
+                    "Dependency": 0,
                     "From": "global_costmap/plugin/out",
                     "To": "move_base/global_costmap/in"
                 },
                 "95585b35-3699-4469-9ad4-d8664bd799c0": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__velodyne__output/scan/out",
                     "To": "amcl/scan/in"
                 },
                 "9763fc61-2525-4a32-bbd5-eea6de47a73a": {
+                    "Dependency": 0,
                     "From": "go_to_A/success/out",
                     "To": "go_to_B/entry/in"
                 },
                 "a34e149b-05ee-4d27-a471-4bfe68961b89": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "go_to_C/action/result"
                 },
                 "aed251ae-cc83-4f7e-bf99-cfa9a5d4593f": {
+                    "Dependency": 0,
                     "From": "move_base/cmd_vel/out",
                     "To": "husky_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "b2f5bf1d-e5fd-4270-9271-749f937372c7": {
+                    "Dependency": 0,
                     "From": "local_costmap/plugin/out",
                     "To": "move_base/local_costmap/in"
                 },
                 "b747351a-c290-4a33-94d4-aac058aff666": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__wait_ready/exit/out",
                     "To": "publish_initial_pose/start/in"
                 },
                 "c9592095-ca16-4bc3-83a2-d719983045df": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "go_to_B/action/result"
                 },
                 "d089a921-7ef2-4dc2-83bc-b7d7ce91b016": {
+                    "Dependency": 0,
                     "From": "go_to_C/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "ded0fa69-d7b4-4a7f-b6ff-3cb26be760e1": {
+                    "Dependency": 0,
                     "From": "publish_initial_pose/end/out",
                     "To": "go_to_A/entry/in"
                 },
                 "e84e8095-679a-4e46-8697-27c4d0b76b7a": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "husky_sim_drivers__init_sim__get_params/entry/in"
                 },
                 "eb9b8af3-9eff-44be-b69c-f35147f5e7f6": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "go_to_A/action/result"
                 },
                 "f23c3756-2be9-4585-b0e0-9be0afaab701": {
+                    "Dependency": 0,
                     "From": "teb_local_planner/plugin/out",
                     "To": "move_base/base_local_planner/in"
                 }
             },
             "NodeInst": {
                 "amcl": {
+                    "Launch": true,
                     "NodeLabel": "amcl",
+                    "NodeLayers": [],
                     "Parameter": {
                         "first_map_only": {
+                            "Type": "any",
                             "Value": "True"
                         },
                         "use_map_topic": {
+                            "Type": "any",
                             "Value": "True"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "amcl",
                     "Visualization": {
                         "x": {
@@ -138,7 +170,11 @@
                     }
                 },
                 "ekf_odom": {
+                    "Launch": true,
                     "NodeLabel": "ekf_odom",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "ekf_odom",
                     "Visualization": {
                         "x": {
@@ -150,7 +186,11 @@
                     }
                 },
                 "global_costmap": {
+                    "Launch": true,
                     "NodeLabel": "global_costmap",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "global_costmap",
                     "Visualization": {
                         "x": {
@@ -162,7 +202,11 @@
                     }
                 },
                 "global_planner": {
+                    "Launch": true,
                     "NodeLabel": "global_planner",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "global_planner",
                     "Visualization": {
                         "x": {
@@ -174,7 +218,9 @@
                     }
                 },
                 "go_to_A": {
+                    "Launch": true,
                     "NodeLabel": "go_to_A",
+                    "NodeLayers": [],
                     "Parameter": {
                         "x_position": {
                             "Type": "string",
@@ -189,6 +235,8 @@
                             "Value": "-90"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -200,7 +248,9 @@
                     }
                 },
                 "go_to_B": {
+                    "Launch": true,
                     "NodeLabel": "go_to_B",
+                    "NodeLayers": [],
                     "Parameter": {
                         "x_position": {
                             "Type": "any",
@@ -215,6 +265,8 @@
                             "Value": "-90"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -226,7 +278,11 @@
                     }
                 },
                 "go_to_C": {
+                    "Launch": true,
                     "NodeLabel": "go_to_C",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -238,7 +294,9 @@
                     }
                 },
                 "local_costmap": {
+                    "Launch": true,
                     "NodeLabel": "local_costmap",
+                    "NodeLayers": [],
                     "Parameter": {
                         "obstacle_layer": {
                             "Type": "any",
@@ -253,6 +311,8 @@
                             "Value": "0.05"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "local_costmap",
                     "Visualization": {
                         "x": {
@@ -269,7 +329,11 @@
                             "Value": "maps/depot.yaml"
                         }
                     },
+                    "Launch": true,
                     "NodeLabel": "map_server",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "map_server",
                     "Visualization": {
                         "x": {
@@ -281,9 +345,12 @@
                     }
                 },
                 "move_base": {
+                    "Launch": true,
                     "NodeLabel": "move_base",
+                    "NodeLayers": [],
                     "Parameter": {
                         "cmd_vel": {
+                            "Type": "any",
                             "Value": "wheels_controller/cmd_vel"
                         }
                     },
@@ -300,7 +367,11 @@
                     }
                 },
                 "publish_initial_pose": {
+                    "Launch": true,
                     "NodeLabel": "publish_initial_pose",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "initial_pose_publisher",
                     "Visualization": {
                         "x": {
@@ -312,7 +383,9 @@
                     }
                 },
                 "teb_local_planner": {
+                    "Launch": true,
                     "NodeLabel": "teb_local_planner",
+                    "NodeLayers": [],
                     "Parameter": {
                         "acc_lim_theta": {
                             "Type": "any",
@@ -427,6 +500,8 @@
                             "Value": "0.1"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "teb_local_planner",
                     "Visualization": {
                         "x": {

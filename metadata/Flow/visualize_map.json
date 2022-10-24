@@ -1,28 +1,34 @@
 {
     "Flow": {
         "visualize_map": {
-            "Description": "Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized.",
+            "Description": "Purpose: Visualize a map in RVIZ. Simulator world: No need for a simulator for this demo. Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Visualize Map group on the left menu). Detail: Use the Command Line property of the map server node on the flow to select the map to be visualized. Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "visualize_map",
             "LastUpdate": {
-                "date": "13/12/2021 at 14:55:36",
+                "date": "24/10/2022 at 12:25:21",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "2cb77688-053a-404b-9117-0636adeba25a": {
+                    "Dependency": 0,
                     "From": "launch_map_server/depends/out",
                     "To": "map_server/dependency/in"
                 },
                 "303cec34-7e28-4345-b8f6-71bff6b12d60": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "launch_map_server/entry/in"
                 }
             },
             "NodeInst": {
                 "launch_map_server": {
+                    "Launch": true,
                     "NodeLabel": "launch_map_server",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "dependency",
                     "Visualization": {
                         "x": {
@@ -39,7 +45,11 @@
                             "Value": "maps/new_map.yaml"
                         }
                     },
+                    "Launch": true,
                     "NodeLabel": "map_server",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "map_server",
                     "Visualization": {
                         "x": {

@@ -39,12 +39,12 @@
                     }
                 }
             },
-            "Description": "Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping). Simulator world: tugbot_depot or tugbot_warehouse (Launch the world before running the flow). Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot mapping group on the left menu). Detail: Use ignition teleop plugin (Topic: /model/tugbot/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map.Performs the mapping of a location using SLAM with Tugbot robot. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The default map name is new_map (can be changed on map_saver node parameters in the flow). The generated map is uploaded to the database.",
+            "Description": "Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping). Simulator world: tugbot_depot or tugbot_warehouse (Launch the world before running the flow). Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot mapping group on the left menu). Detail: Use ignition teleop plugin (Topic: /model/tugbot/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map.Performs the mapping of a location using SLAM with Tugbot robot. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The default map name is new_map (can be changed on map_saver node parameters in the flow). The generated map is uploaded to the database.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "tugbot_mapping",
             "LastUpdate": {
-                "date": "24/10/2022 at 10:55:45",
+                "date": "24/10/2022 at 12:24:18",
                 "user": "movai"
             },
             "Layers": {},
