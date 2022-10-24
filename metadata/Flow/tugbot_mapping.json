@@ -11,10 +11,14 @@
                             "Value": "save_map"
                         }
                     },
-                    "Visualization": [
-                        0.033076635742187506,
-                        0.014631667073567708
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.033076635742187506
+                        },
+                        "y": {
+                            "Value": 0.014631667073567708
+                        }
+                    }
                 },
                 "tugbot_sim_drivers": {
                     "ContainerFlow": "tugbot_sim_drivers",
@@ -25,54 +29,69 @@
                             "Value": "tugbot"
                         }
                     },
-                    "Visualization": [
-                        0.01408812967936198,
-                        0.008320118204752605
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.01408812967936198
+                        },
+                        "y": {
+                            "Value": 0.008320118204752605
+                        }
+                    }
                 }
             },
-            "Description": "Performs the mapping of a location using SLAM with Tugbot robot. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The default map name is new_map (can be changed on map_saver node parameters in the flow). The generated map is uploaded to the database.",
+            "Description": "Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping). Simulator world: tugbot_depot or tugbot_warehouse (Launch the world before running the flow). Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot mapping group on the left menu). Detail: Use ignition teleop plugin (Topic: /model/tugbot/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map.Performs the mapping of a location using SLAM with Tugbot robot. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The default map name is new_map (can be changed on map_saver node parameters in the flow). The generated map is uploaded to the database.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "tugbot_mapping",
             "LastUpdate": {
-                "date": "13/12/2021 at 14:43:08",
+                "date": "24/10/2022 at 10:55:45",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "06fa2099-8f73-40ac-a2a3-2d9caecdce7c": {
+                    "Dependency": 0,
                     "From": "gmapping/map/out",
                     "To": "map_saver/get_map/in"
                 },
                 "22d13f0b-0704-46d8-9e2c-837773f8c798": {
+                    "Dependency": 0,
                     "From": "ign_empty_topic_publisher__remap/empty_msg/out",
                     "To": "map_saver/trigger/in"
                 },
                 "3e9bca01-125f-4b1a-885a-faf41dfd210b": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
                 },
                 "4d1f1bd7-2b76-47e9-90d4-40129d181730": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
                 },
                 "932834dd-c3b9-4237-9690-7888c9749106": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__wait_ready/exit/out",
                     "To": "ign_empty_topic_publisher__depend/entry/in"
                 },
                 "b5480430-4e23-47f3-987e-78b7bc1d98f9": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__velodyne__output/scan/out",
                     "To": "gmapping/scan/in"
                 },
                 "ede73bd0-c35b-4b30-9851-ceaed88f0a72": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
                 }
             },
             "NodeInst": {
                 "ekf_odom": {
+                    "Launch": true,
                     "NodeLabel": "ekf_odom",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "ekf_odom",
                     "Visualization": {
                         "x": {
@@ -84,6 +103,7 @@
                     }
                 },
                 "gmapping": {
+                    "Launch": true,
                     "NodeLabel": "gmapping",
                     "NodeLayers": [],
                     "Parameter": {
@@ -92,10 +112,12 @@
                             "Value": "100"
                         },
                         "maxUrange": {
+                            "Type": "any",
                             "Value": "100"
                         }
                     },
                     "Persistent": true,
+                    "Remappable": true,
                     "Template": "gmapping",
                     "Visualization": {
                         "x": {
@@ -107,7 +129,11 @@
                     }
                 },
                 "map_saver": {
+                    "Launch": true,
                     "NodeLabel": "map_saver",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "map_saver",
                     "Visualization": {
                         "x": {
