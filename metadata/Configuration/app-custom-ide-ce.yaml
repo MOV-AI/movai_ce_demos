@@ -3,7 +3,7 @@ Examples:
     description:
       "Purpose: Simple Husky robot navigation using wheel odometry feedback.
       Simulator world: husky_depot (Launch the world before running the flow).
-      Detail: The robot moves is a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+      Detail: The robot moves in a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
     url: global/Flow/husky_simple_navigation
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/husky_simple_navigation"
@@ -15,7 +15,7 @@ Examples:
     description:
       "Purpose: Simple Tugbot robot navigation using wheel odometry feedback.
       Simulator world: tugbot_depot (Launch the world before running the flow).
-      Detail: The robot moves is a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+      Detail: The robot moves in a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
     url: global/Flow/tugbot_simple_navigation
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/tugbot_simple_navigation"
@@ -51,10 +51,10 @@ Examples:
     imageLink: "https://files.readme.io/7ba7ea7-tugbot4.png"
   - title: "Visualize map using RVIZ"
     description:
-      "Purpose: Visalize a map in RVIZ.
-      Simulator world: No need of simulator for this demo.
+      "Purpose: Visualize a map in RVIZ.
+      Simulator world: No need for a simulator for this demo.
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Visualize Map group on the left menu).
-      Detail: Use the Command Line propery of the map server node on the flow to select the map to be visualized."
+      Detail: Use the Command Line property of the map server node on the flow to select the map to be visualized. Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized."
     url: global/Flow/visualize_map
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/visualize_map"
@@ -67,7 +67,7 @@ Examples:
       "Purpose: Autonomous navigation and localization using Husky robot.
       Simulator world: husky_depot (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Husky autonomous navigation group on the left menu).
-      Detail: Robot moves between three locations of the depot map autonomously repeatedly."
+      Detail: The robot moves between three locations of the depot map autonomously repeatedly. This flow is a demo for autonomous navigation  using husky robot. We use the depot map combined with amcl and ekf to localize and move_base combined with the global planner and teb local planner as well as the global costmap and local cost map to navigate the robot. In the flow, the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node."
     url: global/Flow/husky_autonomous_navigation
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/husky_autonomous_navigation"
@@ -80,7 +80,7 @@ Examples:
       "Purpose: Autonomous navigation and localization using Tugbot robot.
       Simulator world: tugbot_depot (Launch the world before running the flow).
       Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot autonomous navigation group on the left menu).
-      Detail: Robot moves between three locations of the depot map autonomously repeatedly."
+      Detail: The robot moves between three locations of the depot map autonomously repeatedly. This flow is a demo for autonomous navigation using the Tugbot robot. We use the depot map combined with amcl and ekf to localize and move_base combined with global planner and teb local planner as well as global costmap and local cost map to navigate the robot. In the flow the go_to node is used to send a goal to the move_base. Once localized the robot will move to a preset location in the map, which can be configured using the parameters of the go_to node."
     url: global/Flow/tugbot_autonomous_navigation
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/tugbot_autonomous_navigation"
@@ -92,8 +92,8 @@ Examples:
     description:
       "Purpose: Pick and drop operation using Tugbot robot.
       Simulator world: tugbot_warehouse (Launch the world before running the flow).
-      Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot pick and drop group on the left menu).
-      Detail: Robot moves to pick up area, align and grab the cart, autonomously drop the cart and go to charging station."
+      Visualization tool: RVIZ (Launch the rviz before running the flow.
+      Select the Tugbot pick and drop group on the left menu). Detail: Robot moves to pick up area, align and grab the cart, autonomously drop the cart and go to the charging station. This flow demonstrates the pick-and-drop operation using the Tugbot robot. For the alignment of the robot with the cart, we use the back camera and apriltag detector."
     url: global/Flow/tugbot_pick_and_drop
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/tugbot_pick_and_drop"
@@ -105,7 +105,7 @@ Examples:
     description:
       "Purpose: Simple rotation of one joint of Panda arm.
       Simulator world: panda_demo (Launch the world before running the flow).
-      Detail: Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly"
+      Detail: Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly."
     url: global/Flow/panda_hello_world
     scope: Flow
     externalLink: "https://movai-flow.readme.io/reference/panda_hello_world"

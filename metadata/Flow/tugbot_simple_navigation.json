@@ -11,64 +11,80 @@
                             "Value": "tugbot"
                         }
                     },
-                    "Visualization": [
-                        0.01702291666666667,
-                        0.010061702473958333
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.01702291666666667
+                        },
+                        "y": {
+                            "Value": 0.010061702473958333
+                        }
+                    }
                 }
             },
-            "Description": "This flow is a demo for robot navigation using wheel odometry feedback. We use the depot ignition world and tugbot robot to navigate the robot in a square fashion. In the flow the move_distance node is used to send a command velocity in the x direction of the robot until the robot moved a specific distance, which is checked using the wheel odometry feedback. The rotate functions similarly but it rotates the robot instead of translation. When you run the flow the robot is suppose to move is a sqare path of 2mx2m. As time progresses you can see the accumulative error from the wheel odometry feedback.",
+            "Description": "Purpose: Simple Tugbot robot navigation using wheel odometry feedback. Simulator world: tugbot_depot (Launch the world before running the flow). Detail: The robot moves in a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback. This flow is a demo for robot navigation using wheel odometry feedback. We use the depot ignition world and tugbot robot to navigate the robot in a square fashion. In the flow the move_distance node is used to send a command velocity in the x direction of the robot until the robot moved a specific distance, which is checked using the wheel odometry feedback. The rotate functions similarly but it rotates the robot instead of translation. When you run the flow the robot is suppose to move is a sqare path of 2mx2m. As time progresses you can see the accumulative error from the wheel odometry feedback.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "tugbot_simple_navigation",
             "LastUpdate": {
-                "date": "21/01/2022 at 11:50:47",
+                "date": "24/10/2022 at 12:23:29",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "4d47e95a-9aa2-45de-953d-192aaf90ef63": {
+                    "Dependency": 0,
                     "From": "move_distance/cmd_vel/out",
                     "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "561150db-c6e2-4980-afa6-d554938e847f": {
+                    "Dependency": 0,
                     "From": "rotate/cmd_vel/out",
                     "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "9c71ffd8-0383-4503-a933-f785622846d4": {
+                    "Dependency": 0,
                     "From": "rotate/exit/out",
                     "To": "move_distance/entry/in"
                 },
                 "c0029d92-eaea-4fa0-878e-49d0722369b2": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
                 },
                 "da740748-7243-4ef2-8c18-45372600c51a": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "move_distance/odometry/in"
                 },
                 "dfead9c3-46c0-4439-83d7-2517d5e2e2a9": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__wait_ready/exit/out",
                     "To": "move_distance/entry/in"
                 },
                 "e75447f6-afb8-4166-8b0a-4f85c23492fa": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "rotate/odometry/in"
                 },
                 "ea491e9e-910d-4790-87c6-11df5d268a20": {
+                    "Dependency": 0,
                     "From": "move_distance/exit/out",
                     "To": "rotate/entry/in"
                 }
             },
             "NodeInst": {
                 "move_distance": {
+                    "Launch": true,
                     "NodeLabel": "move_distance",
+                    "NodeLayers": [],
                     "Parameter": {
                         "distance": {
                             "Type": "string",
                             "Value": "2"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "move_distance",
                     "Visualization": {
                         "x": {
@@ -80,13 +96,17 @@
                     }
                 },
                 "rotate": {
+                    "Launch": true,
                     "NodeLabel": "rotate",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angle": {
                             "Type": "string",
                             "Value": "-90"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "rotate",
                     "Visualization": {
                         "x": {

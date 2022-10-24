@@ -11,10 +11,14 @@
                             "Value": "husky"
                         }
                     },
-                    "Visualization": [
-                        0.01404837646484375,
-                        0.011087806193033855
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.01404837646484375
+                        },
+                        "y": {
+                            "Value": 0.011087806193033855
+                        }
+                    }
                 },
                 "ign_empty_topic_publisher": {
                     "ContainerFlow": "ignition_empty_sub",
@@ -25,54 +29,69 @@
                             "Value": "save_map"
                         }
                     },
-                    "Visualization": [
-                        0.032489583333333336,
-                        0.014
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.032489583333333336
+                        },
+                        "y": {
+                            "Value": 0.014
+                        }
+                    }
                 }
             },
-            "Description": "Performs the mapping of a location using SLAM with Husky robot. Relies on 2D Lidar and Odometry information. Joystick should be used to move the robot around and to stop the mapping procedure when finished. The default map name is new_map (can be changed on map_saver node parameters in the flow). The generated map is uploaded to the database.",
+            "Description": "Purpose: Performs the mapping of a location using SLAM (gmapping: http://wiki.ros.org/gmapping). Simulator world: husky_depot (Launch the world before running the flow). Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Husky mapping group on the left menu). Detail: Use ignition teleop plugin (Topic: /model/husky/cmd_vel) to move the robot around to map the scene. Use ignition publish plugin (Message Type: \n ignition.msgs.Empty, Topic: /save_map, Message: leave this part empty) to save the map.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "husky_mapping",
             "LastUpdate": {
-                "date": "13/12/2021 at 14:43:34",
+                "date": "24/10/2022 at 10:55:06",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "3574a5eb-f1b6-44dd-b572-e6918d391206": {
+                    "Dependency": 0,
                     "From": "ign_empty_topic_publisher__remap/empty_msg/out",
                     "To": "map_saver/trigger/in"
                 },
                 "61abb48f-ec4f-4003-ad54-3b3d2aec4037": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
                 },
                 "677a5435-e593-40a2-bc4f-f903a8a180b1": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
                 },
                 "bcfc0494-a753-4a0b-bc57-c5d51717a760": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__wait_ready/exit/out",
                     "To": "ign_empty_topic_publisher__depend/entry/in"
                 },
                 "cd63fc1e-4b08-4a1b-8732-68da8f02442f": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "husky_sim_drivers__init_sim__get_params/entry/in"
                 },
                 "ea73f973-7df9-42f9-a6d1-cec0bdd01469": {
+                    "Dependency": 0,
                     "From": "gmapping/map/out",
                     "To": "map_saver/get_map/in"
                 },
                 "fda05c9b-753d-4db9-a58e-c556cb9006d2": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__velodyne__output/scan/out",
                     "To": "gmapping/scan/in"
                 }
             },
             "NodeInst": {
                 "ekf_odom": {
+                    "Launch": true,
                     "NodeLabel": "ekf_odom",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "ekf_odom",
                     "Visualization": {
                         "x": {
@@ -84,17 +103,21 @@
                     }
                 },
                 "gmapping": {
+                    "Launch": true,
                     "NodeLabel": "gmapping",
                     "NodeLayers": [],
                     "Parameter": {
                         "maxRange": {
+                            "Type": "any",
                             "Value": "200"
                         },
                         "maxUrange": {
+                            "Type": "any",
                             "Value": "100"
                         }
                     },
                     "Persistent": true,
+                    "Remappable": true,
                     "Template": "gmapping",
                     "Visualization": {
                         "x": {
@@ -106,7 +129,11 @@
                     }
                 },
                 "map_saver": {
+                    "Launch": true,
                     "NodeLabel": "map_saver",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "map_saver",
                     "Visualization": {
                         "x": {

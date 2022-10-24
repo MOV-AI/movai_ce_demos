@@ -15,12 +15,12 @@
                     }
                 }
             },
-            "Description": "Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly",
+            "Description": "Purpose: Simple rotation of one joint of Panda arm. Simulator world: panda_demo (Launch the world before running the flow). Detail: Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly.Panda arm rotates the joint1 counter-clockwise and then clockwise repeatedly.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "panda_hello_world",
             "LastUpdate": {
-                "date": "17/03/2022 at 16:38:59",
+                "date": "24/10/2022 at 12:52:32",
                 "user": "movai"
             },
             "Layers": {},

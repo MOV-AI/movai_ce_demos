@@ -11,64 +11,80 @@
                             "Value": "husky"
                         }
                     },
-                    "Visualization": [
-                        0.017672039286295575,
-                        0.00736222635904948
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017672039286295575
+                        },
+                        "y": {
+                            "Value": 0.00736222635904948
+                        }
+                    }
                 }
             },
-            "Description": "This flow is a demo for robot navigation using wheel odometry feedback. We use the depot ignition world and husky robot to navigate the robot in a square fashion. In the flow the move_distance node is used to send a command velocity in the x direction of the robot until the robot moved a specific distance, which is checked using the wheel odometry feedback. The rotate functions similarly but it rotates the robot instead of translation. When you run the flow the robot is suppose to move is a sqare path of 2mx2m. As time progresses you can see the accumulative error from the wheel odometry feedback. ",
+            "Description": "Purpose: Simple Husky robot navigation using wheel odometry feedback. Simulator world: husky_depot (Launch the world before running the flow). Detail: The robot moves in a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback. This flow is a demo for robot navigation using wheel odometry feedback. We use the depot ignition world and husky robot to navigate the robot in a square fashion. In the flow the move_distance node is used to send a command velocity in the x direction of the robot until the robot moved a specific distance, which is checked using the wheel odometry feedback. The rotate functions similarly but it rotates the robot instead of translation. When you run the flow the robot is suppose to move is a sqare path of 2mx2m. As time progresses you can see the accumulative error from the wheel odometry feedback.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "husky_simple_navigation",
             "LastUpdate": {
-                "date": "21/01/2022 at 11:50:14",
+                "date": "24/10/2022 at 12:22:45",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "12bafac0-e373-4177-944d-2271db72c514": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "husky_sim_drivers__init_sim__get_params/entry/in"
                 },
                 "2ba1a04a-e499-4d94-b214-d91a9969446c": {
+                    "Dependency": 0,
                     "From": "move_distance/cmd_vel/out",
                     "To": "husky_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 },
                 "3a728dcc-8538-4c7e-928c-72dc4dade7c2": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "move_distance/odometry/in"
                 },
                 "55f8cc1b-ad1e-4a9c-b4bd-7aeb15448206": {
+                    "Dependency": 0,
                     "From": "rotate/exit/out",
                     "To": "move_distance/entry/in"
                 },
                 "677814f7-71eb-4334-96e4-c39cf867f8d8": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "rotate/odometry/in"
                 },
                 "8c95898d-ae64-4d00-9023-73e09053d48d": {
+                    "Dependency": 0,
                     "From": "move_distance/exit/out",
                     "To": "rotate/entry/in"
                 },
                 "9c480578-f384-4559-8f1d-95337047abb2": {
+                    "Dependency": 0,
                     "From": "husky_sim_drivers__wait_ready/exit/out",
                     "To": "move_distance/entry/in"
                 },
                 "ac93c898-47f5-4df1-8052-daaa0e5be518": {
+                    "Dependency": 0,
                     "From": "rotate/cmd_vel/out",
                     "To": "husky_sim_drivers__diffdrive__outputs/cmd_vel/in"
                 }
             },
             "NodeInst": {
                 "move_distance": {
+                    "Launch": true,
                     "NodeLabel": "move_distance",
+                    "NodeLayers": [],
                     "Parameter": {
                         "distance": {
                             "Type": "string",
                             "Value": "2"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "move_distance",
                     "Visualization": {
                         "x": {
@@ -80,13 +96,17 @@
                     }
                 },
                 "rotate": {
+                    "Launch": true,
                     "NodeLabel": "rotate",
+                    "NodeLayers": [],
                     "Parameter": {
                         "angle": {
                             "Type": "string",
                             "Value": "-90"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "rotate",
                     "Visualization": {
                         "x": {
