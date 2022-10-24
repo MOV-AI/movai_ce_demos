@@ -11,194 +11,244 @@
                             "Value": "tugbot"
                         }
                     },
-                    "Visualization": [
-                        0.017450238037109374,
-                        0.012558152262369792
-                    ]
+                    "Visualization": {
+                        "x": {
+                            "Value": 0.017450238037109374
+                        },
+                        "y": {
+                            "Value": 0.012558152262369792
+                        }
+                    }
                 }
             },
-            "Description": "This flow demonstrates the pick and drop operation using the Tugbot robot. For the alignment of the robot with the cart we use back camera and apriltag detector.",
+            "Description": "Purpose: Pick and drop operation using Tugbot robot. Simulator world: tugbot_warehouse (Launch the world before running the flow). Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Tugbot pick and drop group on the left menu). Detail: Robot moves to pick up area, align and grab the cart, autonomously drop the cart and go to the charging station. This flow demonstrates the pick-and-drop operation using the Tugbot robot. For the alignment of the robot with the cart, we use the back camera and apriltag detector.",
             "ExposedPorts": {},
             "Info": "",
             "Label": "tugbot_pick_and_drop",
             "LastUpdate": {
-                "date": "21/01/2022 at 23:14:09",
+                "date": "24/10/2022 at 12:51:21",
                 "user": "movai"
             },
             "Layers": {},
             "Links": {
                 "0263364e-013e-4cf3-9085-fbe3eb3b8995": {
+                    "Dependency": 0,
                     "From": "align_to_cart/enable_tf_generator/out",
                     "To": "tf_generator/enable/in"
                 },
                 "0c71eeeb-b20f-4111-a909-3be335d32129": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "go_to_pickup_zone/action/result"
                 },
                 "0d59da6b-125d-4412-8196-43af4ae49f42": {
+                    "Dependency": 0,
                     "From": "teb_local_planner/plugin/out",
                     "To": "move_base/base_local_planner/in"
                 },
                 "1c23b129-c44f-4c50-a83c-31a92ba43886": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "go_forward_1m/odometry/in"
                 },
                 "1f623cdd-715b-489a-9e9f-fca8aaf2f304": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "go_to_charge_zone/action/result"
                 },
                 "22a491cc-1f28-442d-8abf-f55e01b21862": {
+                    "Dependency": 0,
                     "From": "attach_gripper/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/attach/in"
                 },
                 "25515e58-22d4-40cb-ad38-30733fd81867": {
+                    "Dependency": 0,
                     "From": "go_to_charge_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "27aa251a-c927-46e5-99fa-23622613d353": {
+                    "Dependency": 0,
                     "From": "move_base/cmd_vel/out",
                     "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "2eecb9ee-d7c0-411d-a978-903aad884c87": {
+                    "Dependency": 0,
                     "From": "center_gripper/exit/out",
                     "To": "align_to_cart/start/in"
                 },
                 "2fa53170-c368-49d2-a55f-b183d2e169af": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "ekf_odom/odom0/in"
                 },
                 "32520668-b0b1-4f1c-affd-5c2ff16c64e5": {
+                    "Dependency": 0,
                     "From": "align_to_cart/cmd_vel_pub/out",
                     "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "37ae645a-4f6e-4c87-9551-87407864d87f": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "go_to_drop_zone/action/result"
                 },
                 "3bb46610-f650-4789-9353-c430f37204fb": {
+                    "Dependency": 0,
                     "From": "local_costmap/plugin/out",
                     "To": "move_base/local_costmap/in"
                 },
                 "46d6e94c-a925-4110-a002-825050edea63": {
+                    "Dependency": 0,
                     "From": "exit_pick_up_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "4a910626-6237-43b9-ac8e-eb7ce0d29514": {
+                    "Dependency": 0,
                     "From": "map_server/map/out",
                     "To": "amcl/map/in"
                 },
                 "4d7b8469-db56-439f-9403-3079ae50d6f6": {
+                    "Dependency": 0,
                     "From": "go_to_pickup_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "5e0886e4-f1d3-4f45-9be0-2e23c8d4eeb8": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__camera_back__output/image_raw/out",
                     "To": "back_camera_apriltag_ros_continous_node/image_rect/in"
                 },
                 "61de7310-f6c7-4f11-8b92-0a7abd40c0a6": {
+                    "Dependency": 0,
                     "From": "go_to_drop_zone/success/out",
                     "To": "detach_gripper_to_drop_cart/entry/in"
                 },
                 "629187e7-e7b5-450b-94ad-6e2ceba65cdd": {
+                    "Dependency": 0,
                     "From": "global_planner/plugin/out",
                     "To": "move_base/base_global_planner/in"
                 },
                 "6bfa3777-c1a5-4cac-8f69-7a5fe605674b": {
+                    "Dependency": 0,
                     "From": "go_forward_1m/cmd_vel/out",
                     "To": "tugbot_sim_drivers__emergency_sim_detector/cmd_vel/in"
                 },
                 "6e17f659-eddc-4fd7-bec2-8c7c6ffeb244": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__imu__output/imu/out",
                     "To": "ekf_odom/imu0/in"
                 },
                 "786ce8c8-8449-47ae-9aed-d712f265472a": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__velodyne__output/scan/out",
                     "To": "amcl/scan/in"
                 },
                 "92a6f461-9063-48a1-b09f-aa055df801ef": {
+                    "Dependency": 0,
                     "From": "back_camera_apriltag_ros_continous_node/tag_detections/out",
                     "To": "tf_generator/tag_detections/in"
                 },
                 "9f2e01e8-6f47-4dfb-90f6-bece96ba247d": {
+                    "Dependency": 0,
                     "From": "move_base/move_base/result",
                     "To": "exit_pick_up_zone/action/result"
                 },
                 "a30b870f-5c83-44af-931f-055b194c3fe0": {
+                    "Dependency": 0,
                     "From": "detach_gripper/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/attach/in"
                 },
                 "aae2458d-949a-4216-b771-143bf22d8cea": {
+                    "Dependency": 0,
                     "From": "detach_gripper_to_drop_cart/exit/out",
                     "To": "go_to_charge_zone/entry/in"
                 },
                 "ae7109cd-f343-4bbd-a911-029ad633bc18": {
+                    "Dependency": 0,
                     "From": "exit_pick_up_zone/success/out",
                     "To": "go_to_drop_zone/entry/in"
                 },
                 "b04fb13d-eb6f-4bee-92bc-aec0d55f83c7": {
+                    "Dependency": 0,
                     "From": "center_gripper/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/center/in"
                 },
                 "b45804d2-7f0f-4ecb-9231-6b1bb4d5c17b": {
+                    "Dependency": 0,
                     "From": "initial_pose_publisher/end/out",
                     "To": "go_to_pickup_zone/entry/in"
                 },
                 "b9a2f288-e2d9-4117-8279-6311d5f27484": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__wait_ready/exit/out",
                     "To": "initial_pose_publisher/start/in"
                 },
                 "ba962633-ac21-4a9b-a511-d7a08e086e3d": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__diffdrive__outputs/odom/out",
                     "To": "align_to_cart/odom_feedback/in"
                 },
                 "bb173d83-a2c4-4bf8-9bb0-9dc52cb31836": {
+                    "Dependency": 0,
                     "From": "detach_gripper/exit/out",
                     "To": "center_gripper/entry/in"
                 },
                 "c175a6c2-a182-4f08-9288-5b7892b55f1f": {
+                    "Dependency": 0,
                     "From": "tugbot_sim_drivers__gripper_controller/gripper_inductive_sensor/out",
                     "To": "align_to_cart/gripper_feedback/in"
                 },
                 "c6f8bc93-7686-4af6-820a-50cfcaf2c49b": {
+                    "Dependency": 0,
                     "From": "global_costmap/plugin/out",
                     "To": "move_base/global_costmap/in"
                 },
                 "cddf9755-8909-45b3-a5df-71304d99568b": {
+                    "Dependency": 0,
                     "From": "initial_pose_publisher/initialpose/out",
                     "To": "amcl/initialpose/in"
                 },
                 "ce5bc56c-528d-4166-ac2a-a550e6fcf323": {
+                    "Dependency": 0,
                     "From": "go_forward_1m/exit/out",
                     "To": "exit_pick_up_zone/entry/in"
                 },
                 "daad0ddf-2588-4521-90ed-a534b691b74e": {
+                    "Dependency": 0,
                     "From": "align_to_cart/success/out",
                     "To": "attach_gripper/entry/in"
                 },
                 "dbd23d0e-c262-4c53-a810-6e63995421cf": {
+                    "Dependency": 0,
                     "From": "start/start/start",
                     "To": "tugbot_sim_drivers__ignition_base__get_params/entry/in"
                 },
                 "dc138e49-cdf7-4610-87eb-541b08b09293": {
+                    "Dependency": 0,
                     "From": "attach_gripper/exit/out",
                     "To": "go_forward_1m/entry/in"
                 },
                 "dcd39057-e58c-4d6a-a4f8-6f769582165c": {
+                    "Dependency": 0,
                     "From": "go_to_drop_zone/action/goal",
                     "To": "move_base/move_base/goal"
                 },
                 "f48c7a30-7511-4ba8-a586-3f1524266e0e": {
+                    "Dependency": 0,
                     "From": "detach_gripper_to_drop_cart/std_msgs_publisher/out",
                     "To": "tugbot_sim_drivers__gripper_controller/attach/in"
                 },
                 "f61daa87-a013-40fc-9587-f3d6fbdc1a08": {
+                    "Dependency": 0,
                     "From": "go_to_pickup_zone/success/out",
                     "To": "detach_gripper/entry/in"
                 }
             },
             "NodeInst": {
                 "align_to_cart": {
+                    "Launch": true,
                     "NodeLabel": "align_to_cart",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "align_to_cart",
                     "Visualization": {
                         "x": {
@@ -210,15 +260,21 @@
                     }
                 },
                 "amcl": {
+                    "Launch": true,
                     "NodeLabel": "amcl",
+                    "NodeLayers": [],
                     "Parameter": {
                         "first_map_only": {
+                            "Type": "any",
                             "Value": "True"
                         },
                         "use_map_topic": {
+                            "Type": "any",
                             "Value": "True"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "amcl",
                     "Visualization": {
                         "x": {
@@ -230,13 +286,17 @@
                     }
                 },
                 "attach_gripper": {
+                    "Launch": true,
                     "NodeLabel": "attach_gripper",
+                    "NodeLayers": [],
                     "Parameter": {
                         "value": {
                             "Type": "any",
                             "Value": "True"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "bool_publisher",
                     "Visualization": {
                         "x": {
@@ -248,7 +308,9 @@
                     }
                 },
                 "back_camera_apriltag_ros_continous_node": {
+                    "Launch": true,
                     "NodeLabel": "back_camera_apriltag_ros_continous_node",
+                    "NodeLayers": [],
                     "Parameter": {
                         "camera_frame": {
                             "Type": "string",
@@ -267,6 +329,8 @@
                             "Value": "1"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "apriltag_ros_continuous_node",
                     "Visualization": {
                         "x": {
@@ -278,7 +342,11 @@
                     }
                 },
                 "center_gripper": {
+                    "Launch": true,
                     "NodeLabel": "center_gripper",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "empty_publisher",
                     "Visualization": {
                         "x": {
@@ -290,7 +358,11 @@
                     }
                 },
                 "detach_gripper": {
+                    "Launch": true,
                     "NodeLabel": "detach_gripper",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "bool_publisher",
                     "Visualization": {
                         "x": {
@@ -302,7 +374,11 @@
                     }
                 },
                 "detach_gripper_to_drop_cart": {
+                    "Launch": true,
                     "NodeLabel": "detach_gripper_to_drop_cart",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "bool_publisher",
                     "Visualization": {
                         "x": {
@@ -314,7 +390,11 @@
                     }
                 },
                 "ekf_odom": {
+                    "Launch": true,
                     "NodeLabel": "ekf_odom",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "ekf_odom",
                     "Visualization": {
                         "x": {
@@ -326,7 +406,9 @@
                     }
                 },
                 "exit_pick_up_zone": {
+                    "Launch": true,
                     "NodeLabel": "exit_pick_up_zone",
+                    "NodeLayers": [],
                     "Parameter": {
                         "x_position": {
                             "Type": "any",
@@ -341,6 +423,8 @@
                             "Value": "-45"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -352,7 +436,11 @@
                     }
                 },
                 "global_costmap": {
+                    "Launch": true,
                     "NodeLabel": "global_costmap",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "global_costmap",
                     "Visualization": {
                         "x": {
@@ -364,7 +452,11 @@
                     }
                 },
                 "global_planner": {
+                    "Launch": true,
                     "NodeLabel": "global_planner",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "global_planner",
                     "Visualization": {
                         "x": {
@@ -376,7 +468,11 @@
                     }
                 },
                 "go_forward_1m": {
+                    "Launch": true,
                     "NodeLabel": "go_forward_1m",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "move_distance",
                     "Visualization": {
                         "x": {
@@ -388,7 +484,11 @@
                     }
                 },
                 "go_to_charge_zone": {
+                    "Launch": true,
                     "NodeLabel": "go_to_charge_zone",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -400,7 +500,9 @@
                     }
                 },
                 "go_to_drop_zone": {
+                    "Launch": true,
                     "NodeLabel": "go_to_drop_zone",
+                    "NodeLayers": [],
                     "Parameter": {
                         "x_position": {
                             "Type": "any",
@@ -415,6 +517,8 @@
                             "Value": "-90"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -426,7 +530,9 @@
                     }
                 },
                 "go_to_pickup_zone": {
+                    "Launch": true,
                     "NodeLabel": "go_to_pickup_zone",
+                    "NodeLayers": [],
                     "Parameter": {
                         "x_position": {
                             "Type": "string",
@@ -437,6 +543,8 @@
                             "Value": "25.709"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "go_to",
                     "Visualization": {
                         "x": {
@@ -448,7 +556,11 @@
                     }
                 },
                 "initial_pose_publisher": {
+                    "Launch": true,
                     "NodeLabel": "initial_pose_publisher",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "initial_pose_publisher",
                     "Visualization": {
                         "x": {
@@ -460,7 +572,9 @@
                     }
                 },
                 "local_costmap": {
+                    "Launch": true,
                     "NodeLabel": "local_costmap",
+                    "NodeLayers": [],
                     "Parameter": {
                         "obstacle_layer": {
                             "Type": "any",
@@ -475,6 +589,8 @@
                             "Value": "0.05"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "local_costmap",
                     "Visualization": {
                         "x": {
@@ -491,7 +607,11 @@
                             "Value": "maps/warehouse.yaml"
                         }
                     },
+                    "Launch": true,
                     "NodeLabel": "map_server",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "map_server",
                     "Visualization": {
                         "x": {
@@ -503,9 +623,12 @@
                     }
                 },
                 "move_base": {
+                    "Launch": true,
                     "NodeLabel": "move_base",
+                    "NodeLayers": [],
                     "Parameter": {
                         "cmd_vel": {
+                            "Type": "any",
                             "Value": "wheels_controller/cmd_vel"
                         }
                     },
@@ -522,7 +645,9 @@
                     }
                 },
                 "teb_local_planner": {
+                    "Launch": true,
                     "NodeLabel": "teb_local_planner",
+                    "NodeLayers": [],
                     "Parameter": {
                         "acc_lim_theta": {
                             "Type": "any",
@@ -637,6 +762,8 @@
                             "Value": "0.1"
                         }
                     },
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "teb_local_planner",
                     "Visualization": {
                         "x": {
@@ -648,7 +775,11 @@
                     }
                 },
                 "tf_generator": {
+                    "Launch": true,
                     "NodeLabel": "tf_generator",
+                    "NodeLayers": [],
+                    "Persistent": false,
+                    "Remappable": true,
                     "Template": "tf_gen",
                     "Visualization": {
                         "x": {
