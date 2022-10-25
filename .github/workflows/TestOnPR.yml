@@ -13,6 +13,7 @@ jobs:
     uses: MOV-AI/.github/.github/workflows/ros-workflow.yml@debug/duarte
     with:
       deploy: 'false'
+      prod_publish_repos: '["ppa-public"]'
       ros_distro: '["noetic"]'
     secrets:
       auto_commit_user: ${{ secrets.RAISE_BOT_COMMIT_USER }}
