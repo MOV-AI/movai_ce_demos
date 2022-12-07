@@ -2,8 +2,9 @@ Examples:
   - title: "Simple navigation: Husky"
     description:
       "Purpose: Simple Husky robot navigation using wheel odometry feedback.
-      Simulator world: husky_depot (Launch the world before running the flow).
-      Detail: The robot moves in a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
+      Step 1) Launch the husky_depot simulator world using the simulator launcher.
+      Step 2) Open this flow and click the play button.
+      What is suppose to happen: The robot moves in a square path of 2mx2m. As time progresses the path shifts due to the accumulative error from the wheel odometry feedback."
     url: global/Flow/husky_simple_navigation
     scope: Flow
     externalLink: "https://flow.mov.ai/docs/demo-1-simple-navigation#watch-the-control-of-a-husky-robot"
@@ -49,19 +50,6 @@ Examples:
     certified: true
     imageDescription: ""
     imageLink: "https://files.readme.io/7ba7ea7-tugbot4.png"
-  - title: "Visualize map using RVIZ"
-    description:
-      "Purpose: Visualize a map in RVIZ.
-      Simulator world: No need for a simulator for this demo.
-      Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Visualize Map group on the left menu).
-      Detail: Use the Command Line property of the map server node on the flow to select the map to be visualized. Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized."
-    url: global/Flow/visualize_map
-    scope: Flow
-    # externalLink: "https://movai-flow.readme.io/reference/visualize_map"
-    externalLinkLabel: "Readme"
-    certified: true
-    imageDescription: ""
-    imageLink: "https://files.readme.io/72ad840-rviz_mapping.png"
   - title: "Autonomous navigation: Husky"
     description:
       "Purpose: Autonomous navigation and localization using Husky robot.
@@ -113,3 +101,16 @@ Examples:
     certified: true
     imageDescription: ""
     imageLink: "https://files.readme.io/bdd413d-panda_demo_snap.png"
+  - title: "Visualize map using RVIZ"
+    description:
+      "Purpose: Visualize a map in RVIZ.
+      Simulator world: No need for a simulator for this demo.
+      Visualization tool: RVIZ (Launch the rviz before running the flow. Select the Visualize Map group on the left menu).
+      Detail: Use the Command Line property of the map server node on the flow to select the map to be visualized. Visualize the saved map after mapping a scene. In rviz enable the visualize map group on the left menu to view the map. The default map name is new_map. Use the command line property of the map_server to alter the map name to be visualized."
+    url: global/Flow/visualize_map
+    scope: Flow
+    # externalLink: "https://movai-flow.readme.io/reference/visualize_map"
+    externalLinkLabel: "Readme"
+    certified: true
+    imageDescription: ""
+    imageLink: "https://files.readme.io/72ad840-rviz_mapping.png"
