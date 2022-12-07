@@ -24,7 +24,7 @@
   <exec_depend>movai_panda_ign_sim_ce</exec_depend>
 
   <export>
-        <build_version>12</build_version>
+        <build_version>13</build_version>
     <metapackage />
   </export>
 </package>
